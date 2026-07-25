@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI経営者クラブβ | 完全招待制・経営者のためのメンバーシップ — 株式会社コミクス</title>
+<link rel="icon" href="./favicon.ico">
+<meta name="description" content="完全招待制の経営者コミュニティ「AI経営者クラブβ」。経営者1.5万人への発信、1,100講座の学び、本気の経営者との出会いを月5万円から。運営：株式会社コミクス（代表・鈴木章裕）。">
+<meta property="og:title" content="AI経営者クラブβ | 完全招待制・経営者のためのメンバーシップ">
+<meta property="og:description" content="発信・学び・出会いを、ひとつの会費で。月5万円（助成金活用で実質3.5万円）。完全招待制の経営者クラブ。運営：株式会社コミクス。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16151A;
+  --charcoal:#211F26;
+  --charcoal-2:#2A2830;
+  --paper:#F5F1E8;
+  --paper-dim:#EBE5D6;
+  --gold:#C8A063;
+  --gold-bright:#E0BC7E;
+  --vermilion:#D93A1B;
+  --vermilion-hover:#FB4113;
+  --on-dark:#F5F1E8;
+  --on-dark-sub:#B8B2A4;
+  --on-light:#221714;
+  --on-light-sub:#5C564A;
+  --hairline:rgba(200,160,99,.28);
+  --hairline-soft:rgba(200,160,99,.18);
+  --header-h:64px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%;}
+body{
+  font-family:"Noto Sans JP",sans-serif;
+  font-size:17px;
+  line-height:1.9;
+  color:var(--on-dark);
+  background:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+br.sp{display:none;}
+h1,h2,h3,h4{font-family:"Shippori Mincho",serif;font-weight:700;line-height:1.4;letter-spacing:.01em;}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px;}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+.narrow{max-width:840px;margin:0 auto;padding:0 24px;}
+section{padding:clamp(72px,10vw,120px) 0;position:relative;}
+
+/* surfaces */
+.s-ink{background:var(--ink);color:var(--on-dark);}
+.s-charcoal{background:var(--charcoal);color:var(--on-dark);}
+.s-paper{background:var(--paper);color:var(--on-light);}
+.s-paper-dim{background:var(--paper-dim);color:var(--on-light);}
+
+/* typography helpers */
+.eyebrow{
+  font-family:"Marcellus",serif;
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  font-size:14px;
+  color:var(--gold);
+  display:inline-block;
+  margin-bottom:22px;
+}
+.eyebrow--light{color:var(--on-light);}
+.sec-head{font-size:clamp(34px,4.5vw,54px);margin-bottom:20px;text-wrap:balance;}
+.sec-head span{display:inline-block;}
+/* 本文・コールアウトは文節単位で改行（非対応ブラウザは従来通り） */
+.hero-lead,.spotlight-note,.sec-sub,.lead-txt,.note,.plan-below,.after-cards-note,.pullquote,.subsidy-panel p,.community-close,.invite-panel,.price-close,.fc-lead,.fc-help,.f-beta,.vcard p,.tcard li{word-break:auto-phrase;}
+.hero-lead,.spotlight-note,.sec-sub,.lead-txt,.note,.plan-below,.after-cards-note,.pullquote,.subsidy-panel p,.f-beta{text-wrap:pretty;}
+.community-close,.invite-panel,.price-close{text-wrap:balance;}
+.nb{display:inline-block;}
+.sec-sub{font-size:clamp(16px,1.6vw,19px);color:var(--on-dark-sub);max-width:760px;line-height:1.9;}
+.s-paper .sec-sub,.s-paper-dim .sec-sub{color:var(--on-light-sub);}
+.roman{font-family:"Marcellus",serif;}
+.gold-txt{color:var(--gold);}
+.note{font-size:13px;line-height:1.85;color:var(--on-dark-sub);}
+.s-paper .note,.s-paper-dim .note{color:var(--on-light-sub);}
+
+.hr-gold{border:0;border-top:1px solid var(--hairline);margin:0;}
+
+/* CTA buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  font-family:"Noto Sans JP",sans-serif;font-weight:700;
+  cursor:pointer;border:0;transition:background .25s ease,transform .25s ease,border-color .25s ease,color .25s ease;
+  text-align:center;
+}
+.btn-primary{
+  background:var(--vermilion);color:#fff;border-radius:2px;
+  padding:20px 40px;font-size:18px;letter-spacing:.04em;
+  box-shadow:0 8px 30px rgba(217,58,27,.28);
+}
+.btn-primary:hover{background:var(--vermilion-hover);transform:translateY(-2px);}
+.btn-primary.big{padding:24px 56px;font-size:clamp(18px,2vw,22px);}
+.btn-ghost{
+  background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:2px;
+  padding:19px 38px;font-size:17px;letter-spacing:.04em;
+}
+.btn-ghost:hover{color:var(--gold-bright);border-color:var(--gold-bright);background:rgba(200,160,99,.06);}
+.btn-mini{
+  background:var(--vermilion);color:#fff;border-radius:2px;
+  padding:11px 20px;font-size:14px;font-weight:700;letter-spacing:.03em;
+}
+.btn-mini:hover{background:var(--vermilion-hover);}
+
+/* ============ HEADER ============ */
+.site-header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(22,21,26,.9);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--hairline);
+}
+.header-inner{max-width:1120px;margin:0 auto;padding:0 24px;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.brand{display:flex;flex-direction:column;line-height:1.2;}
+.brand .b-main{font-family:"Shippori Mincho",serif;font-weight:700;font-size:19px;color:var(--on-dark);letter-spacing:.04em;}
+.brand .b-sub{font-family:"Marcellus",serif;font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100svh;
+  display:flex;align-items:center;
+  background:
+    linear-gradient(rgba(22,21,26,.55),rgba(22,21,26,.92)),
+    url('./images/aiclub/hero.png') center/cover no-repeat;
+  padding:clamp(90px,14vh,150px) 0 clamp(60px,10vh,110px);
+  position:relative;
+}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;position:relative;}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+.hero-main{max-width:1050px;}
+.hero h1{font-size:clamp(34px,6.5vw,76px);color:#fff;line-height:1.28;margin-bottom:30px;letter-spacing:.02em;text-shadow:0 2px 24px rgba(0,0,0,.4);}
+.hero-lead{font-size:clamp(16px,1.9vw,21px);color:var(--on-dark);max-width:780px;line-height:1.95;margin-bottom:44px;}
+.spotlight{margin-bottom:18px;}
+.spotlight .price{
+  font-family:"Marcellus",serif;
+  font-size:clamp(56px,9vw,120px);
+  color:var(--gold);line-height:1;letter-spacing:.01em;
+  display:inline-block;
+}
+.spotlight .unit{font-family:"Marcellus",serif;font-size:clamp(18px,2.4vw,26px);color:var(--gold);margin-left:10px;letter-spacing:.05em;white-space:nowrap;}
+.spotlight .real{display:block;margin-top:14px;font-family:"Shippori Mincho",serif;font-weight:600;font-size:clamp(17px,2vw,22px);color:#fff;}
+.spotlight-note{font-size:13px;color:var(--on-dark-sub);max-width:640px;margin-top:8px;line-height:1.8;}
+.substats{display:flex;flex-wrap:wrap;align-items:center;gap:0 18px;margin:30px 0 40px;font-size:15px;color:var(--on-dark);}
+.substats span{display:inline-flex;align-items:center;}
+.substats span+span::before{content:"•";color:var(--gold);margin-right:18px;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;}
+/* vertical signature */
+.signature{
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-family:"Shippori Mincho",serif;font-weight:700;
+  letter-spacing:.5em;font-size:20px;color:var(--gold);
+  display:flex;align-items:center;justify-content:center;gap:22px;
+  padding:6px 0;
+}
+.signature::before,.signature::after{content:"";display:block;width:1px;height:54px;background:var(--gold);opacity:.7;}
+.signature-badge{display:none;}
+
+/* hero stagger */
+.hero-el{opacity:0;animation:heroFade .9s cubic-bezier(.16,1,.3,1) forwards;}
+.hero-el.d1{animation-delay:.05s;}
+.hero-el.d2{animation-delay:.20s;}
+.hero-el.d3{animation-delay:.35s;}
+.hero-el.d4{animation-delay:.50s;}
+.hero-el.d5{animation-delay:.65s;}
+.hero-el.d6{animation-delay:.80s;}
+@keyframes heroFade{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+
+/* ============ PAIN STRIP ============ */
+.pain-list{margin-top:48px;display:flex;flex-direction:column;gap:2px;}
+.pain-row{display:grid;grid-template-columns:auto auto 1fr;gap:22px;align-items:baseline;padding:26px 4px;border-bottom:1px solid var(--hairline-soft);}
+.pain-row:first-child{border-top:1px solid var(--hairline-soft);}
+.pain-no{font-family:"Marcellus",serif;font-size:22px;color:var(--on-dark-sub);min-width:32px;}
+.pain-x{color:var(--gold);font-size:22px;line-height:1.4;}
+.pain-txt strong{display:block;font-family:"Shippori Mincho",serif;font-weight:600;font-size:clamp(18px,2.2vw,24px);color:var(--on-dark);margin-bottom:6px;line-height:1.5;}
+.pain-txt span{color:var(--on-dark-sub);font-size:16px;}
+.pain-close{
+  margin-top:44px;text-align:center;
+  border:1px solid var(--gold);border-radius:4px;
+  background:rgba(200,160,99,.07);
+  padding:30px 28px;
+  font-family:"Shippori Mincho",serif;font-weight:700;
+  font-size:clamp(19px,2.6vw,28px);color:var(--gold-bright);line-height:1.6;
+}
+
+/* ============ SOLUTION BRIDGE ============ */
+.bridge-wrap{margin-top:52px;}
+.bridge-svg{width:100%;height:auto;display:block;}
+.bridge-mobile{display:none;}
+.bm-group{margin-bottom:14px;}
+.bm-label{font-family:"Marcellus",serif;letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:var(--on-light-sub);margin-bottom:10px;}
+.bm-card{background:var(--ink);color:var(--paper);border-radius:4px;padding:12px 16px;font-size:15px;margin-bottom:8px;line-height:1.5;}
+.bm-center{background:var(--ink);border:1.5px solid var(--gold);color:var(--paper);text-align:center;border-radius:4px;padding:18px;margin:16px 0;}
+.bm-center b{font-family:"Shippori Mincho",serif;color:var(--gold);font-size:19px;display:block;}
+.bm-arrow{text-align:center;color:var(--gold);font-size:22px;margin:2px 0;}
+.bm-values{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.bm-val{background:var(--charcoal);color:var(--paper);text-align:center;border-radius:4px;padding:14px 8px;font-family:"Shippori Mincho",serif;font-weight:600;font-size:16px;}
+
+/* ============ VALUE CARDS (2x2) ============ */
+.vcards{margin-top:56px;display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+.vcard{background:var(--charcoal-2);border:1px solid var(--hairline-soft);border-radius:4px;overflow:hidden;transition:transform .35s ease,border-color .35s ease;display:flex;flex-direction:column;}
+.vcard:hover{transform:translateY(-4px);border-color:var(--gold);}
+.vcard-img{width:100%;height:210px;object-fit:cover;filter:saturate(.92);}
+.vcard-body{padding:28px 28px 32px;}
+.vcard-no{font-family:"Marcellus",serif;font-size:14px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;}
+.vcard h3{font-size:26px;color:var(--on-dark);margin:6px 0 14px;}
+.vcard p{color:var(--on-dark-sub);font-size:16px;line-height:1.85;text-wrap:pretty;}
+.vcard-tag{font-family:"Shippori Mincho",serif;font-weight:700;color:var(--gold-bright);}
+.after-cards-note{margin-top:40px;padding:28px 30px;border-left:2px solid var(--gold);background:rgba(200,160,99,.05);font-size:17px;line-height:1.9;color:var(--on-dark);}
+.proof-note{margin-top:22px;font-size:13px;color:var(--on-dark-sub);line-height:1.85;}
+
+/* ============ VALUE 01 DETAIL ============ */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:52px;}
+.lead-txt{font-size:clamp(17px,1.9vw,20px);line-height:1.95;color:var(--on-dark);margin-top:20px;max-width:820px;}
+.s-paper .lead-txt,.s-paper-dim .lead-txt{color:var(--on-light);}
+.steps{display:flex;flex-direction:column;gap:22px;}
+.step{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;padding-bottom:22px;border-bottom:1px solid var(--hairline-soft);}
+.step:last-child{border-bottom:0;}
+.step-no{font-family:"Marcellus",serif;font-size:30px;color:var(--gold);line-height:1;}
+.step p{font-size:17px;line-height:1.8;color:var(--on-dark);}
+.rtable{border:1px solid var(--hairline);border-radius:4px;overflow:hidden;}
+.rtable .rrow{display:grid;grid-template-columns:30% 70%;border-bottom:1px solid var(--hairline-soft);}
+.rtable .rrow:last-child{border-bottom:0;}
+.rtable .rk{padding:16px 20px;font-family:"Shippori Mincho",serif;font-weight:600;color:var(--gold);background:rgba(200,160,99,.06);font-size:16px;border-right:1px solid var(--hairline-soft);}
+.rtable .rv{padding:16px 20px;color:var(--on-dark);font-size:15.5px;line-height:1.7;}
+.pullquote{margin-top:40px;font-family:"Shippori Mincho",serif;font-weight:600;font-size:clamp(19px,2.4vw,26px);line-height:1.7;color:var(--on-dark);border-left:3px solid var(--gold);padding-left:26px;}
+
+/* ============ LEARNING (§7) ============ */
+.tri{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.tcard{background:var(--charcoal-2);border:1px solid var(--hairline-soft);border-radius:4px;padding:32px 28px;transition:transform .35s ease,border-color .35s ease;display:flex;flex-direction:column;}
+.tcard:hover{transform:translateY(-4px);border-color:var(--gold);}
+.tcard .tlabel{display:inline-block;align-self:flex-start;font-family:"Marcellus",serif;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--gold);border:1px solid var(--hairline);border-radius:2px;padding:5px 12px;margin-bottom:18px;}
+.tcard h3{font-size:22px;color:var(--on-dark);margin-bottom:16px;line-height:1.45;}
+.tcard ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.tcard li{position:relative;padding-left:22px;font-size:15.5px;line-height:1.7;color:var(--on-dark-sub);}
+.tcard li::before{content:"—";position:absolute;left:0;color:var(--gold);}
+.subsidy-panel{
+  margin-top:40px;border:1.5px solid var(--gold);border-radius:4px;
+  background:rgba(200,160,99,.07);padding:34px 36px;
+}
+.subsidy-panel h3{font-size:clamp(20px,2.5vw,28px);color:var(--gold-bright);margin-bottom:14px;line-height:1.5;}
+.subsidy-panel p{font-size:16.5px;line-height:1.9;color:var(--on-dark);}
+
+/* ============ COMMUNITY (§8, LIGHT) ============ */
+.s-paper .tcard{background:#fff;border:1px solid var(--paper-dim);}
+.s-paper .tcard:hover{border-color:var(--gold);}
+.s-paper .tcard .tlabel{color:var(--on-light);border-color:var(--gold);}
+.s-paper .tcard h3{color:var(--on-light);}
+.s-paper .tcard li{color:var(--on-light-sub);}
+.s-paper .tcard li::before{color:var(--gold);}
+.community-close{
+  margin-top:40px;text-align:center;
+  font-family:"Shippori Mincho",serif;font-weight:600;
+  font-size:clamp(18px,2.3vw,24px);line-height:1.7;color:var(--on-light);
+  border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);
+  padding:28px 20px;
+}
+
+/* ============ WHO (§9) ============ */
+.who-grid{margin-top:52px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start;}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+.check-list li{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding:22px 4px;border-bottom:1px solid var(--hairline-soft);font-size:clamp(17px,2vw,20px);line-height:1.6;color:var(--on-dark);}
+.check-list li:first-child{border-top:1px solid var(--hairline-soft);}
+.check-mark{color:var(--gold);font-size:22px;line-height:1.4;}
+.reject-panel{background:var(--charcoal-2);border:1px solid var(--hairline-soft);border-radius:4px;padding:30px 30px 34px;}
+.reject-panel h4{font-size:19px;color:var(--on-dark);margin-bottom:18px;}
+.reject-panel ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.reject-panel li{position:relative;padding-left:22px;color:var(--on-dark-sub);font-size:15.5px;line-height:1.75;}
+.reject-panel li::before{content:"×";position:absolute;left:0;color:var(--vermilion);font-weight:700;}
+.invite-panel{
+  margin-top:48px;text-align:center;
+  border:1.5px solid var(--gold);border-radius:4px;
+  padding:40px 34px;background:rgba(200,160,99,.06);
+  font-family:"Shippori Mincho",serif;font-weight:600;
+  font-size:clamp(18px,2.4vw,25px);line-height:1.7;color:var(--gold-bright);
+  max-width:900px;margin-left:auto;margin-right:auto;
+}
+
+/* ============ PLAN TABLE (§10) ============ */
+.plan-scroll{margin-top:44px;position:relative;}
+.scroll-hint{display:none;text-align:center;font-size:13px;color:var(--gold);letter-spacing:.15em;margin-bottom:12px;}
+.plan-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--hairline-soft);border-radius:4px;}
+table.plan{border-collapse:collapse;width:100%;min-width:820px;}
+table.plan th,table.plan td{padding:15px 16px;text-align:center;border-bottom:1px solid var(--hairline-soft);border-right:1px solid var(--hairline-soft);font-size:14.5px;line-height:1.55;vertical-align:middle;}
+table.plan th:last-child,table.plan td:last-child{border-right:0;}
+table.plan thead th{background:var(--ink);color:var(--on-dark);font-family:"Shippori Mincho",serif;font-weight:700;font-size:15px;padding:20px 16px;}
+table.plan thead th .price-s{display:block;font-family:"Marcellus",serif;font-size:18px;color:var(--gold);margin-top:6px;letter-spacing:.02em;}
+table.plan tbody th{text-align:left;background:#252329;color:var(--on-dark);font-weight:500;font-size:14.5px;white-space:nowrap;position:sticky;left:0;z-index:1;}
+table.plan tbody td{color:var(--on-dark-sub);}
+/* recommended column */
+.col-reco{background:rgba(200,160,99,.08)!important;}
+table.plan thead th.col-reco{border-top:2px solid var(--gold);border-left:2px solid var(--gold);border-right:2px solid var(--gold);position:relative;}
+table.plan tbody td.col-reco{border-left:2px solid var(--gold);border-right:2px solid var(--gold);color:var(--on-dark);}
+table.plan tbody tr:last-child td.col-reco{border-bottom:2px solid var(--gold);}
+.reco-tag{display:block;width:fit-content;font-family:"Marcellus",serif;letter-spacing:.18em;font-size:11px;color:var(--ink);background:var(--gold);padding:3px 12px;border-radius:2px;margin:0 auto 8px;text-transform:uppercase;}
+.plan-below{margin-top:30px;font-size:17px;line-height:1.9;color:var(--on-dark);}
+.tick{color:var(--gold);font-weight:700;}
+
+/* ============ PRICE BREAKDOWN (§11, LIGHT) ============ */
+.price-grid{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch;}
+.incl-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+.incl-list li{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:16px 2px;border-bottom:1px solid var(--paper-dim);font-size:16.5px;line-height:1.6;color:var(--on-light);}
+.incl-list li:first-child{border-top:1px solid var(--paper-dim);}
+.incl-mark{color:var(--gold);font-size:19px;line-height:1.4;}
+.calc-card{background:var(--ink);border:1px solid var(--hairline);border-radius:4px;padding:38px 34px;display:flex;flex-direction:column;justify-content:center;gap:8px;}
+.calc-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--hairline-soft);}
+.calc-row:last-child{border-bottom:0;}
+.calc-row .lab{font-size:15.5px;color:var(--on-dark-sub);}
+.calc-row .num{font-family:"Marcellus",serif;font-size:26px;color:var(--on-dark);}
+.calc-row.sub .num{color:var(--vermilion-hover);}
+.calc-row.final{margin-top:8px;padding-top:20px;border-top:1px solid var(--gold);}
+.calc-row.final .lab{font-family:"Shippori Mincho",serif;font-weight:700;color:var(--gold-bright);font-size:18px;}
+.calc-row.final .num{font-family:"Marcellus",serif;font-size:clamp(34px,5vw,52px);color:var(--gold);line-height:1;}
+.price-close{
+  margin-top:48px;text-align:center;max-width:920px;margin-left:auto;margin-right:auto;
+  font-family:"Shippori Mincho",serif;font-weight:600;
+  font-size:clamp(18px,2.3vw,25px);line-height:1.8;color:var(--on-light);
+}
+
+/* ============ FAQ (§12) ============ */
+.faq{margin-top:48px;max-width:880px;margin-left:auto;margin-right:auto;}
+.faq details{border-bottom:1px solid var(--hairline-soft);}
+.faq details:first-child{border-top:1px solid var(--hairline-soft);}
+.faq summary{
+  list-style:none;cursor:pointer;padding:26px 44px 26px 40px;position:relative;
+  font-family:"Shippori Mincho",serif;font-weight:600;font-size:clamp(17px,2vw,21px);
+  color:var(--on-dark);line-height:1.6;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";font-family:"Marcellus",serif;color:var(--gold);position:absolute;left:0;top:26px;font-size:20px;}
+.faq summary::after{content:"+";position:absolute;right:8px;top:24px;color:var(--gold);font-size:26px;font-weight:400;transition:transform .3s ease;font-family:"Marcellus",serif;}
+.faq details[open] summary::after{transform:rotate(45deg);}
+.faq .faq-a{padding:0 8px 30px 40px;color:var(--on-dark-sub);font-size:16.5px;line-height:1.95;}
+
+/* ============ FINAL CTA (§13) ============ */
+.final-cta{
+  background:
+    linear-gradient(rgba(22,21,26,.6),rgba(22,21,26,.92)),
+    url('./images/aiclub/cta.png') center/cover no-repeat;
+  text-align:center;
+}
+.final-cta .eyebrow{color:var(--gold);}
+.final-cta h2{font-size:clamp(38px,6vw,72px);color:#fff;line-height:1.3;margin-bottom:26px;text-shadow:0 2px 24px rgba(0,0,0,.45);}
+.final-cta .fc-lead{font-size:clamp(17px,2vw,21px);color:var(--on-dark);max-width:680px;margin:0 auto 40px;line-height:1.9;}
+.final-cta .fc-help{margin-top:22px;font-size:15px;color:var(--on-dark-sub);}
+.assurance{margin-top:46px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 30px;}
+.assurance span{position:relative;padding-left:24px;font-size:14.5px;color:var(--on-dark);}
+.assurance span::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700;}
+
+/* ============ FOOTER (§14) ============ */
+.site-footer{background:var(--ink);border-top:1px solid var(--gold);padding:56px 0 90px;text-align:center;}
+.site-footer .f-brand{font-family:"Shippori Mincho",serif;font-weight:700;font-size:22px;color:var(--on-dark);letter-spacing:.05em;margin-bottom:14px;}
+.site-footer .f-co{font-size:15px;color:var(--on-dark-sub);margin-bottom:6px;}
+.site-footer .f-co a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(200,160,99,.45);transition:color .25s ease;}
+.site-footer .f-co a:hover{color:var(--gold);}
+.site-footer .f-copy{font-family:"Marcellus",serif;font-size:13px;color:var(--on-dark-sub);letter-spacing:.1em;margin:14px 0 20px;}
+.site-footer .f-beta{font-size:12.5px;color:var(--on-dark-sub);max-width:640px;margin:0 auto;line-height:1.8;}
+
+/* ============ STICKY BOTTOM CTA (mobile) ============ */
+.bottom-cta{display:none;}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .two-col{grid-template-columns:1fr;gap:40px;}
+  .who-grid{grid-template-columns:1fr;gap:32px;}
+  .price-grid{grid-template-columns:1fr;gap:32px;}
+  .tri{grid-template-columns:1fr;}
+}
+@media (max-width:820px){
+  .vcards{grid-template-columns:1fr;}
+}
+@media (max-width:768px){
+  br.pc{display:none;}
+  br.sp{display:inline;}
+  body{font-size:16.5px;}
+  .header-inner{padding:0 16px;}
+  .brand .b-main{font-size:16px;}
+  .btn-mini{padding:9px 14px;font-size:13px;}
+  .hero-grid{grid-template-columns:1fr;}
+  .signature{display:none;}
+  .signature-badge{
+    display:inline-flex;align-items:center;gap:12px;margin-top:6px;
+    font-family:"Shippori Mincho",serif;font-weight:700;letter-spacing:.35em;
+    font-size:14px;color:var(--gold);border:1px solid var(--gold);border-radius:2px;
+    padding:8px 20px;background:rgba(200,160,99,.06);
+  }
+  .hero-cta .btn{flex:1 1 100%;}
+  .bridge-svg{display:none;}
+  .bridge-mobile{display:block;}
+  .scroll-hint{display:block;}
+  .rtable .rrow{grid-template-columns:1fr;}
+  .rtable .rk{border-right:0;border-bottom:1px solid var(--hairline-soft);}
+  .pain-row{grid-template-columns:auto 1fr;}
+  .pain-no{display:none;}
+  .bottom-cta{
+    display:block;position:fixed;left:0;right:0;bottom:0;z-index:250;
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(22,21,26,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-top:1px solid var(--hairline);
+  }
+  .bottom-cta .btn{width:100%;padding:16px;font-size:16px;}
+  body{padding-bottom:76px;}
+  .site-footer{padding-bottom:110px;}
+}
+@media (max-width:480px){
+  .wrap,.narrow,.hero-inner,.header-inner{padding-left:18px;padding-right:18px;}
+  .calc-row .num{font-size:22px;}
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important;}
+  .hero-el{opacity:1!important;transform:none!important;animation:none!important;}
+  .btn,.vcard,.tcard{transition:none!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="AI経営者クラブβ トップへ">
+      <span class="b-main">AI経営者クラブ β</span>
+      <span class="b-sub">COMIX Inc.</span>
+    </a>
+    <a class="btn btn-mini" href="#final-cta">招待面談を申し込む</a>
+  </div>
+</header>
+
+<!-- ============ 2. HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <span class="eyebrow hero-el d1">Membership Guide — By Invitation Only</span>
+        <h1 class="hero-el d2">「学び」ではなく「成果」を</h1>
+        <p class="hero-lead hero-el d3">経営者1.5万人への発信、1,100講座の学び、そして本気の経営者との出会い。<br class="pc">貴社の経営課題の解決を、月5万円から。</p>
+
+        <div class="spotlight hero-el d4">
+          <span class="price">¥50,000</span><span class="unit">/月（税別）</span>
+          <span class="real">助成金活用で実質 月3.5万円<sup>※</sup></span>
+          <p class="spotlight-note">※人材開発支援助成金（事業展開等リスキリング支援コース）。支給には要件・審査があります。</p>
+        </div>
+
+        <div class="substats hero-el d5">
+          <span>経営者フォロワー 約1.5万人</span>
+          <span>eラーニング 1,100講座超</span>
+          <span>AI専門家 100名超</span>
+        </div>
+
+        <div class="hero-cta hero-el d6">
+          <a class="btn btn-primary big" href="#final-cta">招待面談を申し込む</a>
+          <a class="btn btn-ghost" href="#pain">クラブの中身を見る</a>
+        </div>
+      </div>
+
+      <div class="hero-el d3">
+        <div class="signature">完全招待制</div>
+      </div>
+    </div>
+    <div class="signature-badge hero-el d6">完全招待制</div>
+  </div>
+</section>
+
+<!-- ============ 3. PAIN STRIP ============ -->
+<section class="s-ink" id="pain">
+  <div class="wrap">
+    <h2 class="sec-head reveal"><span>経営者が</span><span>「独りで抱えがちな課題」、</span><span>ありませんか</span></h2>
+    <p class="sec-sub reveal">どれか一つでも当てはまれば、この倶楽部はお役に立てます。</p>
+
+    <div class="pain-list reveal">
+      <div class="pain-row">
+        <span class="pain-no">01</span><span class="pain-x">×</span>
+        <span class="pain-txt"><strong>AIを経営に活かしたいが、進め方が分からない</strong><span>情報は溢れているのに、自社の実務に落ちない。</span></span>
+      </div>
+      <div class="pain-row">
+        <span class="pain-no">02</span><span class="pain-x">×</span>
+        <span class="pain-txt"><strong>信頼できる発注先・専門家が見つからない</strong><span>一番確実な「信頼できる人からの紹介」が、続かない。</span></span>
+      </div>
+      <div class="pain-row">
+        <span class="pain-no">03</span><span class="pain-x">×</span>
+        <span class="pain-txt"><strong>自社を経営者層に知ってほしいが、広告費は高い</strong><span>決裁者に届くチャネルは限られ、費用対効果は年々悪化。</span></span>
+      </div>
+      <div class="pain-row">
+        <span class="pain-no">04</span><span class="pain-x">×</span>
+        <span class="pain-txt"><strong>購買力の高い経営者との商談数を増やしたい</strong><span>なかなか思うような打ち手が打てていない。</span></span>
+      </div>
+      <div class="pain-row">
+        <span class="pain-no">05</span><span class="pain-x">×</span>
+        <span class="pain-txt"><strong>本音で話せる経営者仲間が、意外と少ない</strong><span>名刺交換だけの交流会では、深い関係にならない。</span></span>
+      </div>
+    </div>
+
+    <div class="pain-close reveal">この5つを、ひとつの会費でまとめて解決するのが「AI経営者クラブβ」です</div>
+  </div>
+</section>
+
+<!-- ============ 4. SOLUTION BRIDGE ============ -->
+<section class="s-paper">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--light reveal">The Bridge</span>
+    <h2 class="sec-head reveal">5つの課題を、<br><span>ひとつの会費で</span><span>「4つの価値」へ</span></h2>
+    <p class="sec-sub reveal">バラバラに手を打つのではなく、月5万円のメンバーシップに集約する。<br class="pc">それが最短の解決策です。</p>
+
+    <div class="bridge-wrap reveal">
+      <!-- desktop SVG -->
+      <svg class="bridge-svg" viewBox="0 0 1040 560" role="img" aria-label="5つの経営課題が、AI経営者クラブβという1枚の招待状に収束し、出会い・発信・学び・場の4つの価値へ展開する橋渡し図">
+        <defs>
+          <style>
+            .bg-card{fill:#16151A;}
+            .bg-txt{fill:#F5F1E8;font-family:'Noto Sans JP',sans-serif;font-size:14px;}
+            .bg-line{stroke:#C8A063;stroke-width:1.2;fill:none;opacity:.7;}
+            .bg-val{fill:#211F26;}
+            .bg-valtxt{fill:#F5F1E8;font-family:'Shippori Mincho',serif;font-weight:600;font-size:18px;}
+            .bg-center-line{stroke:#C8A063;stroke-width:1.5;fill:none;}
+          </style>
+        </defs>
+
+        <!-- connecting lines: left -> center -->
+        <path class="bg-line" d="M240,72 C340,72 360,280 430,280"/>
+        <path class="bg-line" d="M240,168 C340,168 370,280 430,280"/>
+        <path class="bg-line" d="M240,264 C360,264 390,280 430,280"/>
+        <path class="bg-line" d="M240,360 C340,360 370,280 430,280"/>
+        <path class="bg-line" d="M240,456 C340,456 360,280 430,280"/>
+        <!-- center -> right -->
+        <path class="bg-line" d="M620,280 C690,280 720,105 810,105"/>
+        <path class="bg-line" d="M620,280 C690,280 720,225 810,225"/>
+        <path class="bg-line" d="M620,280 C690,280 720,345 810,345"/>
+        <path class="bg-line" d="M620,280 C690,280 720,465 810,465"/>
+
+        <!-- left cards -->
+        <g>
+          <rect class="bg-card" x="20" y="46" width="220" height="52" rx="4"/><text class="bg-txt" x="36" y="78">AIの進め方が分からない</text>
+          <rect class="bg-card" x="20" y="142" width="220" height="52" rx="4"/><text class="bg-txt" x="36" y="174">発注先・専門家が見つからない</text>
+          <rect class="bg-card" x="20" y="238" width="220" height="52" rx="4"/><text class="bg-txt" x="36" y="270">経営者層に知ってほしい</text>
+          <rect class="bg-card" x="20" y="334" width="220" height="52" rx="4"/><text class="bg-txt" x="36" y="366">商談数を増やしたい</text>
+          <rect class="bg-card" x="20" y="430" width="220" height="52" rx="4"/><text class="bg-txt" x="36" y="462">本音で話せる仲間がいない</text>
+        </g>
+
+        <!-- center invitation card -->
+        <rect x="424" y="212" width="192" height="136" rx="5" fill="#16151A" stroke="#C8A063" stroke-width="1.6"/>
+        <line class="bg-center-line" x1="444" y1="234" x2="596" y2="234"/>
+        <text x="520" y="272" text-anchor="middle" fill="#C8A063" font-family="'Shippori Mincho',serif" font-weight="700" font-size="19">AI経営者クラブβ</text>
+        <text x="520" y="306" text-anchor="middle" fill="#F5F1E8" font-family="'Marcellus',serif" font-size="24">¥50,000 / 月</text>
+
+        <!-- right values -->
+        <g>
+          <rect class="bg-val" x="810" y="72" width="210" height="66" rx="4"/><text class="bg-valtxt" x="915" y="112" text-anchor="middle">出会い</text>
+          <rect class="bg-val" x="810" y="192" width="210" height="66" rx="4"/><text class="bg-valtxt" x="915" y="232" text-anchor="middle">発信</text>
+          <rect class="bg-val" x="810" y="312" width="210" height="66" rx="4"/><text class="bg-valtxt" x="915" y="352" text-anchor="middle">学び</text>
+          <rect class="bg-val" x="810" y="432" width="210" height="66" rx="4"/><text class="bg-valtxt" x="915" y="472" text-anchor="middle">場</text>
+        </g>
+      </svg>
+
+      <!-- mobile vertical flow -->
+      <div class="bridge-mobile">
+        <div class="bm-group">
+          <div class="bm-label">5つの課題</div>
+          <div class="bm-card">AIの進め方が分からない</div>
+          <div class="bm-card">発注先・専門家が見つからない</div>
+          <div class="bm-card">経営者層に知ってほしい</div>
+          <div class="bm-card">商談数を増やしたい</div>
+          <div class="bm-card">本音で話せる仲間がいない</div>
+        </div>
+        <div class="bm-arrow">▼</div>
+        <div class="bm-center"><b>AI経営者クラブβ</b>月5万円</div>
+        <div class="bm-arrow">▼</div>
+        <div class="bm-group">
+          <div class="bm-label">4つの価値へ</div>
+          <div class="bm-values">
+            <div class="bm-val">出会い</div>
+            <div class="bm-val">発信</div>
+            <div class="bm-val">学び</div>
+            <div class="bm-val">場</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. FOUR VALUE CARDS ============ -->
+<section class="s-charcoal">
+  <div class="wrap">
+    <span class="eyebrow reveal">About the Club</span>
+    <h2 class="sec-head reveal"><span>つながり、学び、成果を出す。</span><span>完全招待制の経営者クラブ</span></h2>
+    <p class="sec-sub reveal">株式会社コミクスが運営。審査制だから、本気の経営者だけが集まります。</p>
+
+    <div class="vcards">
+      <article class="vcard reveal">
+        <img class="vcard-img" src="./images/aiclub/meeting.png" width="1024" height="1024" alt="経営者会食で交わされる酒器のクローズアップ" loading="lazy" decoding="async">
+        <div class="vcard-body">
+          <span class="vcard-no">Value 01</span>
+          <h3>出会い</h3>
+          <p>代表・鈴木主催の経営者会食に月1回。鈴木からの<span class="vcard-tag">他己紹介</span>で、質の高い出会いが生まれます。</p>
+        </div>
+      </article>
+      <article class="vcard reveal">
+        <img class="vcard-img" src="./images/aiclub/media.png" width="1024" height="1024" alt="高層ラウンジから望む東京の夜景" loading="lazy" decoding="async">
+        <div class="vcard-body">
+          <span class="vcard-no">Value 02</span>
+          <h3>発信</h3>
+          <p>鈴木・安達のFacebookで、経営者フォロワー約1.5万人へ貴社を紹介（投稿文・画像も当社制作）。</p>
+        </div>
+      </article>
+      <article class="vcard reveal">
+        <img class="vcard-img" src="./images/aiclub/learning.png" width="1024" height="1024" alt="夜の書斎で学びに向かう静かな空間" loading="lazy" decoding="async">
+        <div class="vcard-body">
+          <span class="vcard-no">Value 03</span>
+          <h3>学び</h3>
+          <p>1,100講座＋いつでも聞ける質疑チャット＋AI専門家との毎月60分。</p>
+        </div>
+      </article>
+      <article class="vcard reveal">
+        <img class="vcard-img" src="./images/aiclub/community.png" width="1024" height="1024" alt="経営者が集うバンケット会場" loading="lazy" decoding="async">
+        <div class="vcard-body">
+          <span class="vcard-no">Value 04</span>
+          <h3>場</h3>
+          <p>あさげのコミクス会・会員限定会食。全員が審査を通った経営者。</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="after-cards-note reveal">「学び」は続けにくい。でも「成果」は手放せない — だから本クラブは、学びだけでなく出会い・発信という実利を中核に設計しています。会費は「コスト」ではなく、回収できる「経営投資」です。</p>
+    <p class="proof-note reveal">経営者コミュニティは世界で実証済みのモデル — 米国発BNIは世界約31万人、EO（起業家機構）は約2万人が有料会員制で活動（各公式公表値・2026年）。</p>
+  </div>
+</section>
+
+<!-- ============ 6. VALUE 01 DETAIL — MEETING ============ -->
+<section class="s-ink">
+  <div class="wrap">
+    <span class="eyebrow reveal">Value 01 — Meeting</span>
+    <h2 class="sec-head reveal"><span>毎月、</span><span>鈴木の会食で</span><span>「質の高い出会い」が</span><span>生まれます</span></h2>
+    <p class="lead-txt reveal">代表・鈴木が月10回主催する経営者会食に、月1回ご参加。<br class="pc">鈴木からの他己紹介で、探すより早く出会えます。</p>
+
+    <div class="two-col">
+      <div class="steps reveal">
+        <div class="step"><span class="step-no">①</span><p>月1回、鈴木主催の経営者会食にご参加</p></div>
+        <div class="step"><span class="step-no">②</span><p>鈴木が、貴社に合いそうな経営者を「他己紹介」でお繋ぎ</p></div>
+        <div class="step"><span class="step-no">③</span><p>会員同士の出会いから、商談・提携・受注が生まれる</p></div>
+      </div>
+
+      <div class="rtable reveal" aria-label="紹介原資">
+        <div class="rrow"><div class="rk">営業・販路</div><div class="rv">BtoB取引1,789社＋年間3,000人の経営者接点</div></div>
+        <div class="rrow"><div class="rk">資金調達</div><div class="rv">代表・鈴木の金融人脈＋外部専門家網</div></div>
+        <div class="rrow"><div class="rk">開発・AI実装</div><div class="rv">SaaS事業者1,448社＋AI専門家100名超</div></div>
+        <div class="rrow"><div class="rk">採用・人材</div><div class="rv">登録マーケター600人（デジパラ）＋提携網</div></div>
+        <div class="rrow"><div class="rk">マーケ実行</div><div class="rv">プロランサー優先紹介（デジパラ600人）</div></div>
+        <div class="rrow"><div class="rk">承継・M&amp;A</div><div class="rv">提携M&amp;A仲介との連携</div></div>
+      </div>
+    </div>
+
+    <p class="pullquote reveal">「誰と出会うか」で、経営は変わる — 月1回の会食での出会いは、探して比較する手間を大きく省きます。</p>
+    <p class="note reveal" style="margin-top:26px;">※会食は出会いの機会のご提供であり、特定の紹介・商談・成約を保証するものではありません。会の運営上、日程・人数には限りがあります。</p>
+  </div>
+</section>
+
+<!-- ============ 7. VALUE 03 DETAIL — LEARNING ============ -->
+<section class="s-charcoal">
+  <div class="wrap">
+    <span class="eyebrow reveal">Value 03 — Learning</span>
+    <h2 class="sec-head reveal"><span>「学んで終わり」にさせない、</span><span>3つの学習サポート</span></h2>
+    <p class="lead-txt reveal">1,100講座 × いつでも聞けるチャット × 専門家との毎月60分。<br class="pc">「分からない」を、<span class="nb">その日のうちに</span>解消します。</p>
+
+    <div class="tri">
+      <article class="tcard reveal">
+        <span class="tlabel">会費に込み</span>
+        <h3>コミクスアカデミー</h3>
+        <ul>
+          <li>生成AI 400講座超を含む1,100講座超のeラーニング</li>
+          <li>正規24万円/年（1名分）が会費に込み</li>
+          <li>2人目以降は1人24万円/年（助成金活用時6万円/年）</li>
+        </ul>
+      </article>
+      <article class="tcard reveal">
+        <span class="tlabel">NEW・いつでも</span>
+        <h3>質疑応答グループチャット</h3>
+        <ul>
+          <li>AIの使い方・不明点をいつでも質問できるチャット（Chatwork）</li>
+          <li>回数無制限 — 詰まった瞬間に、その場で解決</li>
+          <li>学びが確実に、実務の成果へ</li>
+        </ul>
+      </article>
+      <article class="tcard reveal">
+        <span class="tlabel">月1回・標準付帯</span>
+        <h3>AI専門家 60分MTG</h3>
+        <ul>
+          <li>貴社の実務テーマで、専門家と毎月60分の個別相談</li>
+          <li>AI専門家100名超からテーマに合わせてアサイン</li>
+          <li>その場でのAI実装ライブデモも可能</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="subsidy-panel reveal">
+      <h3>助成金活用で、実質のご負担は年42万円（月あたり3.5万円）に</h3>
+      <p>アカデミー費用24万円のうち最大18万円が助成金の支給対象。年会費60万円 − 18万円 = 実質42万円。<br class="pc">申請手続きは当社がサポートします<span class="nb">（※支給には要件・審査があります）。</span></p>
+    </div>
+    <p class="note reveal" style="margin-top:22px;">※人材開発支援助成金（事業展開等リスキリング支援コース）。支給額・要件は貴社の状況により異なります。</p>
+  </div>
+</section>
+
+<!-- ============ 8. VALUE 04 — COMMUNITY (LIGHT) ============ -->
+<section class="s-paper">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--light reveal">Value 04 — Community</span>
+    <h2 class="sec-head reveal"><span>名刺交換で終わらない、</span><span>「本気の経営者」だけの場</span></h2>
+    <p class="lead-txt reveal">参加者全員が、審査を通った有料会員。だから話が早く、深く、実になります。</p>
+
+    <div class="tri">
+      <article class="tcard reveal">
+        <span class="tlabel">年4回</span>
+        <h3>あさげのコミクス会</h3>
+        <ul>
+          <li>100名規模で開催し毎回大好評の経営者交流会</li>
+          <li>完全招待制 — 会員だけの回として開催</li>
+          <li>登壇・発表の機会も</li>
+        </ul>
+      </article>
+      <article class="tcard reveal">
+        <span class="tlabel">月1回</span>
+        <h3>会員限定 会食</h3>
+        <ul>
+          <li>少人数の会食を毎月定例開催</li>
+          <li>テーマ・業種を揃えたセッティング</li>
+          <li>深い相談・提携話が生まれる距離感</li>
+        </ul>
+      </article>
+      <article class="tcard reveal">
+        <span class="tlabel">審査制</span>
+        <h3>全員が本気の経営者</h3>
+        <ul>
+          <li>会員または運営者の紹介がないと入れません</li>
+          <li>名刺集め・売り込み目的の方はお断り</li>
+          <li>だから本音の情報交換ができます</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="community-close reveal">★ ここで生まれるのは「知り合い」ではなく、仕事と提携 — 鈴木の会食での他己紹介と組み合わせることで、場での出会いがそのまま商談・協業につながります。</p>
+  </div>
+</section>
+
+<!-- ============ 9. WHO ============ -->
+<section class="s-ink">
+  <div class="wrap">
+    <span class="eyebrow reveal">Who Should Join</span>
+    <h2 class="sec-head reveal"><span>こんな経営者の方に、</span><span>お越しいただきたいクラブです</span></h2>
+    <p class="sec-sub reveal">一つでも当てはまる方は、面談でお話ししましょう。</p>
+
+    <div class="who-grid">
+      <ul class="check-list reveal">
+        <li><span class="check-mark">✓</span>AIを「勉強」ではなく本気で経営に組み込みたい</li>
+        <li><span class="check-mark">✓</span>信頼できる紹介ベースで発注先・パートナーを見つけたい</li>
+        <li><span class="check-mark">✓</span>自社の商品・サービスを経営者層へ発信したい</li>
+        <li><span class="check-mark">✓</span>同じ目線で本音を話せる経営者ネットワークがほしい</li>
+        <li><span class="check-mark">✓</span>学び（アカデミー）を自分や幹部の武器にしたい</li>
+      </ul>
+
+      <aside class="reject-panel reveal">
+        <h4>お断りする場合があります</h4>
+        <ul>
+          <li>名刺集め・リスト収集だけが目的の方</li>
+          <li>会の場での売り込みだけが目的の方</li>
+          <li>他の会員への迷惑行為が懸念される方 — 場の質を守ることが、会員全員の利益だからです。</li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="invite-panel reveal">完全招待制 — ご入会には、会員または運営者<span class="nb">（鈴木・安達）</span>からのご紹介と面談が必要です。<span class="nb">この資料を</span>お渡ししている時点で、貴社はご紹介の対象です。</div>
+  </div>
+</section>
+
+<!-- ============ 10. PLAN TABLE ============ -->
+<section class="s-charcoal">
+  <div class="wrap">
+    <span class="eyebrow reveal">Membership Plans</span>
+    <h2 class="sec-head reveal">料金プラン — まずは「AI経営者クラブ」から</h2>
+    <p class="sec-sub reveal">上位プランは、鈴木が経営に直接並走します。</p>
+
+    <div class="plan-scroll reveal">
+      <div class="scroll-hint">← 横スクロールできます →</div>
+      <div class="plan-tablewrap">
+        <table class="plan">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col" class="col-reco"><span class="reco-tag">Recommended</span>AI経営者クラブβ<span class="price-s">月5万円</span></th>
+              <th scope="col">鈴木顧問Light<span class="price-s">月15万円</span></th>
+              <th scope="col">顧問制度<span class="price-s">月30万円</span></th>
+              <th scope="col">bondプレミアム<span class="price-s">月50万円</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">コミクスアカデミー</th>
+              <td class="col-reco">1人<br>※2人目〜追加</td>
+              <td>個別案内</td><td>個別案内</td><td>個別案内</td>
+            </tr>
+            <tr>
+              <th scope="row">質疑応答グループチャット</th>
+              <td class="col-reco"><span class="tick">✓</span></td>
+              <td>個別案内</td><td>個別案内</td><td>個別案内</td>
+            </tr>
+            <tr>
+              <th scope="row">AI専門家60分MTG</th>
+              <td class="col-reco">月1回</td>
+              <td>個別案内</td><td>個別案内</td><td>個別案内</td>
+            </tr>
+            <tr>
+              <th scope="row">Facebook投稿</th>
+              <td class="col-reco">安達 年2回</td>
+              <td>—</td><td>鈴木 毎月1回</td><td>鈴木 毎月1回</td>
+            </tr>
+            <tr>
+              <th scope="row">あさげのコミクス会</th>
+              <td class="col-reco"><span class="tick">✓</span></td>
+              <td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span>＋登壇枠</td>
+            </tr>
+            <tr>
+              <th scope="row">会員限定会食</th>
+              <td class="col-reco"><span class="tick">✓</span></td>
+              <td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td>
+            </tr>
+            <tr>
+              <th scope="row">鈴木主催「経営者会食」</th>
+              <td class="col-reco">月1回</td>
+              <td>月2回まで</td><td>月3回まで</td><td>月3回まで</td>
+            </tr>
+            <tr>
+              <th scope="row">プロランサー紹介（デジパラ優先）</th>
+              <td class="col-reco"><span class="tick">✓</span></td>
+              <td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td>
+            </tr>
+            <tr>
+              <th scope="row">鈴木 経営相談</th>
+              <td class="col-reco">—</td>
+              <td>月1回</td><td>月2回</td><td>月2回</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="plan-below reveal">AI経営者クラブβは、AI専門家MTG（月1回）とFB投稿が標準付帯。学び・出会い・発信を、月5万円のワンプランで。</p>
+    <p class="note reveal" style="margin-top:18px;">※全プラン税別・初年度年間契約（2年目以降2ヶ月前申告で解約可）。アカデミー2人目以降は1人24万円/年。※助成金で2人目実質6万円/年。個別案内は面談で。FB投稿は文面・画像も当社作成（安達分先着30社）。</p>
+  </div>
+</section>
+
+<!-- ============ 11. WHY ¥50,000 (LIGHT) ============ -->
+<section class="s-paper">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--light reveal">Why ¥50,000</span>
+    <h2 class="sec-head reveal"><span>月5万円の中身 —</span> <span>実質は月3.5万円、</span><span>そして回収できる</span></h2>
+    <p class="sec-sub reveal">アカデミーだけで会費の4割。<br class="pc">さらに「いつでも聞ける」「出会い」「発信」— 単体では買えない価値が乗ります。</p>
+
+    <div class="price-grid">
+      <ul class="incl-list reveal">
+        <li><span class="incl-mark">✓</span>コミクスアカデミー1名分（正規24万円/年 相当）</li>
+        <li><span class="incl-mark">✓</span>質疑応答グループチャット（回数無制限）</li>
+        <li><span class="incl-mark">✓</span>AI専門家60分MTG 月1回（標準付帯）</li>
+        <li><span class="incl-mark">✓</span>安達のFacebook投稿（投稿制作も無償）</li>
+        <li><span class="incl-mark">✓</span>鈴木主催「経営者会食」月1回・他己紹介</li>
+        <li><span class="incl-mark">✓</span>あさげのコミクス会・会員限定会食</li>
+        <li><span class="incl-mark">✓</span>プロランサー優先紹介</li>
+      </ul>
+
+      <div class="calc-card reveal">
+        <div class="calc-row"><span class="lab">年会費</span><span class="num">60万円</span></div>
+        <div class="calc-row sub"><span class="lab">助成金（アカデミー分・最大）</span><span class="num">−18万円</span></div>
+        <div class="calc-row"><span class="lab">実質</span><span class="num">年42万円</span></div>
+        <div class="calc-row final"><span class="lab">月あたり</span><span class="num">3.5万円</span></div>
+      </div>
+    </div>
+
+    <p class="price-close reveal">会食での1つの出会い、FB投稿での1件の反響、専門家との毎月の相談。どれか一つでも会費以上の価値になります。これほど分かりやすい経営投資を、私たちは知りません。</p>
+  </div>
+</section>
+
+<!-- ============ 12. FAQ ============ -->
+<section class="s-ink">
+  <div class="wrap">
+    <span class="eyebrow reveal">Questions</span>
+    <h2 class="sec-head reveal">よくあるご質問</h2>
+
+    <div class="faq reveal">
+      <details>
+        <summary>入会するにはどうすればよいですか</summary>
+        <div class="faq-a">完全招待制です。会員または運営者（鈴木・安達）からのご紹介と面談が必要です。この資料をお渡ししている時点で、貴社はご紹介の対象です。</div>
+      </details>
+      <details>
+        <summary>契約期間・解約の条件は</summary>
+        <div class="faq-a">全プラン税別・初年度は年間契約です。2年目以降は2ヶ月前のお申告で解約いただけます。</div>
+      </details>
+      <details>
+        <summary>助成金は必ず使えますか</summary>
+        <div class="faq-a">人材開発支援助成金（事業展開等リスキリング支援コース）の支給対象ですが、支給には要件・審査があり、貴社の状況により異なります。申請手続きは当社がサポートします。</div>
+      </details>
+      <details>
+        <summary>社員も学べますか</summary>
+        <div class="faq-a">コミクスアカデミーは会費に1名分が含まれます。2人目以降は1人24万円/年（助成金活用時は実質6万円/年）で追加いただけます。</div>
+      </details>
+      <details>
+        <summary>会食で必ず商談につながりますか</summary>
+        <div class="faq-a">会食は出会いの機会のご提供であり、特定の紹介・商談・成約を保証するものではありません。日程・人数には限りがあります。</div>
+      </details>
+      <details>
+        <summary>入会をお断りされる場合はありますか</summary>
+        <div class="faq-a">名刺集め・リスト収集だけが目的の方、売り込みだけが目的の方、他の会員への迷惑行為が懸念される方はお断りしています。場の質を守ることが、会員全員の利益だからです。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13. FINAL CTA ============ -->
+<section class="final-cta" id="final-cta">
+  <div class="wrap">
+    <span class="eyebrow reveal">By Invitation Only</span>
+    <h2 class="reveal">まずは、面談で<br class="sp">お話ししましょう</h2>
+    <p class="fc-lead reveal">この資料をお渡ししている時点で、貴社はご紹介の対象です。</p>
+    <div class="reveal">
+      <a class="btn btn-primary big" href="mailto:suzuki@comix.co.jp?subject=%E3%80%90AI%E7%B5%8C%E5%96%B6%E8%80%85%E3%82%AF%E3%83%A9%E3%83%96%CE%B2%E3%80%91%E6%8B%9B%E5%BE%85%E9%9D%A2%E8%AB%87%E3%81%AE%E7%94%B3%E8%BE%BC">招待面談を申し込む</a>
+    </div>
+    <p class="fc-help reveal">ご紹介者名を添えてご連絡ください。追って面談の日程をご案内します。</p>
+
+    <div class="assurance reveal">
+      <span>完全招待制・審査あり</span>
+      <span>初年度年間契約（2年目以降は2ヶ月前申告で解約可）</span>
+      <span>助成金の申請は当社がサポート</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14. FOOTER ============ -->
+<footer class="site-footer">
+  <div class="narrow">
+    <div class="f-brand">AI経営者クラブ β</div>
+    <div class="f-co"><a href="https://www.comix.co.jp/" target="_blank" rel="noopener">株式会社コミクス</a> ｜ 代表取締役 鈴木章裕</div>
+    <div class="f-copy">© COMIX Inc. 2026</div>
+    <p class="f-beta">※βは、会員の声を反映しながらサービスを進化させ続けるという姿勢を表しています。</p>
+  </div>
+</footer>
+
+<!-- ============ 15. STICKY BOTTOM CTA (mobile) ============ -->
+<div class="bottom-cta">
+  <a class="btn btn-primary" href="#final-cta">招待面談を申し込む</a>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    for(var i=0;i<els.length;i++){ els[i].classList.add('in'); }
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  for(var j=0;j<els.length;j++){ io.observe(els[j]); }
+})();
+</script>
+
+</body>
+</html>
