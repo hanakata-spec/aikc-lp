@@ -466,7 +466,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:36px 0;}
 <text class="wf-v" x="440" y="1169" font-size="12">×</text><rect class="wf-ph2" x="456" y="1161" width="150" height="8"/>
 <text class="wf-v" x="440" y="1183" font-size="12">×</text><rect class="wf-ph2" x="456" y="1175" width="150" height="8"/>
 <text class="wf-v" x="440" y="1197" font-size="12">×</text><rect class="wf-ph2" x="456" y="1189" width="150" height="8"/>
-<rect class="wf-b" x="56" y="1213" width="568" height="16" rx="4" fill="#C8A063" fill-opacity="0.06"/><text class="wf-gd" x="340" y="1225" text-anchor="middle" font-size="12">金枠 招待パネル：この資料をお渡し＝ご紹介の対象【クロージング①】</text>
+<rect class="wf-b" x="56" y="1213" width="568" height="16" rx="4" fill="#C8A063" fill-opacity="0.06"/><text class="wf-gd" x="340" y="1225" text-anchor="middle" font-size="12">金枠 招待パネル：完全招待制＝紹介と面談が必要【クロージング①】</text>
 <rect x="56" y="1274" width="568" height="80" fill="none" stroke="#C8A063" stroke-opacity="0.25"/>
 <line x1="206" y1="1274" x2="206" y2="1354" stroke="#C8A063" stroke-opacity="0.15"/>
 <line x1="310" y1="1274" x2="310" y2="1354" stroke="#C8A063" stroke-opacity="0.15"/>
@@ -567,7 +567,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:36px 0;}
         <tr><td>06</td><td><strong>VALUE01 詳細（出会い）</strong></td><td>目玉価値を深掘り</td><td>左＝3ステップ（<code>.steps</code>）／右＝紹介原資テーブル6行（<code>.rtable</code>）＋プルクオート＋非保証注記</td><td>2カラム（≤980pxで1列）。注記は<strong>削除禁止</strong>（<a href="#s9">09</a>）。</td></tr>
         <tr><td>07</td><td><strong>VALUE03 詳細（学び）</strong><br><span class="mini">.s-charcoal</span></td><td>学習の実利と実質価格</td><td>3カード（アカデミー/質疑チャット/60分MTG）＋助成金の金枠パネル（<code>.subsidy-panel</code>）</td><td>助成金注記は<strong>変更不可</strong>。実質42万円/月3.5万円の算式を明示。</td></tr>
         <tr><td>08</td><td><strong>VALUE04（場）</strong><br><span class="mini">.s-paper</span></td><td>コミュニティの質を訴求</td><td>ライト面3カード（あさげの会/会員限定会食/審査制）＋締め帯（<code>.community-close</code>）</td><td>ライト面用のカード配色上書き（<code>.s-paper .tcard</code>）。</td></tr>
-        <tr><td>09</td><td><strong>WHO</strong></td><td>自己選別＋クロージング①</td><td>✓5項目（<code>.check-list</code>）＋お断りパネル（<code>.reject-panel</code>）＋金枠 招待パネル（<code>.invite-panel</code>）</td><td>「この資料をお渡ししている時点で、貴社はご紹介の対象です」を配置。</td></tr>
+        <tr><td>09</td><td><strong>WHO</strong></td><td>自己選別＋クロージング①</td><td>✓5項目（<code>.check-list</code>）＋お断りパネル（<code>.reject-panel</code>）＋金枠 招待パネル（<code>.invite-panel</code>）</td><td>金枠パネルは「完全招待制 — ご紹介と面談が必要です」で締める（※「この資料を…」の資料前提文言は通常公開のため削除済み・2026-07-25）。</td></tr>
         <tr><td>10</td><td><strong>料金プラン表</strong><br><span class="mini">table.plan</span></td><td>βの位置づけを明快に</td><td>4プラン×9行。β列に金枠＋<code>RECOMMENDED</code>タグ（<code>.col-reco</code>／<code>.reco-tag</code>）</td><td><code>min-width:820px</code>＋横スクロール。行見出しは <code>sticky left</code>。</td></tr>
         <tr><td>11</td><td><strong>価格の中身</strong><br><span class="mini">.s-paper</span></td><td>「投資」への転換</td><td>左＝内包✓リスト（<code>.incl-list</code>）／右＝計算カード 60万→−18万→42万→月3.5万（<code>.calc-card</code>）</td><td>マイナス値は <code>--vermilion-hover</code>、最終値は大きな金数字。</td></tr>
         <tr><td>12</td><td><strong>FAQ</strong></td><td>不安の解消</td><td><code>details/summary</code> の6問アコーディオン（<code>.faq</code>）</td><td>資料記載事実のみ。Q2/Q3/Q5は法的リスクに関わる（<a href="#s9">09</a>）。</td></tr>
@@ -585,8 +585,8 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:36px 0;}
   </div>
 
   <div class="callout">
-    <h4>② パーソナライズされた希少性（クロージングを2箇所に）</h4>
-    <p style="margin-bottom:0">「<strong>この資料をお渡ししている時点で、貴社はご紹介の対象です</strong>」を <strong>WHO（招待パネル）</strong>と <strong>Final CTA</strong>の2箇所に配置。営業資料PDF原文の最強クロージングラインで、読み手を「選ばれた側」に置く。</p>
+    <h4>② 招待制の希少性（クロージング）</h4>
+    <p style="margin-bottom:0">初版は「この資料をお渡ししている時点で、貴社はご紹介の対象です」を WHO と Final CTA に配置していたが、<strong>本LPは通常公開（検索・リンク流入あり）のため資料前提の文言は削除</strong>（2026-07-25・鈴木代表の指示）。希少性の提示は WHO の金枠招待パネル「完全招待制 — ご紹介と面談が必要です」に集約し、Final CTA は見出し「まずは、面談でお話ししましょう」で直接誘導する。<u>この文言を復活させないこと</u>。</p>
   </div>
 
   <div class="grid2">
