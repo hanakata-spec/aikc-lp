@@ -711,15 +711,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       result.textContent = defaultText;
       return;
     }
-    var msg, cls;
+    var lines, cls;
     if(n >= 3){
-      msg = '該当 ' + n + ' 件 — 本クラブが最もお役に立てる経営者です。まずは面談でお話ししましょう。';
+      lines = ['該当 ' + n + ' 件 — 本クラブが最もお役に立てる経営者です。', 'まずは面談でお話ししましょう。'];
       cls = 'btn btn-primary big';
     } else {
-      msg = '該当 ' + n + ' 件 — その課題、ひとつの会費でまとめて解決できます。';
+      lines = ['該当 ' + n + ' 件 — その課題、ひとつの会費でまとめて解決できます。'];
       cls = 'btn btn-primary';
     }
-    result.textContent = msg;
+    result.textContent = '';
+    lines.forEach(function(line, i){
+      if(i > 0){
+        var br = document.createElement('br');
+        br.className = 'pc';
+        result.appendChild(br);
+      }
+      result.appendChild(document.createTextNode(line));
+    });
     var wrap = document.createElement('div');
     wrap.className = 'pain-result-cta';
     var a = document.createElement('a');
