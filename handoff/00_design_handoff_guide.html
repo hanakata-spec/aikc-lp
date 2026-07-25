@@ -178,6 +178,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:36px 0;}
     <li><a href="#s8">画像アセット</a></li>
     <li><a href="#s9">変更時の注意・要差し替え</a></li>
     <li><a href="#s10">ファイル構成と確認手順</a></li>
+    <li><a href="#s11">再構成追記（SEO×CVR強化）</a></li>
   </ol>
 </nav>
 
@@ -211,7 +212,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:36px 0;}
         <tr><th>ページの目的（唯一）</th><td>招待面談の申込（コンバージョン）。情報提供ではなく行動喚起のためのページ。</td></tr>
         <tr><th>素材の出典</th><td>営業資料PDF「<strong>AI経営者クラブβ_営業資料_正規版.pdf</strong>」（全9ページ）の記載事実のみでコピーを構成。<strong>数値・注記の創作は一切していない。</strong></td></tr>
         <tr><th>制作日 / 制作</th><td>2026-07-25 ／ Claude Code（HTML）＋ gpt-image-2（画像6点）</td></tr>
-        <tr><th>技術構成</th><td>単一 HTML ファイル。CSS/JS インライン。外部依存は Google Fonts のみ（Marcellus / Noto Sans JP / Shippori Mincho）。ビルド工程なし。</td></tr>
+        <tr><th>技術構成</th><td>HTML＋外部CSS（<code>css/style.css</code>）＋インラインJS。外部依存は Google Fonts のみ（Marcellus / Noto Sans JP / Shippori Mincho）。ビルド工程なし。GTM（GTM-5CRJNVT3）とファビコンは組込み済み。</td></tr>
       </tbody>
     </table>
   </div>
@@ -650,7 +651,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:36px 0;}
 
   <div class="callout">
     <h4>実装の勘所</h4>
-    <p style="margin-bottom:0">JS は約15行のみ（<code>index.html</code> 末尾の即時関数）。ライブラリ非依存。新しいセクションを追加する場合は要素に <code>class="reveal"</code> を付ければ自動でフェード対象になります。イージング値を変えるとサイト全体の「静けさ」が崩れるため、<code>cubic-bezier(.16,1,.3,1)</code> は維持推奨。</p>
+    <p style="margin-bottom:0">JS は <code>index.html</code> 末尾の即時関数2つのみ（reveal 表示制御＋§11 の課題セルフチェック）。ライブラリ非依存。新しいセクションを追加する場合は要素に <code>class="reveal"</code> を付ければ自動でフェード対象になります。イージング値を変えるとサイト全体の「静けさ」が崩れるため、<code>cubic-bezier(.16,1,.3,1)</code> は維持推奨。</p>
   </div>
 </section>
 
@@ -717,14 +718,19 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:36px 0;}
 
   <h3>フォルダツリー</h3>
   <pre class="tree">lp-ai-keieisha-club/
-├─ <span class="c">index.html</span>                <span class="m"># LP本体（CSS/JSインライン・単一ファイル）</span>
+├─ <span class="c">index.html</span>                <span class="m"># LP本体（JSインライン／GTM・OGP・JSON-LD組込み済み）</span>
+├─ css/
+│  └─ <span class="c">style.css</span>             <span class="m"># 全スタイル（url()は ../images/ 相対。移動時は要調整）</span>
+├─ favicon.ico              <span class="m"># comix.co.jp と同一ファビコン</span>
 ├─ images/aiclub/
 │  ├─ hero.png            <span class="m"># 1536×1024 / Hero背景</span>
 │  ├─ meeting.png         <span class="m"># 1024×1024 / Value01</span>
 │  ├─ media.png           <span class="m"># 1024×1024 / Value02</span>
 │  ├─ learning.png        <span class="m"># 1024×1024 / Value03</span>
 │  ├─ community.png       <span class="m"># 1024×1024 / Value04</span>
-│  └─ cta.png             <span class="m"># 1536×1024 / Final CTA背景</span>
+│  ├─ cta.png             <span class="m"># 1536×1024 / Final CTA背景</span>
+│  ├─ *.avif / *.webp     <span class="m"># 上記6種の軽量版（3段fallback用・§11参照）</span>
+│  └─ ogp.png             <span class="m"># 1200×630 / SNSシェア用OGP画像</span>
 └─ handoff/
    ├─ <span class="c">00_引き継ぎガイド.html</span>   <span class="m"># 本ドキュメント</span>
    ├─ image_prompts/       <span class="m"># gpt-image-2 プロンプト原文 ×6</span>
@@ -744,6 +750,24 @@ python3 -m http.server 8811
   <div class="callout">
     <h4>検証済み環境</h4>
     <p style="margin-bottom:0">Chrome（デスクトップ 1440 / モバイル 375）でコンソールエラー <strong>0</strong>、画像 <strong>全200</strong> を確認済み。<code>prefers-reduced-motion</code> 有効時のフォールバック、料金表の横スクロール、SP の固定下部CTA も動作確認済み。</p>
+  </div>
+</section>
+
+<section id="s11">
+  <h2><span class="n">11</span>再構成追記（2026-07-25・SEO×CVR強化）</h2>
+  <p>初版納品後、「Claude Code製LPがSEO検索1位」ノウハウ（①速い・素のHTML ②構造化データで信頼を機械に渡す ③低ハードルの診断型入口）を適用する再構成を実施しました。<strong>デザイン・コピー・セクション構成は不変</strong>で、以下5点が変わっています。</p>
+  <ol style="line-height:2">
+    <li><strong>画像の3段fallback</strong> — 全画像に AVIF / WebP を追加し、<code>&lt;picture&gt;</code>（カード4枚）と <code>image-set()</code>（hero / Final CTA 背景）で AVIF→WebP→PNG の順に配信。画像転送量は実測 <strong>PNG 12.1MB → AVIF 288KB（−97.6%）</strong>。<u>画像を差し替える際は必ず3形式を再生成</u>してください:
+    <pre class="tree">ffmpeg -y -i 新画像.png -c:v libsvtav1 -crf 32 -preset 4 -still-picture 1 新画像.avif
+ffmpeg -y -i 新画像.png -c:v libwebp -q:v 82 新画像.webp</pre></li>
+    <li><strong>JSON-LD 構造化データ 5種</strong>（<code>&lt;/head&gt;</code> 直前の <code>@graph</code>）— Organization / Person（代表）/ WebSite（alternateName で表記ゆれ対応）/ Service（Offer 月5万円）/ FAQPage。<u>本文の FAQ・価格・社名を変更したら JSON-LD 側も必ず同期</u>してください（特に FAQPage は本文と一字一句同一が原則）。</li>
+    <li><strong>Pain Strip を「経営課題 30秒セルフチェック」に</strong> — 5項目がタップで選択でき（<code>role="checkbox"</code>・キーボード対応）、該当数に応じて結果表示が3分岐（0件=既定の締め帯／1〜2件=標準CTA／3件以上=強調CTA）。<code>aria-live</code> で通知。資料請求より心理ハードルの低い入口を最前面に置く設計です。</li>
+    <li><strong>Hero 副CTA の文言変更</strong> — 「クラブの中身を見る」→「30秒で課題チェック」（リンク先 <code>#pain</code> は同じ）。</li>
+    <li><strong>OGP / canonical / meta description 完備</strong> — OGP画像は <code>images/aiclub/ogp.png</code>（1200×630・PNG。SVGはX/Slackで表示されないため不可）。<u>canonical / og:url / og:image / JSON-LD の URL は仮ドメイン</u> <code>https://club.comix.co.jp/</code> のため、公開時に本番URLへ一括差し替えが必要です（該当箇所に HTML コメントあり）。</li>
+  </ol>
+  <div class="callout">
+    <h4>公開時にのみ効く項目</h4>
+    <p style="margin-bottom:0">構造化データ・OGP・canonical は Web 公開後に検索エンジン/SNS が読むものです。ローカル確認では表示に影響しません。公開後は Google Search Console 登録 → 実データを見て FAQ 追記・表記ゆれ対応を続けるのが本ノウハウの後半戦です。</p>
   </div>
 </section>
 

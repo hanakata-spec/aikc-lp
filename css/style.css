@@ -58,9 +58,9 @@ section{padding:clamp(72px,10vw,120px) 0;position:relative;}
 .sec-head{font-size:clamp(34px,4.5vw,54px);margin-bottom:20px;text-wrap:balance;}
 .sec-head span{display:inline-block;}
 /* 本文・コールアウトは文節単位で改行（非対応ブラウザは従来通り） */
-.hero-lead,.spotlight-note,.sec-sub,.lead-txt,.note,.plan-below,.after-cards-note,.pullquote,.subsidy-panel p,.community-close,.invite-panel,.price-close,.fc-lead,.fc-help,.f-beta,.vcard p,.tcard li{word-break:auto-phrase;}
+.hero-lead,.spotlight-note,.sec-sub,.lead-txt,.note,.plan-below,.after-cards-note,.pullquote,.subsidy-panel p,.community-close,.invite-panel,.price-close,.pain-close,.fc-lead,.fc-help,.f-beta,.vcard p,.tcard li{word-break:auto-phrase;}
 .hero-lead,.spotlight-note,.sec-sub,.lead-txt,.note,.plan-below,.after-cards-note,.pullquote,.subsidy-panel p,.f-beta{text-wrap:pretty;}
-.community-close,.invite-panel,.price-close{text-wrap:balance;}
+.community-close,.invite-panel,.price-close,.pain-close{text-wrap:balance;}
 .nb{display:inline-block;}
 .sec-sub{font-size:clamp(16px,1.6vw,19px);color:var(--on-dark-sub);max-width:760px;line-height:1.9;}
 .s-paper .sec-sub,.s-paper-dim .sec-sub{color:var(--on-light-sub);}
@@ -115,6 +115,13 @@ section{padding:clamp(72px,10vw,120px) 0;position:relative;}
   background:
     linear-gradient(rgba(22,21,26,.55),rgba(22,21,26,.92)),
     url('../images/aiclub/hero.png') center/cover no-repeat;
+  background:
+    linear-gradient(rgba(22,21,26,.55),rgba(22,21,26,.92)),
+    image-set(
+      url('../images/aiclub/hero.avif') type('image/avif'),
+      url('../images/aiclub/hero.webp') type('image/webp'),
+      url('../images/aiclub/hero.png') type('image/png')
+    ) center/cover no-repeat;
   padding:clamp(90px,14vh,150px) 0 clamp(60px,10vh,110px);
   position:relative;
 }
@@ -178,6 +185,15 @@ section{padding:clamp(72px,10vw,120px) 0;position:relative;}
   font-family:"Shippori Mincho",serif;font-weight:700;
   font-size:clamp(19px,2.6vw,28px);color:var(--gold-bright);line-height:1.6;
 }
+/* diagnostic self-check (interactive pain strip) */
+.pain-guide{margin-top:14px;font-size:17px;color:var(--gold);letter-spacing:.02em;}
+.pain-row{cursor:pointer;border-radius:4px;transition:box-shadow .25s ease,background .25s ease;}
+.pain-row.selected{box-shadow:inset 0 0 0 1.5px var(--gold);background:rgba(200,160,99,.06);}
+.pain-row:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.pain-x::before{content:"×";}
+.pain-row.selected .pain-x{color:var(--gold-bright);}
+.pain-row.selected .pain-x::before{content:"✓";}
+.pain-result-cta{display:block;margin-top:22px;}
 
 /* ============ SOLUTION BRIDGE ============ */
 .bridge-wrap{margin-top:52px;}
@@ -196,6 +212,7 @@ section{padding:clamp(72px,10vw,120px) 0;position:relative;}
 .vcards{margin-top:56px;display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
 .vcard{background:var(--charcoal-2);border:1px solid var(--hairline-soft);border-radius:4px;overflow:hidden;transition:transform .35s ease,border-color .35s ease;display:flex;flex-direction:column;}
 .vcard:hover{transform:translateY(-4px);border-color:var(--gold);}
+.vcard picture{display:block;width:100%;}
 .vcard-img{width:100%;height:210px;object-fit:cover;filter:saturate(.92);}
 .vcard-body{padding:28px 28px 32px;}
 .vcard-no{font-family:"Marcellus",serif;font-size:14px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;}
@@ -333,6 +350,13 @@ table.plan tbody tr:last-child td.col-reco{border-bottom:2px solid var(--gold);}
   background:
     linear-gradient(rgba(22,21,26,.6),rgba(22,21,26,.92)),
     url('../images/aiclub/cta.png') center/cover no-repeat;
+  background:
+    linear-gradient(rgba(22,21,26,.6),rgba(22,21,26,.92)),
+    image-set(
+      url('../images/aiclub/cta.avif') type('image/avif'),
+      url('../images/aiclub/cta.webp') type('image/webp'),
+      url('../images/aiclub/cta.png') type('image/png')
+    ) center/cover no-repeat;
   text-align:center;
 }
 .final-cta .eyebrow{color:var(--gold);}
@@ -408,5 +432,5 @@ table.plan tbody tr:last-child td.col-reco{border-bottom:2px solid var(--gold);}
   html{scroll-behavior:auto;}
   .reveal{opacity:1!important;transform:none!important;transition:none!important;}
   .hero-el{opacity:1!important;transform:none!important;animation:none!important;}
-  .btn,.vcard,.tcard{transition:none!important;}
+  .btn,.vcard,.tcard,.pain-row{transition:none!important;}
 }

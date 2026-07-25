@@ -13,14 +13,121 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI経営者クラブβ | 完全招待制・経営者のためのメンバーシップ — 株式会社コミクス</title>
 <link rel="icon" href="./favicon.ico">
-<meta name="description" content="完全招待制の経営者コミュニティ「AI経営者クラブβ」。経営者1.5万人への発信、1,100講座の学び、本気の経営者との出会いを月5万円から。運営：株式会社コミクス（代表・鈴木章裕）。">
+<meta name="description" content="完全招待制・月5万円の経営者コミュニティ「AI経営者クラブβ」。AI専門家100名超の伴走、経営者1.5万人への発信、1,100講座の学び、月1回の経営者会食。株式会社コミクス運営。">
+<!-- 公開時: 仮ドメイン club.comix.co.jp を本番URLへ差し替え（canonical / og:url / og:image / JSON-LD の url） -->
+<link rel="canonical" href="https://club.comix.co.jp/">
 <meta property="og:title" content="AI経営者クラブβ | 完全招待制・経営者のためのメンバーシップ">
 <meta property="og:description" content="発信・学び・出会いを、ひとつの会費で。月5万円（助成金活用で実質3.5万円）。完全招待制の経営者クラブ。運営：株式会社コミクス。">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://club.comix.co.jp/">
+<meta property="og:site_name" content="AI経営者クラブβ">
+<meta property="og:image" content="https://club.comix.co.jp/images/aiclub/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" type="image/avif" href="./images/aiclub/hero.avif" fetchpriority="high">
 <link rel="stylesheet" href="./css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://comix.co.jp/#organization",
+      "name": "株式会社コミクス",
+      "alternateName": "COMIX Inc.",
+      "url": "https://comix.co.jp",
+      "founder": { "@id": "https://comix.co.jp/#suzuki" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://comix.co.jp/#suzuki",
+      "name": "鈴木章裕",
+      "jobTitle": "代表取締役",
+      "worksFor": { "@id": "https://comix.co.jp/#organization" },
+      "url": "https://comix.co.jp"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://club.comix.co.jp/#website",
+      "name": "AI経営者クラブβ",
+      "alternateName": ["AI経営者クラブ", "AI経営者クラブ ベータ", "AI keieisha club"],
+      "url": "https://club.comix.co.jp/"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://club.comix.co.jp/#service",
+      "name": "AI経営者クラブβ",
+      "serviceType": "経営者コミュニティ（完全招待制）",
+      "provider": { "@id": "https://comix.co.jp/#organization" },
+      "description": "完全招待制の経営者コミュニティ。出会い・発信・学び・場を月5万円（税別）のワンプランで提供",
+      "offers": {
+        "@type": "Offer",
+        "price": "50000",
+        "priceCurrency": "JPY",
+        "description": "月額・税別。初年度年間契約"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://club.comix.co.jp/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "入会するにはどうすればよいですか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "完全招待制です。会員または運営者（鈴木・安達）からのご紹介と面談が必要です。この資料をお渡ししている時点で、貴社はご紹介の対象です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "契約期間・解約の条件は",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "全プラン税別・初年度は年間契約です。2年目以降は2ヶ月前のお申告で解約いただけます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "助成金は必ず使えますか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "人材開発支援助成金（事業展開等リスキリング支援コース）の支給対象ですが、支給には要件・審査があり、貴社の状況により異なります。申請手続きは当社がサポートします。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "社員も学べますか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "コミクスアカデミーは会費に1名分が含まれます。2人目以降は1人24万円/年（助成金活用時は実質6万円/年）で追加いただけます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "会食で必ず商談につながりますか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "会食は出会いの機会のご提供であり、特定の紹介・商談・成約を保証するものではありません。日程・人数には限りがあります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "入会をお断りされる場合はありますか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "名刺集め・リスト収集だけが目的の方、売り込みだけが目的の方、他の会員への迷惑行為が懸念される方はお断りしています。場の質を守ることが、会員全員の利益だからです。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -62,7 +169,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="hero-cta hero-el d6">
           <a class="btn btn-primary big" href="#final-cta">招待面談を申し込む</a>
-          <a class="btn btn-ghost" href="#pain">クラブの中身を見る</a>
+          <a class="btn btn-ghost" href="#pain">30秒で課題チェック</a>
         </div>
       </div>
 
@@ -79,31 +186,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <h2 class="sec-head reveal"><span>経営者が</span><span>「独りで抱えがちな課題」、</span><span>ありませんか</span></h2>
     <p class="sec-sub reveal">どれか一つでも当てはまれば、この倶楽部はお役に立てます。</p>
+    <p class="pain-guide reveal">当てはまるものをタップしてください<span class="nb">（30秒）</span></p>
 
     <div class="pain-list reveal">
-      <div class="pain-row">
-        <span class="pain-no">01</span><span class="pain-x">×</span>
+      <div class="pain-row" role="checkbox" aria-checked="false" tabindex="0">
+        <span class="pain-no" aria-hidden="true">01</span><span class="pain-x" aria-hidden="true"></span>
         <span class="pain-txt"><strong>AIを経営に活かしたいが、進め方が分からない</strong><span>情報は溢れているのに、自社の実務に落ちない。</span></span>
       </div>
-      <div class="pain-row">
-        <span class="pain-no">02</span><span class="pain-x">×</span>
+      <div class="pain-row" role="checkbox" aria-checked="false" tabindex="0">
+        <span class="pain-no" aria-hidden="true">02</span><span class="pain-x" aria-hidden="true"></span>
         <span class="pain-txt"><strong>信頼できる発注先・専門家が見つからない</strong><span>一番確実な「信頼できる人からの紹介」が、続かない。</span></span>
       </div>
-      <div class="pain-row">
-        <span class="pain-no">03</span><span class="pain-x">×</span>
+      <div class="pain-row" role="checkbox" aria-checked="false" tabindex="0">
+        <span class="pain-no" aria-hidden="true">03</span><span class="pain-x" aria-hidden="true"></span>
         <span class="pain-txt"><strong>自社を経営者層に知ってほしいが、広告費は高い</strong><span>決裁者に届くチャネルは限られ、費用対効果は年々悪化。</span></span>
       </div>
-      <div class="pain-row">
-        <span class="pain-no">04</span><span class="pain-x">×</span>
+      <div class="pain-row" role="checkbox" aria-checked="false" tabindex="0">
+        <span class="pain-no" aria-hidden="true">04</span><span class="pain-x" aria-hidden="true"></span>
         <span class="pain-txt"><strong>購買力の高い経営者との商談数を増やしたい</strong><span>なかなか思うような打ち手が打てていない。</span></span>
       </div>
-      <div class="pain-row">
-        <span class="pain-no">05</span><span class="pain-x">×</span>
+      <div class="pain-row" role="checkbox" aria-checked="false" tabindex="0">
+        <span class="pain-no" aria-hidden="true">05</span><span class="pain-x" aria-hidden="true"></span>
         <span class="pain-txt"><strong>本音で話せる経営者仲間が、意外と少ない</strong><span>名刺交換だけの交流会では、深い関係にならない。</span></span>
       </div>
     </div>
 
-    <div class="pain-close reveal">この5つを、ひとつの会費でまとめて解決するのが「AI経営者クラブβ」です</div>
+    <div class="pain-close reveal" id="painResult" aria-live="polite" data-default="この5つを、ひとつの会費でまとめて解決するのが「AI経営者クラブβ」です">この5つを、ひとつの会費でまとめて解決するのが「AI経営者クラブβ」です</div>
   </div>
 </section>
 
@@ -200,7 +308,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="vcards">
       <article class="vcard reveal">
-        <img class="vcard-img" src="./images/aiclub/meeting.png" width="1024" height="1024" alt="経営者会食で交わされる酒器のクローズアップ" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="./images/aiclub/meeting.avif" type="image/avif">
+          <source srcset="./images/aiclub/meeting.webp" type="image/webp">
+          <img class="vcard-img" src="./images/aiclub/meeting.png" width="1024" height="1024" alt="経営者会食で交わされる酒器のクローズアップ" loading="lazy" decoding="async">
+        </picture>
         <div class="vcard-body">
           <span class="vcard-no">Value 01</span>
           <h3>出会い</h3>
@@ -208,7 +320,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
       <article class="vcard reveal">
-        <img class="vcard-img" src="./images/aiclub/media.png" width="1024" height="1024" alt="高層ラウンジから望む東京の夜景" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="./images/aiclub/media.avif" type="image/avif">
+          <source srcset="./images/aiclub/media.webp" type="image/webp">
+          <img class="vcard-img" src="./images/aiclub/media.png" width="1024" height="1024" alt="高層ラウンジから望む東京の夜景" loading="lazy" decoding="async">
+        </picture>
         <div class="vcard-body">
           <span class="vcard-no">Value 02</span>
           <h3>発信</h3>
@@ -216,7 +332,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
       <article class="vcard reveal">
-        <img class="vcard-img" src="./images/aiclub/learning.png" width="1024" height="1024" alt="夜の書斎で学びに向かう静かな空間" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="./images/aiclub/learning.avif" type="image/avif">
+          <source srcset="./images/aiclub/learning.webp" type="image/webp">
+          <img class="vcard-img" src="./images/aiclub/learning.png" width="1024" height="1024" alt="夜の書斎で学びに向かう静かな空間" loading="lazy" decoding="async">
+        </picture>
         <div class="vcard-body">
           <span class="vcard-no">Value 03</span>
           <h3>学び</h3>
@@ -224,7 +344,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
       <article class="vcard reveal">
-        <img class="vcard-img" src="./images/aiclub/community.png" width="1024" height="1024" alt="経営者が集うバンケット会場" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="./images/aiclub/community.avif" type="image/avif">
+          <source srcset="./images/aiclub/community.webp" type="image/webp">
+          <img class="vcard-img" src="./images/aiclub/community.png" width="1024" height="1024" alt="経営者が集うバンケット会場" loading="lazy" decoding="async">
+        </picture>
         <div class="vcard-body">
           <span class="vcard-no">Value 04</span>
           <h3>場</h3>
@@ -572,6 +696,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
   for(var j=0;j<els.length;j++){ io.observe(els[j]); }
+})();
+
+/* diagnostic self-check: interactive pain strip */
+(function(){
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.pain-row'));
+  var result = document.getElementById('painResult');
+  if(!rows.length || !result){ return; }
+  var defaultText = result.getAttribute('data-default') || result.textContent;
+
+  function render(){
+    var n = rows.filter(function(r){ return r.getAttribute('aria-checked') === 'true'; }).length;
+    if(n === 0){
+      result.textContent = defaultText;
+      return;
+    }
+    var msg, cls;
+    if(n >= 3){
+      msg = '該当 ' + n + ' 件 — 本クラブが最もお役に立てる経営者です。まずは面談でお話ししましょう。';
+      cls = 'btn btn-primary big';
+    } else {
+      msg = '該当 ' + n + ' 件 — その課題、ひとつの会費でまとめて解決できます。';
+      cls = 'btn btn-primary';
+    }
+    result.textContent = msg;
+    var wrap = document.createElement('div');
+    wrap.className = 'pain-result-cta';
+    var a = document.createElement('a');
+    a.className = cls;
+    a.href = '#final-cta';
+    a.textContent = '招待面談を申し込む';
+    wrap.appendChild(a);
+    result.appendChild(wrap);
+  }
+
+  function toggle(row){
+    var on = row.getAttribute('aria-checked') === 'true';
+    row.setAttribute('aria-checked', on ? 'false' : 'true');
+    row.classList.toggle('selected', !on);
+    render();
+  }
+
+  rows.forEach(function(row){
+    row.addEventListener('click', function(){ toggle(row); });
+    row.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){
+        e.preventDefault();
+        toggle(row);
+      }
+    });
+  });
 })();
 </script>
 
