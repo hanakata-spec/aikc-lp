@@ -760,7 +760,7 @@ python3 -m http.server 8811
     <li><strong>画像の3段fallback</strong> — 全画像に AVIF / WebP を追加し、<code>&lt;picture&gt;</code>（カード4枚）と <code>image-set()</code>（hero / Final CTA 背景）で AVIF→WebP→PNG の順に配信。画像転送量は実測 <strong>PNG 12.1MB → AVIF 288KB（−97.6%）</strong>。<u>画像を差し替える際は必ず3形式を再生成</u>してください:
     <pre class="tree">ffmpeg -y -i 新画像.png -c:v libsvtav1 -crf 32 -preset 4 -still-picture 1 新画像.avif
 ffmpeg -y -i 新画像.png -c:v libwebp -q:v 82 新画像.webp</pre></li>
-    <li><strong>JSON-LD 構造化データ 5種</strong>（<code>&lt;/head&gt;</code> 直前の <code>@graph</code>）— Organization / Person（代表）/ WebSite（alternateName で表記ゆれ対応）/ Service（Offer 月5万円）/ FAQPage。<u>本文の FAQ・価格・社名を変更したら JSON-LD 側も必ず同期</u>してください（特に FAQPage は本文と一字一句同一が原則）。</li>
+    <li><strong>JSON-LD 構造化データ 4種</strong>（<code>&lt;/head&gt;</code> 直前の <code>@graph</code>）— Organization / WebSite（alternateName で表記ゆれ対応）/ Service（Offer 月5万円）/ FAQPage。<u>本文の FAQ・価格・社名を変更したら JSON-LD 側も必ず同期</u>してください（特に FAQPage は本文と一字一句同一が原則）。</li>
     <li><strong>Pain Strip を「経営課題 30秒セルフチェック」に</strong> — 5項目がタップで選択でき（<code>role="checkbox"</code>・キーボード対応）、該当数に応じて結果表示が3分岐（0件=既定の締め帯／1〜2件=標準CTA／3件以上=強調CTA）。<code>aria-live</code> で通知。資料請求より心理ハードルの低い入口を最前面に置く設計です。</li>
     <li><strong>Hero 副CTA の文言変更</strong> — 「クラブの中身を見る」→「30秒で課題チェック」（リンク先 <code>#pain</code> は同じ）。</li>
     <li><strong>OGP / canonical / meta description 完備</strong> — OGP画像は <code>images/aiclub/ogp.png</code>（1200×630・PNG。SVGはX/Slackで表示されないため不可）。<u>canonical / og:url / og:image / JSON-LD の URL は仮ドメイン</u> <code>https://club.comix.co.jp/</code> のため、公開時に本番URLへ一括差し替えが必要です（該当箇所に HTML コメントあり）。</li>
