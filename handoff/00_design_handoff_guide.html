@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン引き継ぎガイド ｜ AI経営者クラブβ LP — 株式会社コミクス</title>
+<meta name="description" content="完全招待制の経営者コミュニティ「AI経営者クラブβ」ランディングページのデザイン引き継ぎガイド。CSS変数・タイポグラフィ・ワイヤーフレーム・コンポーネント・インタラクション・画像アセット・変更時の注意を、実ファイル index.html から抽出して記載。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF8F3;
+  --ink:#221714;
+  --sub:#5C564A;
+  --muted:#6E6857;
+  --gold:#C8A063;
+  --gold-d:#A47B2B;      /* テキスト用の濃い金（ライト面でAA確保） */
+  --gold-soft:rgba(200,160,99,.10);
+  --sumi:#16151A;
+  --vermilion:#D93A1B;
+  --line:#E6DECB;
+  --line-soft:#EFE8D8;
+  --card:#FFFFFF;
+  --code-bg:#F1ECDF;
+  --toc-w:248px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:24px;-webkit-text-size-adjust:100%;}
+body{
+  font-family:"Noto Sans JP",sans-serif;
+  font-size:16px;line-height:1.8;
+  color:var(--ink);background:var(--bg);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+h1,h2,h3,h4{font-family:"Shippori Mincho",serif;font-weight:700;line-height:1.4;letter-spacing:.01em;color:var(--sumi);}
+a{color:var(--gold-d);}
+sup{font-size:.62em;}
+
+/* ===== layout ===== */
+.shell{max-width:1000px;margin:0 auto;padding:0 32px 120px;}
+@media (min-width:1240px){
+  body{padding-left:var(--toc-w);}
+  .toc{position:fixed;top:0;left:0;width:var(--toc-w);height:100vh;overflow-y:auto;
+    border-right:1px solid var(--line);background:#F6F1E6;padding:30px 22px 40px;}
+}
+
+/* ===== TOC ===== */
+.toc{margin-bottom:8px;}
+.toc .toc-brand{font-family:"Marcellus",serif;letter-spacing:.24em;font-size:11px;color:var(--gold-d);text-transform:uppercase;margin-bottom:6px;}
+.toc .toc-ttl{font-family:"Shippori Mincho",serif;font-weight:700;font-size:17px;color:var(--sumi);line-height:1.5;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--line);}
+.toc ol{list-style:none;counter-reset:toc;}
+.toc li{counter-increment:toc;margin:2px 0;}
+.toc a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);font-size:13.5px;line-height:1.5;padding:7px 8px;border-radius:4px;transition:background .2s;}
+.toc a:hover{background:var(--gold-soft);}
+.toc a::before{content:counter(toc,decimal-leading-zero);font-family:"Marcellus",serif;color:var(--gold-d);font-size:12px;min-width:20px;}
+@media (max-width:1239px){
+  .toc{border:1px solid var(--line);border-radius:8px;background:#F6F1E6;padding:22px 22px 18px;margin:28px 0 8px;}
+  .toc ol{columns:2;column-gap:18px;}
+}
+@media (max-width:560px){ .toc ol{columns:1;} }
+
+/* ===== cover ===== */
+.cover{padding:56px 0 40px;border-bottom:2px solid var(--gold);margin-bottom:8px;}
+.cover .ey{font-family:"Marcellus",serif;letter-spacing:.34em;text-transform:uppercase;font-size:13px;color:var(--gold-d);}
+.cover h1{font-size:clamp(30px,5vw,46px);line-height:1.32;margin:18px 0 14px;}
+.cover .co-sub{font-size:17px;color:var(--sub);line-height:1.85;max-width:720px;}
+.meta-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.chip{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 15px;color:var(--muted);}
+.chip b{color:var(--ink);font-weight:700;}
+
+/* ===== sections ===== */
+section.doc{padding:52px 0 8px;border-top:1px solid var(--line-soft);}
+section.doc:first-of-type{border-top:0;}
+.sec-eyebrow{font-family:"Marcellus",serif;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--gold-d);display:block;margin-bottom:8px;}
+.doc h2{font-size:clamp(24px,3.4vw,34px);margin-bottom:10px;display:flex;align-items:baseline;gap:14px;}
+.doc h2 .n{font-family:"Marcellus",serif;color:var(--gold);font-size:.72em;}
+.doc h3{font-size:19px;margin:34px 0 12px;padding-left:13px;border-left:3px solid var(--gold);}
+.doc h4{font-size:16px;margin:20px 0 8px;color:var(--ink);}
+.doc p{margin:12px 0;}
+.lead{font-size:17px;color:var(--sub);line-height:1.85;margin:6px 0 18px;max-width:760px;}
+ul.disc,ol.dec{margin:12px 0 12px 4px;padding-left:22px;}
+ul.disc li,ol.dec li{margin:7px 0;line-height:1.75;}
+ul.disc li::marker{color:var(--gold-d);}
+strong{font-weight:700;}
+.em-gold{color:var(--gold-d);font-weight:700;}
+
+/* ===== tables ===== */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0;border:1px solid var(--line);border-radius:8px;}
+table.tbl{border-collapse:collapse;width:100%;font-size:14px;background:#fff;}
+table.tbl th,table.tbl td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.65;}
+table.tbl thead th{background:var(--sumi);color:#F5F1E8;font-family:"Shippori Mincho",serif;font-weight:700;font-size:13.5px;border-bottom:0;position:sticky;top:0;}
+table.tbl tbody tr:last-child td{border-bottom:0;}
+table.tbl tbody tr:nth-child(even){background:#FCFAF4;}
+table.tbl td code,table.tbl th code{font-size:12.5px;}
+.tbl-narrow td:first-child{white-space:nowrap;}
+
+/* code / tokens */
+code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;background:var(--code-bg);color:#5a4a26;padding:2px 6px;border-radius:4px;font-size:13px;}
+.swatch{display:inline-block;width:34px;height:20px;border-radius:3px;border:1px solid rgba(0,0,0,.15);vertical-align:middle;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);}
+
+/* callouts */
+.callout{border:1.5px solid var(--gold);background:var(--gold-soft);border-radius:8px;padding:20px 24px;margin:20px 0;}
+.callout h4{margin-top:0;color:var(--gold-d);font-size:16.5px;}
+.callout p:last-child,.callout ul:last-child{margin-bottom:0;}
+.warn{border:1.5px solid var(--vermilion);background:rgba(217,58,27,.05);border-radius:8px;padding:20px 24px;margin:20px 0;}
+.warn h4{margin-top:0;color:var(--vermilion);font-size:16.5px;}
+.warn p:last-child,.warn ul:last-child{margin-bottom:0;}
+.tag{display:inline-block;font-family:"Marcellus",serif;letter-spacing:.12em;font-size:11px;color:var(--sumi);background:var(--gold);padding:3px 10px;border-radius:3px;text-transform:uppercase;vertical-align:middle;}
+.tag-v{background:var(--vermilion);color:#fff;}
+
+/* figures */
+figure{margin:22px 0;}
+figure.frame{border:1px solid var(--line);border-radius:10px;background:#fff;padding:22px;}
+figure figcaption{font-size:13px;color:var(--muted);margin-top:12px;text-align:center;line-height:1.6;}
+.bridge-embed{background:#F5F1E8;border-radius:8px;padding:22px 18px;}
+.bridge-embed svg{width:100%;height:auto;display:block;}
+
+/* wireframe grid */
+.wf-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start;margin:20px 0;}
+.wf-svg{width:100%;height:auto;display:block;}
+.wf-col-ttl{font-family:"Marcellus",serif;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--gold-d);margin-bottom:12px;}
+.mob-card{border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px;position:sticky;top:18px;}
+.mob-diff{list-style:none;margin:16px 4px 4px;}
+.mob-diff li{position:relative;padding:8px 0 8px 26px;border-bottom:1px dashed var(--line);font-size:13.5px;line-height:1.6;}
+.mob-diff li:last-child{border-bottom:0;}
+.mob-diff li::before{content:"→";position:absolute;left:2px;color:var(--gold-d);font-weight:700;}
+@media (max-width:820px){ .wf-grid{grid-template-columns:1fr;} .mob-card{position:static;} }
+
+/* mobile phone wireframe svg */
+.phone-svg{width:100%;max-width:230px;height:auto;display:block;margin:0 auto;}
+
+/* tree */
+pre.tree{background:var(--sumi);color:#E9E2D2;border-radius:8px;padding:20px 22px;overflow-x:auto;font-family:"SFMono-Regular",Consolas,monospace;font-size:13px;line-height:1.7;}
+pre.tree .c{color:var(--gold);}
+pre.tree .m{color:#9E968A;}
+
+/* misc */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media (max-width:720px){ .grid2{grid-template-columns:1fr;} }
+.mini{font-size:13px;color:var(--muted);line-height:1.7;}
+hr.rule{border:0;border-top:1px solid var(--line);margin:36px 0;}
+.kbd{font-family:"SFMono-Regular",Consolas,monospace;background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:2px 8px;font-size:12.5px;color:var(--ink);}
+.footer-note{margin-top:60px;padding-top:22px;border-top:2px solid var(--gold);font-size:13px;color:var(--muted);text-align:center;line-height:1.8;}
+
+/* ===== print (A4) ===== */
+@media print{
+  :root{--toc-w:0;}
+  body{padding-left:0;background:#fff;font-size:11pt;}
+  .toc{display:none!important;}
+  .shell{max-width:none;padding:0 6mm 10mm;}
+  a{color:var(--ink);text-decoration:none;}
+  section.doc{padding-top:14pt;}
+  .callout,.warn,.tbl-wrap,figure,.mob-card,pre.tree,.wf-grid{page-break-inside:avoid;}
+  table.tbl thead th{position:static;}
+  .cover{padding-top:0;}
+  h2,h3{page-break-after:avoid;}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== TOC ========== -->
+<nav class="toc" aria-label="目次">
+  <div class="toc-brand">Design Handoff</div>
+  <div class="toc-ttl">AI経営者クラブβ<br>LP 引き継ぎガイド</div>
+  <ol>
+    <li><a href="#s1">プロジェクト概要</a></li>
+    <li><a href="#s2">デザインコンセプト「招待状」</a></li>
+    <li><a href="#s3">デザイントークン</a></li>
+    <li><a href="#s4">ワイヤーフレーム</a></li>
+    <li><a href="#s5">セクション別仕様とCVR設計根拠</a></li>
+    <li><a href="#s6">コンポーネントインベントリ</a></li>
+    <li><a href="#s7">インタラクション仕様</a></li>
+    <li><a href="#s8">画像アセット</a></li>
+    <li><a href="#s9">変更時の注意・要差し替え</a></li>
+    <li><a href="#s10">ファイル構成と確認手順</a></li>
+  </ol>
+</nav>
+
+<main class="shell">
+
+<!-- ========== COVER ========== -->
+<header class="cover">
+  <span class="ey">Design Handoff Guide — By Invitation Only</span>
+  <h1>「AI経営者クラブβ」ランディングページ<br>デザイン引き継ぎガイド</h1>
+  <p class="co-sub">プロのデザイナーへ引き継ぐための単一ドキュメント。すべての数値・変数・構造は、完成済み <code>index.html</code> から実測抽出しています（値の創作なし）。この資料自体の世界観は、LP と同じ墨・金・和紙の3色で統一しています。</p>
+  <div class="meta-chips">
+    <span class="chip"><b>商材</b> AI経営者クラブβ（完全招待制）</span>
+    <span class="chip"><b>運営</b> 株式会社コミクス</span>
+    <span class="chip"><b>制作日</b> 2026-07-25</span>
+    <span class="chip"><b>制作</b> Claude Code（HTML）＋ gpt-image-2（画像6点）</span>
+  </div>
+</header>
+
+<!-- ========== 1. OVERVIEW ========== -->
+<section class="doc" id="s1">
+  <span class="sec-eyebrow">Project Overview</span>
+  <h2><span class="n">01</span>プロジェクト概要</h2>
+  <p class="lead">このページの仕事は、ただ一つ。<strong>招待面談の申込（CVR）</strong>です。すべての要素はそこへ向けて設計されています。</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl tbl-narrow">
+      <tbody>
+        <tr><th>商材</th><td>「<strong>AI経営者クラブβ</strong>」— 完全招待制の経営者コミュニティ。<strong>月5万円（税別）</strong>／助成金活用で実質 月3.5万円。</td></tr>
+        <tr><th>運営</th><td>株式会社コミクス（COMIX Inc.）／代表取締役 鈴木章裕</td></tr>
+        <tr><th>ターゲット</th><td>中小企業経営者</td></tr>
+        <tr><th>ページの目的（唯一）</th><td>招待面談の申込（コンバージョン）。情報提供ではなく行動喚起のためのページ。</td></tr>
+        <tr><th>素材の出典</th><td>営業資料PDF「<strong>AI経営者クラブβ_営業資料_正規版.pdf</strong>」（全9ページ）の記載事実のみでコピーを構成。<strong>数値・注記の創作は一切していない。</strong></td></tr>
+        <tr><th>制作日 / 制作</th><td>2026-07-25 ／ Claude Code（HTML）＋ gpt-image-2（画像6点）</td></tr>
+        <tr><th>技術構成</th><td>単一 HTML ファイル。CSS/JS インライン。外部依存は Google Fonts のみ（Marcellus / Noto Sans JP / Shippori Mincho）。ビルド工程なし。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mini">※本ドキュメント内のすべての固有数値（1,789社・1.5万人・1,100講座・100名超・24万円・18万円 等）は上記営業資料PDFに由来します。値を書き換える場合は必ず原本と整合させてください（詳細は <a href="#s9">09. 変更時の注意</a>）。</p>
+</section>
+
+<!-- ========== 2. CONCEPT ========== -->
+<section class="doc" id="s2">
+  <span class="sec-eyebrow">Design Concept</span>
+  <h2><span class="n">02</span>デザインコンセプト「招待状」</h2>
+  <p class="lead">完全招待制という商材特性から、このLPは「売り込むLP」ではなく<strong>「高級会員制クラブの招待状」</strong>として設計しています。</p>
+
+  <ul class="disc">
+    <li><strong>3色の世界観</strong>：墨黒（<code>#16151A</code>）× シャンパンゴールド（<code>#C8A063</code>）× 和紙＝生成り（<code>#F5F1E8</code>）。</li>
+    <li><strong>2書体の格</strong>：和文は明朝（Shippori Mincho）、英字・数字はローマン碑文体（Marcellus）。本文のみゴシック（Noto Sans JP）。</li>
+    <li><strong>引き算の美学</strong>：派手な装飾・AIっぽい青紫グラデ・過剰アニメーションを排し、<strong>静かな重厚感</strong>で品格を出す。装飾は金の罫線とアイコンに限定。</li>
+  </ul>
+
+  <h3>シグネチャー要素（このLPの顔）</h3>
+  <div class="grid2">
+    <div class="callout" style="margin:8px 0;">
+      <h4>① Hero 右端の縦書き「完全招待制」</h4>
+      <p class="mini" style="color:var(--ink)"><code>writing-mode:vertical-rl</code> による縦書きバッジ。上下に金の縦罫（<code>::before/::after</code>、height 54px）を配し、招待状の封緘のような格式を演出。768px 以下では横バッジ（<code>.signature-badge</code>）に切り替わる。</p>
+    </div>
+    <div class="callout" style="margin:8px 0;">
+      <h4>② Solution Bridge 図</h4>
+      <p class="mini" style="color:var(--ink)">5つの課題 → 1枚の招待状カード（β・¥50,000/月）→ 4つの価値へ、金線（<code>#C8A063</code>）で収束・展開するインラインSVG。「バラバラの打ち手を1つの会費に集約する」という提案の核を1枚で伝える。</p>
+    </div>
+  </div>
+
+  <figure class="frame">
+    <div class="bridge-embed">
+      <!-- 実ファイル index.html（500行台）の Solution Bridge SVG を忠実に複製 -->
+      <svg viewBox="0 0 1040 560" role="img" aria-label="5つの経営課題が、AI経営者クラブβという1枚の招待状に収束し、出会い・発信・学び・場の4つの価値へ展開する橋渡し図">
+        <defs>
+          <style>
+            .bg-card{fill:#16151A;}
+            .bg-txt{fill:#F5F1E8;font-family:'Noto Sans JP',sans-serif;font-size:15px;}
+            .bg-line{stroke:#C8A063;stroke-width:1.2;fill:none;opacity:.7;}
+            .bg-val{fill:#211F26;}
+            .bg-valtxt{fill:#F5F1E8;font-family:'Shippori Mincho',serif;font-weight:600;font-size:18px;}
+            .bg-center-line{stroke:#C8A063;stroke-width:1.5;fill:none;}
+          </style>
+        </defs>
+        <path class="bg-line" d="M240,72 C340,72 360,280 430,280"/>
+        <path class="bg-line" d="M240,168 C340,168 370,280 430,280"/>
+        <path class="bg-line" d="M240,264 C360,264 390,280 430,280"/>
+        <path class="bg-line" d="M240,360 C340,360 370,280 430,280"/>
+        <path class="bg-line" d="M240,456 C340,456 360,280 430,280"/>
+        <path class="bg-line" d="M620,280 C690,280 720,105 810,105"/>
+        <path class="bg-line" d="M620,280 C690,280 720,225 810,225"/>
+        <path class="bg-line" d="M620,280 C690,280 720,345 810,345"/>
+        <path class="bg-line" d="M620,280 C690,280 720,465 810,465"/>
+        <g>
+          <rect class="bg-card" x="20" y="46" width="220" height="52" rx="4"/><text class="bg-txt" x="36" y="78">AIの進め方が分からない</text>
+          <rect class="bg-card" x="20" y="142" width="220" height="52" rx="4"/><text class="bg-txt" x="36" y="174">発注先・専門家が見つからない</text>
+          <rect class="bg-card" x="20" y="238" width="220" height="52" rx="4"/><text class="bg-txt" x="36" y="270">経営者層に知ってほしい</text>
+          <rect class="bg-card" x="20" y="334" width="220" height="52" rx="4"/><text class="bg-txt" x="36" y="366">商談数を増やしたい</text>
+          <rect class="bg-card" x="20" y="430" width="220" height="52" rx="4"/><text class="bg-txt" x="36" y="462">本音で話せる仲間がいない</text>
+        </g>
+        <rect x="424" y="212" width="192" height="136" rx="5" fill="#16151A" stroke="#C8A063" stroke-width="1.6"/>
+        <line class="bg-center-line" x1="444" y1="234" x2="596" y2="234"/>
+        <text x="520" y="272" text-anchor="middle" fill="#C8A063" font-family="'Shippori Mincho',serif" font-weight="700" font-size="19">AI経営者クラブβ</text>
+        <text x="520" y="306" text-anchor="middle" fill="#F5F1E8" font-family="'Marcellus',serif" font-size="24">¥50,000 / 月</text>
+        <g>
+          <rect class="bg-val" x="810" y="72" width="210" height="66" rx="4"/><text class="bg-valtxt" x="915" y="112" text-anchor="middle">出会い</text>
+          <rect class="bg-val" x="810" y="192" width="210" height="66" rx="4"/><text class="bg-valtxt" x="915" y="232" text-anchor="middle">発信</text>
+          <rect class="bg-val" x="810" y="312" width="210" height="66" rx="4"/><text class="bg-valtxt" x="915" y="352" text-anchor="middle">学び</text>
+          <rect class="bg-val" x="810" y="432" width="210" height="66" rx="4"/><text class="bg-valtxt" x="915" y="472" text-anchor="middle">場</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Solution Bridge 図（実ファイルの SVG を原寸ロジックのまま複製）。左＝5つの課題、中央＝招待状カード、右＝4つの価値。SP では縦流れのカード（<code>.bridge-mobile</code>）に切り替わる。</figcaption>
+  </figure>
+</section>
+
+<!-- ========== 3. TOKENS ========== -->
+<section class="doc" id="s3">
+  <span class="sec-eyebrow">Design Tokens</span>
+  <h2><span class="n">03</span>デザイントークン</h2>
+  <p class="lead"><code>index.html</code> の <code>:root</code> から抽出した実値です。カラー変数は全16件を掲載。</p>
+
+  <h3>カラー（<code>:root</code> 全変数）</h3>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th>見本</th><th>変数</th><th>値</th><th>役割 / 主な用途</th></tr></thead>
+      <tbody>
+        <tr><td><span class="swatch" style="background:#16151A"></span></td><td><code>--ink</code></td><td><code>#16151A</code></td><td>最暗の墨。<code>body</code> 既定背景・Heroオーバーレイ・ダーク面 <code>.s-ink</code>・フッター。</td></tr>
+        <tr><td><span class="swatch" style="background:#211F26"></span></td><td><code>--charcoal</code></td><td><code>#211F26</code></td><td>やや明るい墨。ダーク面 <code>.s-charcoal</code>・Bridge の価値カード。</td></tr>
+        <tr><td><span class="swatch" style="background:#2A2830"></span></td><td><code>--charcoal-2</code></td><td><code>#2A2830</code></td><td>カード面。<code>.vcard</code>／<code>.tcard</code>／<code>.reject-panel</code> の地。</td></tr>
+        <tr><td><span class="swatch" style="background:#F5F1E8"></span></td><td><code>--paper</code></td><td><code>#F5F1E8</code></td><td>和紙＝生成り。ライト面 <code>.s-paper</code>・ダーク面の文字色。</td></tr>
+        <tr><td><span class="swatch" style="background:#EBE5D6"></span></td><td><code>--paper-dim</code></td><td><code>#EBE5D6</code></td><td>くすんだ和紙。ライト面 <code>.s-paper-dim</code>・ライトカードの罫。</td></tr>
+        <tr><td><span class="swatch" style="background:#C8A063"></span></td><td><code>--gold</code></td><td><code>#C8A063</code></td><td>シャンパンゴールド（基幹色）。罫線・アイコン・見出し金文字・eyebrow。</td></tr>
+        <tr><td><span class="swatch" style="background:#E0BC7E"></span></td><td><code>--gold-bright</code></td><td><code>#E0BC7E</code></td><td>明るい金。金枠パネルの見出し・強調文（<code>.pain-close</code>／<code>.invite-panel</code> 等）。</td></tr>
+        <tr><td><span class="swatch" style="background:#D93A1B"></span></td><td><code>--vermilion</code></td><td><code>#D93A1B</code></td><td>朱（CTA専用色）。<code>.btn-primary</code>／<code>.btn-mini</code> の地・「×」記号。</td></tr>
+        <tr><td><span class="swatch" style="background:#FB4113"></span></td><td><code>--vermilion-hover</code></td><td><code>#FB4113</code></td><td>朱のホバー。CTA ホバー時の地・計算カードのマイナス値。</td></tr>
+        <tr><td><span class="swatch" style="background:#F5F1E8"></span></td><td><code>--on-dark</code></td><td><code>#F5F1E8</code></td><td>ダーク面の本文文字色。</td></tr>
+        <tr><td><span class="swatch" style="background:#B8B2A4"></span></td><td><code>--on-dark-sub</code></td><td><code>#B8B2A4</code></td><td>ダーク面のサブ文字色（説明・注記）。</td></tr>
+        <tr><td><span class="swatch" style="background:#221714"></span></td><td><code>--on-light</code></td><td><code>#221714</code></td><td>ライト面の本文文字色。</td></tr>
+        <tr><td><span class="swatch" style="background:#5C564A"></span></td><td><code>--on-light-sub</code></td><td><code>#5C564A</code></td><td>ライト面のサブ文字色。</td></tr>
+        <tr><td><span class="swatch" style="background:#16151A;box-shadow:inset 0 0 0 40px rgba(200,160,99,.28)"></span></td><td><code>--hairline</code></td><td><code>rgba(200,160,99,.28)</code></td><td>金の罫線（標準）。ヘッダー境界・テーブル枠・区切り。</td></tr>
+        <tr><td><span class="swatch" style="background:#16151A;box-shadow:inset 0 0 0 40px rgba(200,160,99,.18)"></span></td><td><code>--hairline-soft</code></td><td><code>rgba(200,160,99,.18)</code></td><td>金の罫線（弱）。行間の細い区切り・カード枠。</td></tr>
+        <tr><td><span class="swatch" style="background:#16151A;color:#F5F1E8;font-size:11px;text-align:center;line-height:20px;width:34px">64</span></td><td><code>--header-h</code></td><td><code>64px</code></td><td>Sticky ヘッダーの高さ。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <h4>色の使い方ルール（厳守）</h4>
+    <ul class="disc" style="margin-bottom:0">
+      <li><strong>金文字はダーク面のみ。</strong>ライト面（<code>.s-paper</code>）では金は<strong>罫線とアイコンだけ</strong>に使い、文字色には使わない。</li>
+      <li><strong>CTAは朱のみ。</strong><code>--vermilion</code> は CTA ボタン以外の用途で使わない（「×」記号は例外的に朱を使用）。</li>
+      <li><strong>角丸はカード4px・ボタン2px</strong>で固定。丸みを増やすと格式が崩れる。</li>
+    </ul>
+  </div>
+
+  <h3>タイポグラフィ — 3書体の役割</h3>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th>書体</th><th>役割</th><th>ウェイト</th></tr></thead>
+      <tbody>
+        <tr><td style="font-family:'Shippori Mincho',serif;font-size:16px">Shippori Mincho</td><td>和文見出し（<code>h1</code>–<code>h4</code>）・強調文・価格の「実質」表記</td><td>600 / 700</td></tr>
+        <tr><td style="font-family:'Marcellus',serif;font-size:16px">Marcellus</td><td>英字 eyebrow・数字（価格・ステップ番号・計算カード）・<code>.roman</code></td><td>400</td></tr>
+        <tr><td style="font-family:'Noto Sans JP',sans-serif;font-size:16px">Noto Sans JP</td><td>本文全般・ボタン文字・リード文</td><td>400 / 500 / 700</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>型スケール（実 <code>clamp()</code> 値）</h3>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th>要素</th><th>クラス</th><th>書体</th><th>サイズ</th><th>行間</th></tr></thead>
+      <tbody>
+        <tr><td>Hero H1</td><td><code>.hero h1</code></td><td>Shippori Mincho</td><td><code>clamp(34px,6.5vw,84px)</code></td><td>1.28</td></tr>
+        <tr><td>セクション H2</td><td><code>.sec-head</code></td><td>Shippori Mincho</td><td><code>clamp(34px,4.5vw,54px)</code></td><td>1.4</td></tr>
+        <tr><td>Hero 巨大価格</td><td><code>.spotlight .price</code></td><td>Marcellus</td><td><code>clamp(56px,9vw,120px)</code></td><td>1.0</td></tr>
+        <tr><td>Hero リード</td><td><code>.hero-lead</code></td><td>Noto Sans JP</td><td><code>clamp(16px,1.9vw,21px)</code></td><td>1.95</td></tr>
+        <tr><td>セクション説明</td><td><code>.sec-sub</code></td><td>Noto Sans JP</td><td><code>clamp(16px,1.6vw,19px)</code></td><td>1.9</td></tr>
+        <tr><td>本文（既定）</td><td><code>body</code></td><td>Noto Sans JP</td><td><code>17px</code>（SP <code>16.5px</code>）</td><td>1.9</td></tr>
+        <tr><td>eyebrow ラベル</td><td><code>.eyebrow</code></td><td>Marcellus</td><td><code>14px</code>（字間 <code>.35em</code>・大文字）</td><td>—</td></tr>
+        <tr><td>注記 / 免責</td><td><code>.note</code></td><td>Noto Sans JP</td><td><code>13px</code></td><td>1.85</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <h4>視認性基準（遠距離視認要件）</h4>
+    <p style="margin-bottom:0">本文 <strong>17px 以上</strong>・行間 <strong>1.9</strong>・注記も <strong>13px 以上</strong>。薄グレー文字は禁止（ダーク面は <code>--on-dark-sub #B8B2A4</code> まで、ライト面は <code>--on-light-sub #5C564A</code> までを下限とし、それより薄い文字は使わない）。文字を縮小して情報を詰め込まない。</p>
+  </div>
+</section>
+
+<!-- ========== 4. WIREFRAME ========== -->
+<section class="doc" id="s4">
+  <span class="sec-eyebrow">Wireframe</span>
+  <h2><span class="n">04</span>ワイヤーフレーム</h2>
+  <p class="lead">デスクトップは 14 の可視ブロックを縦積み。ブロック 15（SP専用の固定下部CTA）と 16（モーション）は矩形ではなく注記として扱います。</p>
+
+  <div class="wf-grid">
+    <div>
+      <div class="wf-col-ttl">Desktop — 縦積み構造（14ブロック）</div>
+      <!-- ===== desktop wireframe (auto-generated, coordinates verified) ===== -->
+      <svg class="wf-svg" viewBox="0 0 680 1860" role="img" aria-label="デスクトップ版ワイヤーフレーム：14ブロックを縦積みした構造図">
+<style>.wf-d{fill:#211F26;}.wf-l{fill:#EBE5D6;}.wf-b{stroke:#C8A063;stroke-width:1.2;}.wf-ph{fill:#C8A063;opacity:.30;}.wf-ph2{fill:#F5F1E8;opacity:.16;}.wf-phl{fill:#C8A063;opacity:.38;}.wf-lab{font-family:"Noto Sans JP",sans-serif;font-size:14px;font-weight:700;fill:#221714;}.wf-num{font-family:"Marcellus",serif;font-size:14px;fill:#B8892F;}.wf-td{font-family:"Noto Sans JP",sans-serif;font-size:12px;fill:#EDE7DA;}.wf-tl{font-family:"Noto Sans JP",sans-serif;font-size:12px;fill:#2A2118;}.wf-g{fill:#C8A063;}.wf-gd{fill:#D6AE6E;}.wf-v{fill:#D93A1B;}.wf-line{stroke:#C8A063;stroke-width:1;fill:none;opacity:.75;}</style>
+<text class="wf-num" x="40" y="26">01</text><text class="wf-lab" x="66" y="26">Sticky Header（左ロゴ / 右ミニCTA）</text>
+<rect class="wf-d wf-b" x="40" y="34" width="600" height="42" rx="5"/>
+<text class="wf-num" x="40" y="98">02</text><text class="wf-lab" x="66" y="98">Hero 100svh（主要素を縦積み・右端に縦書きバッジ・背景写真＋墨オーバーレイ）</text>
+<rect class="wf-d wf-b" x="40" y="106" width="600" height="180" rx="5"/>
+<text class="wf-num" x="40" y="308">03</text><text class="wf-lab" x="66" y="308">Pain Strip（5項目 ×リスト ＋ 金枠の締め帯）</text>
+<rect class="wf-d wf-b" x="40" y="316" width="600" height="120" rx="5"/>
+<text class="wf-num" x="40" y="458">04</text><text class="wf-lab" x="66" y="458">Solution Bridge（左5カード → 中央 招待状 → 右4価値）</text>
+<rect class="wf-l wf-b" x="40" y="466" width="600" height="95" rx="5"/>
+<text class="wf-num" x="40" y="583">05</text><text class="wf-lab" x="66" y="583">4つの価値 2×2カード（画像上・テキスト下）</text>
+<rect class="wf-d wf-b" x="40" y="591" width="600" height="120" rx="5"/>
+<text class="wf-num" x="40" y="733">06</text><text class="wf-lab" x="66" y="733">VALUE01 詳細（左 3ステップ / 右 紹介原資テーブル6行）</text>
+<rect class="wf-d wf-b" x="40" y="741" width="600" height="100" rx="5"/>
+<text class="wf-num" x="40" y="863">07</text><text class="wf-lab" x="66" y="863">VALUE03 詳細（3カード ＋ 助成金 金枠パネル）</text>
+<rect class="wf-d wf-b" x="40" y="871" width="600" height="100" rx="5"/>
+<text class="wf-num" x="40" y="993">08</text><text class="wf-lab" x="66" y="993">VALUE04 ライト面 3カード ＋ 締め帯</text>
+<rect class="wf-l wf-b" x="40" y="1001" width="600" height="90" rx="5"/>
+<text class="wf-num" x="40" y="1113">09</text><text class="wf-lab" x="66" y="1113">WHO（✓5項目 ＋ お断りパネル ＋ 金枠 招待パネル）</text>
+<rect class="wf-d wf-b" x="40" y="1121" width="600" height="105" rx="5"/>
+<text class="wf-num" x="40" y="1248">10</text><text class="wf-lab" x="66" y="1248">料金プラン表（4列・β列 金枠 RECOMMENDED）</text>
+<rect class="wf-d wf-b" x="40" y="1256" width="600" height="105" rx="5"/>
+<text class="wf-num" x="40" y="1383">11</text><text class="wf-lab" x="66" y="1383">価格の中身（左 ✓リスト / 右 計算カード）</text>
+<rect class="wf-l wf-b" x="40" y="1391" width="600" height="100" rx="5"/>
+<text class="wf-num" x="40" y="1513">12</text><text class="wf-lab" x="66" y="1513">FAQ アコーディオン 6問（details / summary）</text>
+<rect class="wf-d wf-b" x="40" y="1521" width="600" height="95" rx="5"/>
+<text class="wf-num" x="40" y="1638">13</text><text class="wf-lab" x="66" y="1638">Final CTA（封蝋写真背景 ＋ 朱ボタン）</text>
+<rect class="wf-d wf-b" x="40" y="1646" width="600" height="85" rx="5"/>
+<text class="wf-num" x="40" y="1753">14</text><text class="wf-lab" x="66" y="1753">Footer</text>
+<rect class="wf-d wf-b" x="40" y="1761" width="600" height="48" rx="5"/>
+<text class="wf-td" x="56" y="60">ロゴ（AI経営者クラブβ / COMIX Inc.）</text>
+<rect class="wf-g" x="520" y="45" width="104" height="20" rx="2"/><text class="wf-tl" x="572" y="59" text-anchor="middle" font-size="12">招待面談</text>
+<text class="wf-td" x="56" y="126">背景写真＋墨グラデ（55%→92%）</text>
+<rect class="wf-ph2" x="56" y="136" width="160" height="9"/>
+<rect class="wf-ph2" x="56" y="152" width="330" height="20"/><rect class="wf-ph2" x="56" y="178" width="215" height="20"/><text class="wf-td" x="398" y="172">H1（明朝・最大84px）</text>
+<rect class="wf-ph2" x="56" y="206" width="380" height="10"/>
+<rect class="wf-phl" x="56" y="222" width="150" height="32" rx="2"/><text class="wf-tl" x="66" y="243" font-size="13" font-weight="700">¥50,000/月</text><text class="wf-td" x="216" y="242">実質 月3.5万円</text>
+<rect class="wf-ph2" x="56" y="262" width="330" height="9"/>
+<rect class="wf-v" x="56" y="276" width="150" height="16" rx="2"/><rect class="wf-b" fill="none" x="216" y="276" width="120" height="16" rx="2"/><text x="60" y="288" font-size="11" fill="#fff">朱CTA</text><text class="wf-g" x="222" y="288" font-size="11">金枠CTA</text>
+<rect class="wf-b" x="596" y="136" width="22" height="130" rx="2" fill="#C8A063" fill-opacity="0.08"/><text class="wf-g" x="624" y="130" font-size="12" text-anchor="end">縦書きバッジ</text>
+<text class="wf-g" x="56" y="340" font-size="12">×</text><rect class="wf-ph2" x="72" y="332" width="420" height="8"/>
+<text class="wf-g" x="56" y="355" font-size="12">×</text><rect class="wf-ph2" x="72" y="347" width="420" height="8"/>
+<text class="wf-g" x="56" y="370" font-size="12">×</text><rect class="wf-ph2" x="72" y="362" width="420" height="8"/>
+<text class="wf-g" x="56" y="385" font-size="12">×</text><rect class="wf-ph2" x="72" y="377" width="420" height="8"/>
+<text class="wf-g" x="56" y="400" font-size="12">×</text><rect class="wf-ph2" x="72" y="392" width="420" height="8"/>
+<rect class="wf-b" x="56" y="412" width="568" height="20" rx="4" fill="#C8A063" fill-opacity="0.07"/><text class="wf-gd" x="340" y="426" text-anchor="middle" font-size="12">この5つを、ひとつの会費で解決（金枠 締め帯）</text>
+<rect x="60" y="478" width="120" height="10" rx="2" fill="#211F26"/>
+<rect x="60" y="493" width="120" height="10" rx="2" fill="#211F26"/>
+<rect x="60" y="508" width="120" height="10" rx="2" fill="#211F26"/>
+<rect x="60" y="523" width="120" height="10" rx="2" fill="#211F26"/>
+<rect x="60" y="538" width="120" height="10" rx="2" fill="#211F26"/>
+<text class="wf-tl" x="60" y="476" font-size="12">5つの課題</text>
+<rect x="300" y="488" width="92" height="54" rx="4" fill="#16151A" stroke="#C8A063" stroke-width="1.4"/><text class="wf-g" x="346" y="510" text-anchor="middle" font-size="12">β 招待状</text><text x="346" y="528" text-anchor="middle" font-size="12" fill="#F5F1E8">¥50,000</text>
+<rect x="470" y="480" width="110" height="11" rx="2" fill="#211F26"/>
+<rect x="470" y="495" width="110" height="11" rx="2" fill="#211F26"/>
+<rect x="470" y="510" width="110" height="11" rx="2" fill="#211F26"/>
+<rect x="470" y="525" width="110" height="11" rx="2" fill="#211F26"/>
+<text class="wf-tl" x="470" y="476" font-size="12">4つの価値</text>
+<path class="wf-line" d="M180,484 C250,484 260,515 300,515"/><path class="wf-line" d="M180,536 C250,536 260,515 300,515"/>
+<path class="wf-line" d="M392,515 C430,515 440,486 470,486"/><path class="wf-line" d="M392,515 C430,515 440,524 470,524"/>
+<rect x="56" y="607" width="280" height="46" rx="4" fill="#2A2830" stroke="#C8A063" stroke-opacity="0.2"/><rect class="wf-ph2" x="56" y="607" width="280" height="16"/><text class="wf-td" x="66" y="644">Value01 出会い</text>
+<rect x="344" y="607" width="280" height="46" rx="4" fill="#2A2830" stroke="#C8A063" stroke-opacity="0.2"/><rect class="wf-ph2" x="344" y="607" width="280" height="16"/><text class="wf-td" x="354" y="644">Value02 発信</text>
+<rect x="56" y="659" width="280" height="46" rx="4" fill="#2A2830" stroke="#C8A063" stroke-opacity="0.2"/><rect class="wf-ph2" x="56" y="659" width="280" height="16"/><text class="wf-td" x="66" y="696">Value03 学び</text>
+<rect x="344" y="659" width="280" height="46" rx="4" fill="#2A2830" stroke="#C8A063" stroke-opacity="0.2"/><rect class="wf-ph2" x="344" y="659" width="280" height="16"/><text class="wf-td" x="354" y="696">Value04 場</text>
+<text class="wf-gd" x="56" y="772" font-size="14">①</text><rect class="wf-ph2" x="78" y="763" width="220" height="10"/>
+<text class="wf-gd" x="56" y="796" font-size="14">②</text><rect class="wf-ph2" x="78" y="787" width="220" height="10"/>
+<text class="wf-gd" x="56" y="820" font-size="14">③</text><rect class="wf-ph2" x="78" y="811" width="220" height="10"/>
+<text class="wf-td" x="56" y="757">3ステップ</text>
+<rect x="330" y="759" width="294" height="74" rx="4" fill="none" stroke="#C8A063" stroke-opacity="0.35"/><line x1="440" y1="759" x2="440" y2="833" stroke="#C8A063" stroke-opacity="0.2"/>
+<line x1="330" y1="771.3" x2="624" y2="771.3" stroke="#C8A063" stroke-opacity="0.15"/>
+<line x1="330" y1="783.6" x2="624" y2="783.6" stroke="#C8A063" stroke-opacity="0.15"/>
+<line x1="330" y1="795.9" x2="624" y2="795.9" stroke="#C8A063" stroke-opacity="0.15"/>
+<line x1="330" y1="808.2" x2="624" y2="808.2" stroke="#C8A063" stroke-opacity="0.15"/>
+<line x1="330" y1="820.5" x2="624" y2="820.5" stroke="#C8A063" stroke-opacity="0.15"/>
+<rect x="330" y="759" width="110" height="74" fill="#C8A063" fill-opacity="0.06"/><text class="wf-td" x="477" y="755" text-anchor="middle">紹介原資テーブル（6行）</text>
+<rect x="56" y="887" width="180" height="56" rx="4" fill="#2A2830" stroke="#C8A063" stroke-opacity="0.2"/><rect class="wf-b" fill="#C8A063" fill-opacity="0.06" x="68" y="895" width="66" height="14" rx="2"/><text class="wf-td" x="68" y="929">アカデミー</text>
+<rect x="246" y="887" width="180" height="56" rx="4" fill="#2A2830" stroke="#C8A063" stroke-opacity="0.2"/><rect class="wf-b" fill="#C8A063" fill-opacity="0.06" x="258" y="895" width="66" height="14" rx="2"/><text class="wf-td" x="258" y="929">質疑チャット</text>
+<rect x="436" y="887" width="180" height="56" rx="4" fill="#2A2830" stroke="#C8A063" stroke-opacity="0.2"/><rect class="wf-b" fill="#C8A063" fill-opacity="0.06" x="448" y="895" width="66" height="14" rx="2"/><text class="wf-td" x="448" y="929">60分MTG</text>
+<rect class="wf-b" x="56" y="951" width="568" height="16" rx="4" fill="#C8A063" fill-opacity="0.07"/><text class="wf-gd" x="340" y="963" text-anchor="middle" font-size="12">助成金パネル：実質 年42万円（月3.5万円）</text>
+<rect x="56" y="1017" width="180" height="44" rx="4" fill="#ffffff" stroke="#EBE5D6"/><rect x="68" y="1025" width="60" height="12" rx="2" fill="#C8A063" fill-opacity="0.5"/><text class="wf-tl" x="68" y="1053">あさげの会</text>
+<rect x="246" y="1017" width="180" height="44" rx="4" fill="#ffffff" stroke="#EBE5D6"/><rect x="258" y="1025" width="60" height="12" rx="2" fill="#C8A063" fill-opacity="0.5"/><text class="wf-tl" x="258" y="1053">会員限定会食</text>
+<rect x="436" y="1017" width="180" height="44" rx="4" fill="#ffffff" stroke="#EBE5D6"/><rect x="448" y="1025" width="60" height="12" rx="2" fill="#C8A063" fill-opacity="0.5"/><text class="wf-tl" x="448" y="1053">審査制</text>
+<line x1="56" y1="1071" x2="624" y2="1071" stroke="#C8A063"/><line x1="56" y1="1087" x2="624" y2="1087" stroke="#C8A063"/><text class="wf-tl" x="340" y="1082" text-anchor="middle" font-size="12">★ 知り合いではなく、仕事と提携（締め帯）</text>
+<text class="wf-g" x="56" y="1147" font-size="12">✓</text><rect class="wf-ph2" x="74" y="1139" width="300" height="9"/>
+<text class="wf-g" x="56" y="1161" font-size="12">✓</text><rect class="wf-ph2" x="74" y="1153" width="300" height="9"/>
+<text class="wf-g" x="56" y="1175" font-size="12">✓</text><rect class="wf-ph2" x="74" y="1167" width="300" height="9"/>
+<text class="wf-g" x="56" y="1189" font-size="12">✓</text><rect class="wf-ph2" x="74" y="1181" width="300" height="9"/>
+<text class="wf-g" x="56" y="1203" font-size="12">✓</text><rect class="wf-ph2" x="74" y="1195" width="300" height="9"/>
+<rect x="430" y="1137" width="194" height="70" rx="4" fill="#2A2830" stroke="#C8A063" stroke-opacity="0.2"/><text class="wf-td" x="440" y="1153">お断りする場合</text>
+<text class="wf-v" x="440" y="1169" font-size="12">×</text><rect class="wf-ph2" x="456" y="1161" width="150" height="8"/>
+<text class="wf-v" x="440" y="1183" font-size="12">×</text><rect class="wf-ph2" x="456" y="1175" width="150" height="8"/>
+<text class="wf-v" x="440" y="1197" font-size="12">×</text><rect class="wf-ph2" x="456" y="1189" width="150" height="8"/>
+<rect class="wf-b" x="56" y="1213" width="568" height="16" rx="4" fill="#C8A063" fill-opacity="0.06"/><text class="wf-gd" x="340" y="1225" text-anchor="middle" font-size="12">金枠 招待パネル：この資料をお渡し＝ご紹介の対象【クロージング①】</text>
+<rect x="56" y="1274" width="568" height="80" fill="none" stroke="#C8A063" stroke-opacity="0.25"/>
+<line x1="206" y1="1274" x2="206" y2="1354" stroke="#C8A063" stroke-opacity="0.15"/>
+<line x1="310" y1="1274" x2="310" y2="1354" stroke="#C8A063" stroke-opacity="0.15"/>
+<line x1="414" y1="1274" x2="414" y2="1354" stroke="#C8A063" stroke-opacity="0.15"/>
+<line x1="518" y1="1274" x2="518" y2="1354" stroke="#C8A063" stroke-opacity="0.15"/>
+<line x1="56" y1="1284" x2="624" y2="1284" stroke="#C8A063" stroke-opacity="0.1"/>
+<line x1="56" y1="1294" x2="624" y2="1294" stroke="#C8A063" stroke-opacity="0.1"/>
+<line x1="56" y1="1304" x2="624" y2="1304" stroke="#C8A063" stroke-opacity="0.1"/>
+<line x1="56" y1="1314" x2="624" y2="1314" stroke="#C8A063" stroke-opacity="0.1"/>
+<line x1="56" y1="1324" x2="624" y2="1324" stroke="#C8A063" stroke-opacity="0.1"/>
+<line x1="56" y1="1334" x2="624" y2="1334" stroke="#C8A063" stroke-opacity="0.1"/>
+<line x1="56" y1="1344" x2="624" y2="1344" stroke="#C8A063" stroke-opacity="0.1"/>
+<rect x="56" y="1274" width="568" height="18" fill="#16151A"/>
+<rect x="206" y="1274" width="104" height="80" fill="#C8A063" fill-opacity="0.08" stroke="#C8A063" stroke-width="2"/><text class="wf-gd" x="258" y="1270" text-anchor="middle" font-size="12">β列 RECOMMENDED</text>
+<text class="wf-td" x="130" y="1287" text-anchor="middle" font-size="11">項目</text><text class="wf-gd" x="258" y="1287" text-anchor="middle" font-size="11">β 5万</text><text class="wf-td" x="362" y="1287" text-anchor="middle" font-size="11">15万</text><text class="wf-td" x="466" y="1287" text-anchor="middle" font-size="11">30万</text><text class="wf-td" x="571" y="1287" text-anchor="middle" font-size="11">50万</text>
+<text class="wf-g" x="56" y="1414" font-size="11">✓</text><rect x="72" y="1407" width="240" height="7" rx="1" fill="#C8A063" fill-opacity="0.4"/>
+<text class="wf-g" x="56" y="1424" font-size="11">✓</text><rect x="72" y="1417" width="240" height="7" rx="1" fill="#C8A063" fill-opacity="0.4"/>
+<text class="wf-g" x="56" y="1434" font-size="11">✓</text><rect x="72" y="1427" width="240" height="7" rx="1" fill="#C8A063" fill-opacity="0.4"/>
+<text class="wf-g" x="56" y="1444" font-size="11">✓</text><rect x="72" y="1437" width="240" height="7" rx="1" fill="#C8A063" fill-opacity="0.4"/>
+<text class="wf-g" x="56" y="1454" font-size="11">✓</text><rect x="72" y="1447" width="240" height="7" rx="1" fill="#C8A063" fill-opacity="0.4"/>
+<text class="wf-g" x="56" y="1464" font-size="11">✓</text><rect x="72" y="1457" width="240" height="7" rx="1" fill="#C8A063" fill-opacity="0.4"/>
+<text class="wf-g" x="56" y="1474" font-size="11">✓</text><rect x="72" y="1467" width="240" height="7" rx="1" fill="#C8A063" fill-opacity="0.4"/>
+<rect x="350" y="1407" width="274" height="76" rx="4" fill="#16151A" stroke="#C8A063" stroke-opacity="0.3"/>
+<text class="wf-td" x="364" y="1421">年会費</text><text x="610" y="1421" text-anchor="end" font-size="12" fill="#EDE7DA" font-family="Marcellus,serif">60万円</text>
+<text class="wf-td" x="364" y="1437">助成金</text><text x="610" y="1437" text-anchor="end" font-size="12" fill="#FB4113" font-family="Marcellus,serif">−18万円</text>
+<text class="wf-td" x="364" y="1453">実質</text><text x="610" y="1453" text-anchor="end" font-size="12" fill="#EDE7DA" font-family="Marcellus,serif">42万円</text>
+<text class="wf-td" x="364" y="1469">月あたり</text><text x="610" y="1469" text-anchor="end" font-size="14" fill="#C8A063" font-family="Marcellus,serif">3.5万円</text>
+<text class="wf-g" x="56" y="1545" font-size="12">Q</text><rect class="wf-ph2" x="74" y="1537" width="470" height="8"/><text class="wf-g" x="610" y="1546" font-size="14">+</text>
+<text class="wf-g" x="56" y="1557" font-size="12">Q</text><rect class="wf-ph2" x="74" y="1549" width="470" height="8"/><text class="wf-g" x="610" y="1558" font-size="14">+</text>
+<text class="wf-g" x="56" y="1569" font-size="12">Q</text><rect class="wf-ph2" x="74" y="1561" width="470" height="8"/><text class="wf-g" x="610" y="1570" font-size="14">+</text>
+<text class="wf-g" x="56" y="1581" font-size="12">Q</text><rect class="wf-ph2" x="74" y="1573" width="470" height="8"/><text class="wf-g" x="610" y="1582" font-size="14">+</text>
+<text class="wf-g" x="56" y="1593" font-size="12">Q</text><rect class="wf-ph2" x="74" y="1585" width="470" height="8"/><text class="wf-g" x="610" y="1594" font-size="14">+</text>
+<text class="wf-g" x="56" y="1605" font-size="12">Q</text><rect class="wf-ph2" x="74" y="1597" width="470" height="8"/><text class="wf-g" x="610" y="1606" font-size="14">+</text>
+<text class="wf-td" x="56" y="1664">背景＝封蝋写真＋墨グラデ（60%→92%）／中央寄せ</text>
+<rect class="wf-ph2" x="290" y="1674" width="100" height="8"/><rect class="wf-ph2" x="200" y="1686" width="280" height="18"/><rect class="wf-ph2" x="230" y="1710" width="220" height="8"/>
+<rect class="wf-v" x="270" y="1720" width="140" height="18" rx="2"/><text x="340" y="1733" text-anchor="middle" font-size="12" fill="#fff">招待面談を申し込む</text>
+<text class="wf-td" x="340" y="1790" text-anchor="middle">AI経営者クラブ β ／ 株式会社コミクス ｜ 鈴木章裕 ／ © COMIX Inc. 2026</text>
+</svg>
+    </div>
+
+    <div>
+      <div class="wf-col-ttl">Mobile — 差分（≤768px）</div>
+      <div class="mob-card">
+        <svg class="phone-svg" viewBox="0 0 230 470" role="img" aria-label="モバイル版ワイヤーフレーム：主要な差分を示す簡易図">
+          <rect x="4" y="4" width="222" height="462" rx="18" fill="#16151A" stroke="#C8A063" stroke-width="1.4"/>
+          <rect x="16" y="18" width="198" height="24" rx="4" fill="#211F26"/><text x="26" y="34" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#EDE7DA">ヘッダー（ロゴ / ミニCTA）</text>
+          <rect x="16" y="48" width="198" height="96" rx="4" fill="#211F26"/><text x="26" y="64" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#EDE7DA">Hero</text>
+          <rect x="26" y="72" width="130" height="10" rx="2" fill="#F5F1E8" fill-opacity="0.16"/><rect x="26" y="86" width="100" height="10" rx="2" fill="#F5F1E8" fill-opacity="0.16"/>
+          <rect x="26" y="102" width="80" height="16" rx="2" fill="#C8A063" fill-opacity="0.5"/>
+          <rect x="146" y="52" width="56" height="16" rx="2" fill="#C8A063" fill-opacity="0.12" stroke="#C8A063" stroke-opacity="0.6"/><text x="150" y="64" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#C8A063">横バッジ化</text>
+          <rect x="26" y="124" width="176" height="14" rx="2" fill="#D93A1B"/><text x="114" y="134" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#fff">CTA（横幅100%）</text>
+          <rect x="16" y="150" width="198" height="40" rx="4" fill="#211F26"/><text x="26" y="165" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#EDE7DA">Bridge（縦流れ：課題▼招待状▼価値）</text>
+          <rect x="16" y="196" width="198" height="46" rx="4" fill="#211F26"/><text x="26" y="211" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#EDE7DA">価値カード（2×2 → 1列）</text>
+          <rect x="26" y="218" width="176" height="8" rx="2" fill="#F5F1E8" fill-opacity="0.16"/><rect x="26" y="230" width="176" height="8" rx="2" fill="#F5F1E8" fill-opacity="0.16"/>
+          <rect x="16" y="248" width="198" height="40" rx="4" fill="#211F26"/><text x="26" y="263" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#EDE7DA">プラン表（横スクロール＋ヒント）</text>
+          <path d="M188,276 l10,0 M194,272 l6,4 -6,4" stroke="#C8A063" fill="none" stroke-width="1.2"/>
+          <rect x="16" y="294" width="198" height="34" rx="4" fill="#EBE5D6"/><text x="26" y="309" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#2A2118">ライト面セクション（1列）</text>
+          <rect x="16" y="334" width="198" height="70" rx="4" fill="#211F26"/><text x="26" y="349" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#EDE7DA">Final CTA / Footer</text>
+          <rect x="4" y="426" width="222" height="40" rx="0" fill="#16151A" fill-opacity="0.94"/><rect x="16" y="436" width="198" height="20" rx="3" fill="#D93A1B"/><text x="114" y="450" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#fff">固定下部CTA（≤768pxで出現）</text>
+        </svg>
+        <ul class="mob-diff">
+          <li>縦書きバッジ → <strong>横バッジ化</strong>（<code>.signature</code> を <code>display:none</code>、<code>.signature-badge</code> を表示）</li>
+          <li>価値カード 2×2 → <strong>1列</strong>（≤820px で <code>.vcards</code> が単列に）</li>
+          <li>料金プラン表 → <strong>横スクロール＋「← 横スクロールできます →」ヒント</strong>（<code>.scroll-hint</code> 表示）</li>
+          <li>Bridge 図 → <strong>縦流れ</strong>（<code>.bridge-svg</code> 非表示・<code>.bridge-mobile</code> 表示）</li>
+          <li><strong>下部固定CTA が出現</strong>（<code>.bottom-cta</code>・<code>body</code> に <code>padding-bottom:76px</code>）</li>
+          <li>two-col / who-grid / price-grid / tri は <strong>1列化</strong>（≤980px）</li>
+          <li>紹介原資テーブル（<code>.rtable</code>）は <strong>キー・バリューを縦積み</strong>（≤768px）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>ブロック 15・16（矩形ではない要素）</h4>
+    <ul class="disc" style="margin-bottom:0">
+      <li><strong>15. モバイル固定下部CTA</strong>：<code>.bottom-cta</code>。<strong>768px 以下でのみ</strong> <code>position:fixed;bottom:0</code> で常時表示。<code>env(safe-area-inset-bottom)</code> 対応。</li>
+      <li><strong>16. モーション</strong>：全ブロックに <code>.reveal</code>（スクロール連動フェード）、Hero は段階フェード。詳細は <a href="#s7">07. インタラクション仕様</a>。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 5. SECTION SPEC ========== -->
+<section class="doc" id="s5">
+  <span class="sec-eyebrow">Section Spec &amp; CVR Rationale</span>
+  <h2><span class="n">05</span>セクション別仕様とCVR設計根拠</h2>
+  <p class="lead">14の可視ブロックの目的・主要素・実装注意。CVR上とくに効く設計判断は下部の「CVR設計根拠」に別掲します。</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th style="min-width:30px">#</th><th>ブロック</th><th>目的</th><th>主要素</th><th>実装注意</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td><strong>Sticky Header</strong><br><span class="mini">.site-header</span></td><td>常時CTA導線を確保</td><td>左＝ロゴ（<code>.brand</code>）／右＝ミニCTA「招待面談を申し込む」（<code>.btn-mini</code>）</td><td><code>position:sticky</code>＋<code>backdrop-filter:blur(12px)</code>。高さ64px固定。</td></tr>
+        <tr><td>02</td><td><strong>Hero</strong><br><span class="mini">.hero</span></td><td>世界観提示と第一CTA</td><td>eyebrow → H1「『学び』ではなく、成果を。」→ リード → spotlight価格 → substats3個 → CTA×2 ＋ 右端 縦書きバッジ</td><td><code>min-height:100svh</code>。背景＝<code>hero.png</code>＋墨グラデ55%→92%。段階フェード（<code>.hero-el</code>）。</td></tr>
+        <tr><td>03</td><td><strong>Pain Strip</strong></td><td>共感で自分ごと化</td><td>経営者の5課題を「×」付きで列挙（<code>.pain-row</code>）＋金枠の締め帯（<code>.pain-close</code>）</td><td>×は朱でなく金（<code>--gold</code>）。締め帯で次章へ橋渡し。</td></tr>
+        <tr><td>04</td><td><strong>Solution Bridge</strong><br><span class="mini">.s-paper</span></td><td>「1会費で全解決」を可視化</td><td>左5課題 → 中央 招待状カード → 右4価値のインラインSVG</td><td>ライト面。SP は <code>.bridge-mobile</code> の縦流れに切替。</td></tr>
+        <tr><td>05</td><td><strong>4つの価値カード</strong><br><span class="mini">.vcards</span></td><td>提供価値の一覧提示</td><td>2×2グリッド（出会い/発信/学び/場）。画像上・テキスト下（<code>.vcard</code>）＋世界実証の注記</td><td>画像は <code>object-fit:cover</code>・<code>loading:lazy</code>。hover で <code>translateY(-4px)</code>。</td></tr>
+        <tr><td>06</td><td><strong>VALUE01 詳細（出会い）</strong></td><td>目玉価値を深掘り</td><td>左＝3ステップ（<code>.steps</code>）／右＝紹介原資テーブル6行（<code>.rtable</code>）＋プルクオート＋非保証注記</td><td>2カラム（≤980pxで1列）。注記は<strong>削除禁止</strong>（<a href="#s9">09</a>）。</td></tr>
+        <tr><td>07</td><td><strong>VALUE03 詳細（学び）</strong><br><span class="mini">.s-charcoal</span></td><td>学習の実利と実質価格</td><td>3カード（アカデミー/質疑チャット/60分MTG）＋助成金の金枠パネル（<code>.subsidy-panel</code>）</td><td>助成金注記は<strong>変更不可</strong>。実質42万円/月3.5万円の算式を明示。</td></tr>
+        <tr><td>08</td><td><strong>VALUE04（場）</strong><br><span class="mini">.s-paper</span></td><td>コミュニティの質を訴求</td><td>ライト面3カード（あさげの会/会員限定会食/審査制）＋締め帯（<code>.community-close</code>）</td><td>ライト面用のカード配色上書き（<code>.s-paper .tcard</code>）。</td></tr>
+        <tr><td>09</td><td><strong>WHO</strong></td><td>自己選別＋クロージング①</td><td>✓5項目（<code>.check-list</code>）＋お断りパネル（<code>.reject-panel</code>）＋金枠 招待パネル（<code>.invite-panel</code>）</td><td>「この資料をお渡ししている時点で、貴社はご紹介の対象です」を配置。</td></tr>
+        <tr><td>10</td><td><strong>料金プラン表</strong><br><span class="mini">table.plan</span></td><td>βの位置づけを明快に</td><td>4プラン×9行。β列に金枠＋<code>RECOMMENDED</code>タグ（<code>.col-reco</code>／<code>.reco-tag</code>）</td><td><code>min-width:820px</code>＋横スクロール。行見出しは <code>sticky left</code>。</td></tr>
+        <tr><td>11</td><td><strong>価格の中身</strong><br><span class="mini">.s-paper</span></td><td>「投資」への転換</td><td>左＝内包✓リスト（<code>.incl-list</code>）／右＝計算カード 60万→−18万→42万→月3.5万（<code>.calc-card</code>）</td><td>マイナス値は <code>--vermilion-hover</code>、最終値は大きな金数字。</td></tr>
+        <tr><td>12</td><td><strong>FAQ</strong></td><td>不安の解消</td><td><code>details/summary</code> の6問アコーディオン（<code>.faq</code>）</td><td>資料記載事実のみ。Q2/Q3/Q5は法的リスクに関わる（<a href="#s9">09</a>）。</td></tr>
+        <tr><td>13</td><td><strong>Final CTA</strong><br><span class="mini">.final-cta</span></td><td>最終コンバージョン</td><td>eyebrow → H2「まずは、面談でお話ししましょう。」→ 朱ボタン ＋ クロージング②＋assurance3点</td><td>背景＝<code>cta.png</code>＋墨グラデ60%→92%。中央寄せ。</td></tr>
+        <tr><td>14</td><td><strong>Footer</strong><br><span class="mini">.site-footer</span></td><td>運営者の明示と信頼</td><td>ブランド名／株式会社コミクス・鈴木章裕／© COMIX Inc. 2026／β注記</td><td>金の上罫（<code>border-top:1px solid gold</code>）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>CVR設計根拠（この判断がコンバージョンに効く）</h3>
+
+  <div class="callout">
+    <h4>① Hero＝単一突出スタッツ（<code>¥50,000</code> のみ巨大）</h4>
+    <p style="margin-bottom:0">価格 <code>¥50,000</code> を <code>clamp(56px,9vw,120px)</code> で巨大表示し、substats3個（1.5万人 / 1,100講座 / 100名超）は 15px と小さく添える。<strong>2,000LP を検証した DigitalApplied（2026）</strong>では、3バッジ均等配置（+9%）より<strong>単一突出（+18%）</strong>の方が高CVR。視線を1点に集中させる設計。</p>
+  </div>
+
+  <div class="callout">
+    <h4>② パーソナライズされた希少性（クロージングを2箇所に）</h4>
+    <p style="margin-bottom:0">「<strong>この資料をお渡ししている時点で、貴社はご紹介の対象です</strong>」を <strong>WHO（招待パネル）</strong>と <strong>Final CTA</strong>の2箇所に配置。営業資料PDF原文の最強クロージングラインで、読み手を「選ばれた側」に置く。</p>
+  </div>
+
+  <div class="grid2">
+    <div class="callout" style="margin:8px 0">
+      <h4>③ 審査制・お断り条件の明示</h4>
+      <p class="mini" style="color:var(--ink);margin-bottom:0">WHO の「お断りする場合があります」は、会員制ビジネスの定石＝<strong>自己選別と希少性</strong>。誰でも入れないことが価値になり、申込者の質を上げる。</p>
+    </div>
+    <div class="callout" style="margin:8px 0">
+      <h4>④ 価格分解（60→−18→42→月3.5万）</h4>
+      <p class="mini" style="color:var(--ink);margin-bottom:0">計算カードで「年会費60万→助成金−18万→実質42万→月3.5万」と段階分解。<strong>「回収できる経営投資」</strong>へ認識を転換させ、価格への抵抗を下げる。</p>
+    </div>
+  </div>
+
+  <div class="warn">
+    <h4>⑤ FAQ は資料記載事実のみ（文言変更に注意）</h4>
+    <p style="margin-bottom:0">FAQ6問はすべて営業資料PDFの記載事実に基づく。とくに <strong>Q2（解約条件）／Q3（助成金）／Q5（会食は非保証）</strong>は<strong>法的リスク回避のための表現</strong>。文言を変更する際は、コンプライアンス確認のうえで行うこと（安易な言い換えは景表法・不当表示リスクにつながる）。</p>
+  </div>
+</section>
+
+<!-- ========== 6. COMPONENTS ========== -->
+<section class="doc" id="s6">
+  <span class="sec-eyebrow">Component Inventory</span>
+  <h2><span class="n">06</span>コンポーネントインベントリ</h2>
+  <p class="lead">実CSSクラス名と主要プロパティ。改修時はこの単位で再利用してください。</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th>コンポーネント</th><th>クラス</th><th>主要プロパティ</th></tr></thead>
+      <tbody>
+        <tr><td>CTAボタン（朱・主）</td><td><code>.btn.btn-primary</code>（<code>.big</code>）</td><td>地<code>--vermilion</code>／文字#fff／<code>radius:2px</code>／<code>padding:20px 40px</code>（big=24px 56px）／<code>box-shadow:0 8px 30px rgba(217,58,27,.28)</code></td></tr>
+        <tr><td>ゴーストボタン（金枠・副）</td><td><code>.btn.btn-ghost</code></td><td>透明地／文字<code>--gold</code>／<code>border:1px solid gold</code>／<code>padding:19px 38px</code>／hoverで <code>--gold-bright</code></td></tr>
+        <tr><td>ミニCTA（ヘッダー）</td><td><code>.btn.btn-mini</code></td><td>地<code>--vermilion</code>／<code>padding:11px 20px</code>／<code>font:14px/700</code></td></tr>
+        <tr><td>VALUEカード</td><td><code>.vcard</code> / <code>.vcard-img</code> / <code>.vcard-body</code> / <code>.vcard-no</code> / <code>.vcard-tag</code></td><td>地<code>--charcoal-2</code>／<code>radius:4px</code>／画像<code>height:210px;object-fit:cover</code>／hover<code>translateY(-4px)</code>＋金枠</td></tr>
+        <tr><td>詳細3カード</td><td><code>.tcard</code> / <code>.tlabel</code></td><td>地<code>--charcoal-2</code>／<code>padding:32px 28px</code>／<code>.tlabel</code>=金枠ラベル／<code>li::before</code>「—」金</td></tr>
+        <tr><td>テーブル（紹介原資）</td><td><code>.rtable</code> / <code>.rrow</code> / <code>.rk</code> / <code>.rv</code></td><td><code>grid 38% / 62%</code>／キー列<code>.rk</code>=金文字＋金地6%／SPで縦積み</td></tr>
+        <tr><td>テーブル（料金プラン）</td><td><code>table.plan</code> / <code>.col-reco</code> / <code>.reco-tag</code> / <code>.tick</code></td><td><code>min-width:820px</code>／β列=金地8%＋金2px枠／<code>.tick</code>=金✓／行見出し<code>sticky left</code></td></tr>
+        <tr><td>FAQアコーディオン</td><td><code>.faq details/summary</code> / <code>.faq-a</code></td><td>ネイティブ<code>details</code>／<code>summary::before</code>「Q」金／<code>::after</code>「+」→open時<code>rotate(45deg)</code></td></tr>
+        <tr><td>金枠パネル（4種）</td><td><code>.pain-close</code> / <code>.subsidy-panel</code> / <code>.invite-panel</code> / <code>.community-close</code></td><td><code>border:1.5px solid gold</code>＋金地6〜7%／見出し<code>--gold-bright</code>／明朝</td></tr>
+        <tr><td>計算カード</td><td><code>.calc-card</code> / <code>.calc-row</code>（<code>.sub</code> / <code>.final</code>）</td><td>地<code>--ink</code>＋金枠／<code>.sub</code>=マイナス値朱／<code>.final</code>=金の大数字<code>clamp(34px,5vw,52px)</code></td></tr>
+        <tr><td>縦書きバッジ</td><td><code>.signature</code> / <code>.signature-badge</code></td><td><code>writing-mode:vertical-rl</code>／字間<code>.5em</code>／上下に金縦罫／SPで横バッジに切替</td></tr>
+        <tr><td>eyebrowラベル</td><td><code>.eyebrow</code>（<code>.eyebrow--light</code>）</td><td>Marcellus／字間<code>.35em</code>／大文字／金（ライト面用は<code>--on-light</code>）</td></tr>
+        <tr><td>固定下部CTA</td><td><code>.bottom-cta</code></td><td>≤768pxのみ<code>fixed;bottom:0</code>／<code>backdrop-filter:blur(10px)</code>／<code>safe-area-inset</code>対応</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 7. INTERACTION ========== -->
+<section class="doc" id="s7">
+  <span class="sec-eyebrow">Interaction</span>
+  <h2><span class="n">07</span>インタラクション仕様</h2>
+  <p class="lead">モーションは「静かに現れる」だけ。イージングは全体で <code>cubic-bezier(.16,1,.3,1)</code> に統一。</p>
+
+  <ul class="disc">
+    <li><strong>スクロール連動フェード</strong>：<code>.reveal</code> を IntersectionObserver で監視し <code>.in</code> を付与。<code>opacity 0→1</code> ＋ <code>translateY(24px→0)</code>、<strong>0.8s</strong> <code>cubic-bezier(.16,1,.3,1)</code>。IO は <code>threshold:0.12</code>／<code>rootMargin:'0px 0px -8% 0px'</code>、一度表示したら <code>unobserve</code>（再生は1回のみ）。</li>
+    <li><strong>Hero ロード時の段階フェード</strong>：<code>.hero-el</code> が <code>@keyframes heroFade</code>（<strong>0.9s</strong> <code>cubic-bezier(.16,1,.3,1)</code>、<code>opacity0 + translateY(22px)</code> から）。ディレイは <code>d1 .05s / d2 .20s / d3 .35s / d4 .50s / d5 .65s / d6 .80s</code>。</li>
+    <li><strong>カード hover</strong>：<code>.vcard</code> / <code>.tcard</code> が <code>translateY(-4px)</code> ＋ 罫線を金に明化（<code>.35s ease</code>）。</li>
+    <li><strong>CTA hover</strong>：<code>.btn-primary</code> の地が <code>#D93A1B → #FB4113</code> ＋ <code>translateY(-2px)</code>（<code>.25s</code>）。<code>.btn-ghost</code> は文字・枠が <code>--gold → --gold-bright</code>。</li>
+    <li><strong>スムーススクロール</strong>：<code>html{scroll-behavior:smooth;scroll-padding-top:84px}</code>。アンカー着地時にヘッダー分のオフセットを確保（※ヘッダー実高64pxに対し 84px の余白を取る設計）。</li>
+    <li><strong>reduced-motion 配慮</strong>：<code>@media (prefers-reduced-motion:reduce)</code> で <code>.reveal</code>・<code>.hero-el</code> を強制表示（<code>opacity:1;transform:none</code>）、トランジション/アニメーションを無効化。JS側も同メディアクエリを検知し、その場合は全 <code>.reveal</code> に即 <code>.in</code> を付与（要素は最初から可視のまま）。<code>IntersectionObserver</code> 非対応環境も同様にフォールバック。</li>
+  </ul>
+
+  <div class="callout">
+    <h4>実装の勘所</h4>
+    <p style="margin-bottom:0">JS は約15行のみ（<code>index.html</code> 末尾の即時関数）。ライブラリ非依存。新しいセクションを追加する場合は要素に <code>class="reveal"</code> を付ければ自動でフェード対象になります。イージング値を変えるとサイト全体の「静けさ」が崩れるため、<code>cubic-bezier(.16,1,.3,1)</code> は維持推奨。</p>
+  </div>
+</section>
+
+<!-- ========== 8. ASSETS ========== -->
+<section class="doc" id="s8">
+  <span class="sec-eyebrow">Image Assets</span>
+  <h2><span class="n">08</span>画像アセット</h2>
+  <p class="lead">全6点とも gpt-image-2 生成。ダーク面には CSS 背景＋墨オーバーレイ、カード内は <code>&lt;img&gt;</code> の lazy 読み込み。</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th>ファイル</th><th>実寸</th><th>用途</th><th>配置方法</th></tr></thead>
+      <tbody>
+        <tr><td><code>images/aiclub/hero.png</code></td><td>1536×1024</td><td>Hero 背景</td><td>CSS <code>background</code>＋墨グラデ（55%→92%）。<code>center/cover</code>。</td></tr>
+        <tr><td><code>images/aiclub/meeting.png</code></td><td>1024×1024</td><td>Value01 出会い</td><td><code>&lt;img&gt;</code>（<code>.vcard-img</code>）<code>loading:lazy</code>／<code>object-fit:cover</code>。</td></tr>
+        <tr><td><code>images/aiclub/media.png</code></td><td>1024×1024</td><td>Value02 発信</td><td><code>&lt;img&gt;</code>（<code>.vcard-img</code>）<code>loading:lazy</code>。</td></tr>
+        <tr><td><code>images/aiclub/learning.png</code></td><td>1024×1024</td><td>Value03 学び</td><td><code>&lt;img&gt;</code>（<code>.vcard-img</code>）<code>loading:lazy</code>。</td></tr>
+        <tr><td><code>images/aiclub/community.png</code></td><td>1024×1024</td><td>Value04 場</td><td><code>&lt;img&gt;</code>（<code>.vcard-img</code>）<code>loading:lazy</code>。</td></tr>
+        <tr><td><code>images/aiclub/cta.png</code></td><td>1536×1024</td><td>Final CTA 背景</td><td>CSS <code>background</code>＋墨グラデ（60%→92%）。<code>center/cover</code>。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <h4>再生成用プロンプト（同梱済み）</h4>
+    <p>6点の英語プロンプト原文を <code>handoff/image_prompts/*.txt</code> に同梱（<code>prompt_hero.txt</code> / <code>meeting</code> / <code>media</code> / <code>learning</code> / <code>community</code> / <code>cta</code>）。差し替え・追加生成時はこれを使用。トーン指定は共通で <strong>ink black #16151A × champagne gold #C8A063</strong>、<strong>no text / no logos / no people</strong>（写真調のラグジュアリー・エディトリアル）。</p>
+    <p style="margin-bottom:0"><strong>モックアップ</strong>：<code>handoff/screenshots/desktop_full.png</code>（1440×14485）／<code>handoff/screenshots/mobile_full.png</code>（375×18893）。フルページの実寸スクリーンショット。</p>
+  </div>
+</section>
+
+<!-- ========== 9. CHANGES ========== -->
+<section class="doc" id="s9">
+  <span class="sec-eyebrow">Change Notes</span>
+  <h2><span class="n">09</span>変更時の注意・要差し替え</h2>
+
+  <div class="warn">
+    <h4><span class="tag tag-v">要差し替え</span> CTAリンク</h4>
+    <p style="margin-bottom:0">全CTAのリンク先は暫定で <code>mailto:suzuki@comix.co.jp</code>（件名自動入力付き＝「<strong>【AI経営者クラブβ】招待面談の申込</strong>」）。<strong>本番ではフォーム／予約URLへ差し替える</strong>こと。差し替え箇所は Hero×2（<code>.btn-primary</code>＋<code>.btn-ghost</code> は <code>#pain</code> 内部リンク）・ヘッダー <code>.btn-mini</code>・Final CTA の合計。</p>
+  </div>
+
+  <div class="warn">
+    <h4><span class="tag tag-v">変更不可</span> コンプライアンス注記</h4>
+    <ul class="disc" style="margin-bottom:0">
+      <li><strong>助成金注記</strong>：「※人材開発支援助成金（事業展開等リスキリング支援コース）。支給には要件・審査があります。」— 削除・軽率な書き換え禁止。</li>
+      <li><strong>会食 非保証注記</strong>：「※会食は出会いの機会のご提供であり、特定の紹介・商談・成約を保証するものではありません。」— 削除・軽率な書き換え禁止。</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <h4>数値の整合</h4>
+    <p style="margin-bottom:0">本文中の数値（<strong>1,789社 / 1,448社 / 600人 / 1.5万人 / 1,100講座 / 100名超 / 24万円 / 18万円 / 60万→42万→月3.5万</strong> 等）は<strong>すべて営業資料PDF由来</strong>。変更する場合は必ず原本（AI経営者クラブβ_営業資料_正規版.pdf）と整合させ、関連する全箇所（Hero substats・Bridge・VALUE詳細・料金表・価格の中身・FAQ）を横展開で直すこと。1箇所だけ直して他が古いまま、を避ける。</p>
+  </div>
+
+  <div class="callout">
+    <h4>モック撮影の手順（Hero の高さ）</h4>
+    <p style="margin-bottom:0">Hero の <code>min-height:100svh</code> は、フルページスクリーンショット撮影時のみ<strong>固定px（例：<code>min-height:900px</code>）に置換</strong>して撮影する。<code>100svh</code> のままだとキャプチャ環境のビューポート高でHeroが伸縮し、モックの再現性が崩れるため。撮影後は元に戻す。</p>
+  </div>
+</section>
+
+<!-- ========== 10. FILES ========== -->
+<section class="doc" id="s10">
+  <span class="sec-eyebrow">Files &amp; Verification</span>
+  <h2><span class="n">10</span>ファイル構成と確認手順</h2>
+
+  <h3>フォルダツリー</h3>
+  <pre class="tree">lp-ai-keieisha-club/
+├─ <span class="c">index.html</span>                <span class="m"># LP本体（CSS/JSインライン・単一ファイル）</span>
+├─ images/aiclub/
+│  ├─ hero.png            <span class="m"># 1536×1024 / Hero背景</span>
+│  ├─ meeting.png         <span class="m"># 1024×1024 / Value01</span>
+│  ├─ media.png           <span class="m"># 1024×1024 / Value02</span>
+│  ├─ learning.png        <span class="m"># 1024×1024 / Value03</span>
+│  ├─ community.png       <span class="m"># 1024×1024 / Value04</span>
+│  └─ cta.png             <span class="m"># 1536×1024 / Final CTA背景</span>
+└─ handoff/
+   ├─ <span class="c">00_引き継ぎガイド.html</span>   <span class="m"># 本ドキュメント</span>
+   ├─ image_prompts/       <span class="m"># gpt-image-2 プロンプト原文 ×6</span>
+   │  ├─ prompt_hero.txt   ├─ prompt_meeting.txt
+   │  ├─ prompt_media.txt  ├─ prompt_learning.txt
+   │  ├─ prompt_community.txt └─ prompt_cta.txt
+   └─ screenshots/
+      ├─ desktop_full.png  <span class="m"># 1440×14485</span>
+      └─ mobile_full.png   <span class="m"># 375×18893</span></pre>
+
+  <h3>ローカル確認</h3>
+  <p>フォルダ直下でローカルサーバを起動して確認します（<code>file://</code> 直開きでも動作しますが、Webフォント読込にネット接続が必要）。</p>
+  <pre class="tree"><span class="m"># lp-ai-keieisha-club/ 直下で実行</span>
+python3 -m http.server 8811
+<span class="m"># → ブラウザで</span> http://127.0.0.1:8811 <span class="m">を開く</span></pre>
+
+  <div class="callout">
+    <h4>検証済み環境</h4>
+    <p style="margin-bottom:0">Chrome（デスクトップ 1440 / モバイル 375）でコンソールエラー <strong>0</strong>、画像 <strong>全200</strong> を確認済み。<code>prefers-reduced-motion</code> 有効時のフォールバック、料金表の横スクロール、SP の固定下部CTA も動作確認済み。</p>
+  </div>
+</section>
+
+<p class="footer-note">
+  AI経営者クラブβ ランディングページ — デザイン引き継ぎガイド<br>
+  株式会社コミクス（COMIX Inc.）／ 代表取締役 鈴木章裕 ｜ 2026-07-25<br>
+  すべての値は <code>index.html</code> からの実測抽出（創作なし）
+</p>
+
+</main>
+</body>
+</html>

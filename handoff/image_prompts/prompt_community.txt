@@ -1,0 +1,13 @@
+MUST use the built-in image_gen tool to call gpt-image-2. Do NOT use PowerShell, System.Drawing, SVG, HTML, Canvas, or any code-based drawing.
+
+Use case: editorial-photo, premium brand photography for an exclusive executives' club landing page, section "community gathering".
+Quality: photorealistic, commercial-grade, magazine-quality photography, quality: high.
+Size: 1024x1024 (square).
+
+Subject: An elegant banquet hall prepared for an invitation-only executives' gathering of one hundred guests: round tables dressed in dark linens with champagne-gold table settings and low candle centerpieces, warm chandeliers dimly glowing, a small stage with a single microphone stand in the soft-focus background.
+
+Setting: moody warm lighting just before guests arrive, wide shot with shallow depth of field, foreground table in sharp focus. No text, no logos, no people, no hands.
+
+Style: luxury event editorial, anticipation and exclusivity. Color palette: ink black #16151A, deep charcoal, champagne gold #C8A063, candlelight amber. Sharp focus, shallow depth of field.
+
+Save the generated PNG to ./community.png in the current workspace.

@@ -1,0 +1,13 @@
+MUST use the built-in image_gen tool to call gpt-image-2. Do NOT use PowerShell, System.Drawing, SVG, HTML, Canvas, or any code-based drawing.
+
+Use case: editorial-photo, premium brand photography for an exclusive executives' club landing page, final call-to-action background.
+Quality: photorealistic, commercial-grade, magazine-quality still-life photography, quality: high.
+Size: 1536x1024 (landscape).
+
+Subject: A single completely blank matte-black invitation card sealed with an embossed champagne-gold wax seal, resting on textured dark washi paper beside a sprig of pine and a thin gold line of light raking across the scene. The card face is entirely blank with no writing.
+
+Setting: dramatic single-source raking light from the left, macro still-life, rich texture detail on the wax seal and washi paper, deep shadows. Absolutely no text, no letters, no characters, no logos, no people, no hands.
+
+Style: luxury invitation still-life, Japanese minimalism, quiet anticipation. Color palette: ink black #16151A, champagne gold #C8A063, warm candle amber. Sharp focus on the wax seal.
+
+Save the generated PNG to ./cta.png in the current workspace.

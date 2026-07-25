@@ -1,0 +1,13 @@
+MUST use the built-in image_gen tool to call gpt-image-2. Do NOT use PowerShell, System.Drawing, SVG, HTML, Canvas, or any code-based drawing.
+
+Use case: editorial-photo, premium brand photography for an exclusive Japanese executives' membership club landing page hero.
+Quality: photorealistic, commercial-grade, magazine-quality hospitality photography, quality: high.
+Size: 1536x1024 (landscape).
+
+Subject: An exclusive private Japanese fine-dining room (ryotei) at night, a long dark lacquered wooden table elegantly set for an intimate executives' dinner. Refined ceramic tableware, sake cups, folded linen. Warm candle-like ambient lighting glowing against deep charcoal walls, subtle champagne-gold reflections on lacquerware.
+
+Setting: low-key dramatic cinematic lighting, shot from slightly above table level with shallow depth of field, foreground place setting in sharp focus, background softly falling into darkness. No text, no logos, no people, no hands.
+
+Style: luxury hospitality editorial, five-star member's club brochure aesthetic, quiet and dignified. Color palette: ink black #16151A, deep charcoal, champagne gold #C8A063, warm amber highlights. Sharp focus, shallow depth of field.
+
+Save the generated PNG to ./hero.png in the current workspace.

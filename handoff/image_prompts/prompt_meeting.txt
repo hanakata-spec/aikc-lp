@@ -1,0 +1,13 @@
+MUST use the built-in image_gen tool to call gpt-image-2. Do NOT use PowerShell, System.Drawing, SVG, HTML, Canvas, or any code-based drawing.
+
+Use case: editorial-photo, premium brand photography for an exclusive executives' club landing page, section "meeting / dinner introductions".
+Quality: photorealistic, commercial-grade, magazine-quality photography, quality: high.
+Size: 1024x1024 (square).
+
+Subject: Close-up of an elegant Japanese kaiseki dinner setting: a hand-crafted ceramic sake carafe and two gold-rimmed sake cups on a dark lacquered tray, a small seasonal flower arrangement, warm intimate lighting. Suggests a private dinner where trusted introductions happen.
+
+Setting: intimate low-key lighting, macro-style close-up, shallow depth of field with beautiful bokeh of warm lantern light in the background. No text, no logos, no people, no hands.
+
+Style: luxury culinary editorial, quiet Japanese elegance. Color palette: ink black, deep umber, champagne gold #C8A063, warm amber. Sharp focus on the sake cups.
+
+Save the generated PNG to ./meeting.png in the current workspace.

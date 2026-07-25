@@ -1,0 +1,13 @@
+MUST use the built-in image_gen tool to call gpt-image-2. Do NOT use PowerShell, System.Drawing, SVG, HTML, Canvas, or any code-based drawing.
+
+Use case: editorial-photo, premium brand photography for an exclusive executives' club landing page, section "learning".
+Quality: photorealistic, commercial-grade, magazine-quality photography, quality: high.
+Size: 1024x1024 (square).
+
+Subject: A refined executive study desk at night: an open laptop with a softly glowing blank screen, a leather-bound notebook with a fountain pen resting on it, a small cup of espresso, warm desk lamp light pooling on dark walnut wood. Suggests focused late-evening learning by a company president.
+
+Setting: warm low-key lighting, 45-degree angle, shallow depth of field. The laptop screen shows only a soft abstract glow, no readable interface. No text, no logos, no people, no hands.
+
+Style: luxury stationery and workspace editorial. Color palette: dark walnut, ink black, champagne gold #C8A063, warm amber lamp light. Sharp focus on the notebook and pen.
+
+Save the generated PNG to ./learning.png in the current workspace.

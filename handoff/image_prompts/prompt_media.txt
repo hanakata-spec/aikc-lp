@@ -1,0 +1,13 @@
+MUST use the built-in image_gen tool to call gpt-image-2. Do NOT use PowerShell, System.Drawing, SVG, HTML, Canvas, or any code-based drawing.
+
+Use case: editorial-photo, premium brand photography for an exclusive executives' club landing page, section "reach / broadcasting your company".
+Quality: photorealistic, commercial-grade, magazine-quality photography, quality: high.
+Size: 1024x1024 (square).
+
+Subject: View from a high-floor executive lounge at night overlooking a vast glowing Tokyo city skyline, floor-to-ceiling window, a single elegant leather armchair and a small side table with a glass in the foreground silhouette. The sea of city lights suggests reaching an audience of fifteen thousand executives.
+
+Setting: night-time cityscape photography, warm interior tones against cool city lights, cinematic contrast. No text, no logos, no people, no hands.
+
+Style: luxury hospitality editorial, quiet power. Color palette: ink black #16151A, champagne gold #C8A063, warm window light, distant city glow. Sharp focus on the skyline.
+
+Save the generated PNG to ./media.png in the current workspace.
