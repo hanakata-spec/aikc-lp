@@ -352,6 +352,14 @@ table.plan tbody tr:last-child td.col-reco{border-bottom:2px solid var(--gold);}
 .faq details[open] summary::after{transform:rotate(45deg);}
 .faq .faq-a{padding:0 8px 30px 40px;color:var(--on-dark-sub);font-size:16.5px;line-height:1.95;}
 
+/* FAQ on light background */
+.s-paper .faq details{border-bottom:1px solid var(--paper-dim);}
+.s-paper .faq details:first-child{border-top:1px solid var(--paper-dim);}
+.s-paper .faq summary{color:var(--on-light);}
+.s-paper .faq summary::before{color:var(--on-light);}
+.s-paper .faq summary::after{color:var(--on-light);}
+.s-paper .faq .faq-a{color:var(--on-light-sub);}
+
 /* ============ FINAL CTA (§13) ============ */
 .final-cta{
   background:
