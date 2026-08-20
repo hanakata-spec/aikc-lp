@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>LP変更報告 | AI経営者クラブβ</title>
+<link rel="icon" href="./favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #F8F5F0;
+  --bg-card:  #FFFFFF;
+  --ink:      #1C1A17;
+  --ink-sub:  #6B6458;
+  --gold:     #B89050;
+  --gold-dim: rgba(184,144,80,.12);
+  --border:   #E2DDD4;
+  --tag-bg:   #EDE7DC;
+  --tag-ink:  #7A6E60;
+  --mono:     'IBM Plex Mono', monospace;
+  --serif:    'Shippori Mincho', serif;
+  --sans:     'Noto Sans JP', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:       #18161A;
+    --bg-card:  #211F23;
+    --ink:      #EDE8DF;
+    --ink-sub:  #8B8278;
+    --gold:     #C8A063;
+    --gold-dim: rgba(200,160,99,.10);
+    --border:   #302C28;
+    --tag-bg:   #272420;
+    --tag-ink:  #9A9080;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  min-height: 100vh;
+  padding: 48px 24px 96px;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+.page-header { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 40px; }
+.page-header .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.page-header h1 { font-family: var(--serif); font-weight: 700; font-size: 26px; color: var(--ink); letter-spacing: .03em; line-height: 1.35; text-wrap: balance; margin-bottom: 14px; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; font-family: var(--mono); font-size: 12px; color: var(--ink-sub); }
+.meta-row a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.count-badge { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold); border-radius: 3px; padding: 3px 10px; font-size: 11.5px; letter-spacing: .04em; }
+.group { margin-bottom: 36px; }
+.group-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.group-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--tag-ink); background: var(--tag-bg); padding: 4px 10px; border-radius: 2px; white-space: nowrap; }
+.group-count { font-family: var(--mono); font-size: 11px; color: var(--ink-sub); }
+.group-divider { flex: 1; height: 1px; background: var(--border); }
+.item-list { display: flex; flex-direction: column; gap: 2px; }
+.item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 16px 20px; display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; }
+.item-bullet { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 8px; flex-shrink: 0; }
+.item-title { font-weight: 500; font-size: 14.5px; color: var(--ink); line-height: 1.5; margin-bottom: 4px; }
+.item-detail { font-size: 13px; color: var(--ink-sub); line-height: 1.65; }
+.copy-wrap { margin-top: 44px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; }
+.btn-copy { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold); border-radius: 3px; padding: 9px 18px; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.btn-copy:hover { background: var(--gold); color: var(--bg); }
+.btn-copy:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (max-width: 480px) {
+  body { padding: 32px 16px 72px; }
+  .page-header h1 { font-size: 21px; }
+  .item { padding: 14px 16px; gap: 12px; }
+  .group-label { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) { .btn-copy { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="page-header">
+    <p class="eyebrow">Change Report</p>
+    <h1>AI経営者クラブβ LP<br>変更・修正点レポート</h1>
+    <div class="meta-row">
+      <span>比較元: <a href="https://takeshihashimoto.github.io/aikc-lp-preview-zrvxg2/" target="_blank" rel="noopener">takeshihashimoto版</a></span>
+      <span>修正版: <a href="https://hanakata-spec.github.io/aikc-lp/" target="_blank" rel="noopener">hanakata-spec版</a></span>
+      <span class="count-badge">全 22 件</span>
+    </div>
+  </header>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">フォント</span>
+      <span class="group-count">1件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">欧文フォントを Marcellus → Spectral に全面変更</div>
+          <div class="item-detail">ロゴサブテキスト・数字表示・FAQなど、サイト全体の欧文フォントを変更。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">ヘッダー</span>
+      <span class="group-count">1件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">ロゴ画像を追加し、横並びレイアウトに変更</div>
+          <div class="item-detail">「AI経営者クラブβ」テキスト左にロゴ画像を追加。ゴールドカラーに合わせて色調整。スマホでのテキスト折り返しも対処。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">FV（ファーストビュー）</span>
+      <span class="group-count">3件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">¥50,000 の表示を改善</div>
+          <div class="item-detail">「¥」を細いフォントに、「,」を小さく表示するよう調整。</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「助成金活用で実質 月3.5万円※」と注記を削除</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">FV の上下余白を縮小</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">5つの課題を、ひとつの会費で「4つの価値」へ</span>
+      <span class="group-count">1件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">左カード5枚のテキストを矩形中央揃えに修正</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">バリューカード（画像差し替え）</span>
+      <span class="group-count">4件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「出会い」Value 01 の画像を差し替え</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「発信」Value 02 の画像を差し替え</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「学び」Value 03 の画像を差し替え・彩度調整</div>
+          <div class="item-detail">新画像に差し替え後、彩度を落として適用。</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「場」Value 04 の画像を差し替え</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">学習サポートセクション</span>
+      <span class="group-count">2件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">コミクスアカデミー 説明文を変更</div>
+          <div class="item-detail">「正規24万円/年（1名分）が会費に込み」→「職種に合わせたカリキュラムのご提案」<br>「2人目以降は1人24万円/年（助成金活用時6万円/年）」→「定期的な新講座の追加」</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">助成金パネルを丸ごと削除</div>
+          <div class="item-detail">「助成金活用で、実質のご負担は年42万円（月あたり3.5万円）に」の枠を削除。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">料金・計算エリア</span>
+      <span class="group-count">1件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「3.5万円」の「万円」文字サイズを縮小</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">フッター</span>
+      <span class="group-count">1件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">ロゴ画像を追加・中央揃えに変更</div>
+          <div class="item-detail">「AI経営者クラブβ」テキスト左にロゴ画像を追加し、中央揃えに変更。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">スマホ改行調整（PC版は変化なし）</span>
+      <span class="group-count">5件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「つながり、学び、成果を出す。完全招待制の経営者クラブ」</div>
+          <div class="item-detail">スマホで4行に分割 ── つながり、学び、／成果を出す。／完全招待制の／経営者クラブ</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「「学んで終わり」にさせない、3つの学習サポート」</div>
+          <div class="item-detail">スマホで3行に分割 ── 「学んで終わり」に／させない、／3つの学習サポート</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「名刺交換で終わらない、「本気の経営者」だけの場」</div>
+          <div class="item-detail">スマホで4行に分割 ── 名刺交換で／終わらない、／「本気の経営者」／だけの場</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「こんな経営者の方に、お越しいただきたいクラブです」</div>
+          <div class="item-detail">スマホで4行に分割 ── こんな経営者の／方に、／お越しいただきたい／クラブです</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「料金プラン — まずは「AI経営者クラブ」から」</div>
+          <div class="item-detail">スマホで3行に分割 ── 料金プラン — ／まずは／「AI経営者クラブ」から</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">新規ページ追加</span>
+      <span class="group-count">3件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">申し込みフォームページを新規作成（apply.html）</div>
+          <div class="item-detail">招待面談申し込み用フォームページ。CTAボタンのリンク先として設定。</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">入力内容確認ページを新規作成（confirm.html）</div>
+          <div class="item-detail">フォーム入力後、送信前に内容を確認できるページ。「入力に戻る」と「この内容で送信する」の2択。</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">申し込み完了ページを新規作成（thanks.html）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="copy-wrap">
+    <button class="btn-copy" id="copyBtn" onclick="copyText()">テキストでコピー</button>
+  </div>
+
+</div>
+
+<script>
+function copyText() {
+  const lines = [];
+  lines.push('【AI経営者クラブβ LP 変更・修正点レポート】');
+  lines.push('比較元: https://takeshihashimoto.github.io/aikc-lp-preview-zrvxg2/');
+  lines.push('修正版: https://hanakata-spec.github.io/aikc-lp/');
+  lines.push('全22件\n');
+  document.querySelectorAll('.group').forEach(g => {
+    const label = g.querySelector('.group-label').textContent;
+    const count = g.querySelector('.group-count').textContent;
+    lines.push('■ ' + label + '（' + count + '）');
+    g.querySelectorAll('.item').forEach(item => {
+      const title = item.querySelector('.item-title').textContent.trim();
+      const detailEl = item.querySelector('.item-detail');
+      const detail = detailEl ? detailEl.textContent.trim().replace(/\s+/g, ' ') : '';
+      lines.push('・' + title);
+      if(detail) lines.push('  ' + detail);
+    });
+    lines.push('');
+  });
+  navigator.clipboard.writeText(lines.join('\n')).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'コピーしました';
+    setTimeout(() => { btn.textContent = 'テキストでコピー'; }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
