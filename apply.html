@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5CRJNVT3');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>招待面談のお申し込み | AI経営者クラブβ — 株式会社コミクス</title>
+<link rel="icon" href="./favicon.ico">
+<meta name="description" content="AI経営者クラブβへの招待面談お申し込みフォーム。完全招待制・経営者のためのメンバーシップ。株式会社コミクス運営。">
+<!-- 公開時: 仮ドメイン club.comix.co.jp を本番URLへ差し替え -->
+<link rel="canonical" href="https://club.comix.co.jp/apply.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CRJNVT3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./index.html" aria-label="AI経営者クラブβ トップへ">
+      <span class="b-main">AI経営者クラブ β</span>
+      <span class="b-sub">COMIX Inc.</span>
+    </a>
+    <a class="btn btn-mini" href="./index.html">トップへ戻る</a>
+  </div>
+</header>
+
+<!-- ============ APPLY FORM ============ -->
+<section class="s-ink apply-section">
+  <div class="narrow">
+    <span class="eyebrow">By Invitation Only</span>
+    <h1 class="sec-head">招待面談のお申し込み</h1>
+    <p class="sec-sub">下記フォームにご入力のうえ「送信する」を押すと、内容が反映された状態でお使いのメールソフトが起動します。<br class="pc">そのまま送信いただければ、追って面談の日程をご案内します。</p>
+
+    <form class="apply-form" id="applyForm" novalidate>
+      <div class="field">
+        <label for="f-company">会社名<span class="req">必須</span></label>
+        <input type="text" id="f-company" name="company" autocomplete="organization" placeholder="例）株式会社コミクス" required>
+      </div>
+
+      <div class="field">
+        <label for="f-name">お名前<span class="req">必須</span></label>
+        <input type="text" id="f-name" name="name" autocomplete="name" placeholder="例）山田 太郎" required>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="f-email">メールアドレス<span class="req">必須</span></label>
+          <input type="email" id="f-email" name="email" autocomplete="email" placeholder="例）info@example.com" required>
+        </div>
+        <div class="field">
+          <label for="f-tel">電話番号<span class="req">必須</span></label>
+          <input type="tel" id="f-tel" name="tel" autocomplete="tel" placeholder="例）03-5459-5394" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-referrer">ご紹介者名<span class="opt">任意</span></label>
+        <input type="text" id="f-referrer" name="referrer" placeholder="会員またはご紹介者のお名前">
+      </div>
+
+      <div class="field">
+        <label for="f-message">ご相談内容<span class="opt">任意</span></label>
+        <textarea id="f-message" name="message" rows="5" placeholder="現在の課題や、面談で伺いたいことなど"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary big apply-submit">送信する</button>
+      <p class="apply-note">送信すると、宛先 <span class="nb">suzuki@comix.co.jp</span> 宛のメール作成画面が開きます。内容をご確認のうえ、そのまま送信してください。</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="narrow">
+    <div class="f-brand">AI経営者クラブ β</div>
+    <div class="f-co"><a href="https://www.comix.co.jp/" target="_blank" rel="noopener">株式会社コミクス</a></div>
+    <div class="f-copy">© COMIX Inc. 2026</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('applyForm');
+  if(!form){ return; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(typeof form.reportValidity === 'function' && !form.reportValidity()){
+      return;
+    }
+
+    var v = function(id){ return (document.getElementById(id).value || '').trim(); };
+    var lines = [
+      '会社名: ' + v('f-company'),
+      'お名前: ' + v('f-name'),
+      'メールアドレス: ' + v('f-email'),
+      '電話番号: ' + v('f-tel'),
+      'ご紹介者名: ' + (v('f-referrer') || '（なし）'),
+      '',
+      'ご相談内容:',
+      v('f-message') || '（記載なし）'
+    ];
+
+    var subject = encodeURIComponent('【AI経営者クラブβ】招待面談の申込み（' + v('f-company') + ' ' + v('f-name') + '様）');
+    var body = encodeURIComponent(lines.join('\n'));
+    window.location.href = 'mailto:suzuki@comix.co.jp?subject=' + subject + '&body=' + body;
+
+    setTimeout(function(){
+      window.location.href = './thanks.html';
+    }, 400);
+  });
+})();
+</script>
+
+</body>
+</html>
