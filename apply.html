@@ -31,8 +31,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="./index.html" aria-label="AI経営者クラブβ トップへ">
-      <span class="b-main">AI経営者クラブ β</span>
-      <span class="b-sub">COMIX Inc.</span>
+      <img src="images/logo.png" alt="AI経営者クラブβ ロゴ" class="brand-logo">
+      <div class="brand-text">
+        <span class="b-main">AI経営者クラブ β</span>
+        <span class="b-sub">COMIX Inc.</span>
+      </div>
     </a>
     <a class="btn btn-mini" href="./index.html">トップへ戻る</a>
   </div>
@@ -43,7 +46,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="narrow">
     <span class="eyebrow">By Invitation Only</span>
     <h1 class="sec-head">招待面談のお申し込み</h1>
-    <p class="sec-sub">下記フォームにご入力のうえ「送信する」を押すと、内容が反映された状態でお使いのメールソフトが起動します。<br class="pc">そのまま送信いただければ、追って面談の日程をご案内します。</p>
 
     <form class="apply-form" id="applyForm" novalidate>
       <div class="field">
@@ -78,7 +80,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <button type="submit" class="btn btn-primary big apply-submit">送信する</button>
-      <p class="apply-note">送信すると、宛先 <span class="nb">suzuki@comix.co.jp</span> 宛のメール作成画面が開きます。内容をご確認のうえ、そのまま送信してください。</p>
     </form>
   </div>
 </section>
@@ -86,7 +87,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <div class="narrow">
-    <div class="f-brand">AI経営者クラブ β</div>
+    <div class="f-brand"><img src="images/logo.png" alt="AI経営者クラブβ ロゴ" class="brand-logo">AI経営者クラブ β</div>
     <div class="f-co"><a href="https://www.comix.co.jp/" target="_blank" rel="noopener">株式会社コミクス</a></div>
     <div class="f-copy">© COMIX Inc. 2026</div>
   </div>
@@ -104,24 +105,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     var v = function(id){ return (document.getElementById(id).value || '').trim(); };
-    var lines = [
-      '会社名: ' + v('f-company'),
-      'お名前: ' + v('f-name'),
-      'メールアドレス: ' + v('f-email'),
-      '電話番号: ' + v('f-tel'),
-      'ご紹介者名: ' + (v('f-referrer') || '（なし）'),
-      '',
-      'ご相談内容:',
-      v('f-message') || '（記載なし）'
-    ];
+    sessionStorage.setItem('aikc_form', JSON.stringify({
+      company:  v('f-company'),
+      name:     v('f-name'),
+      email:    v('f-email'),
+      tel:      v('f-tel'),
+      referrer: v('f-referrer'),
+      message:  v('f-message')
+    }));
 
-    var subject = encodeURIComponent('【AI経営者クラブβ】招待面談の申込み（' + v('f-company') + ' ' + v('f-name') + '様）');
-    var body = encodeURIComponent(lines.join('\n'));
-    window.location.href = 'mailto:suzuki@comix.co.jp?subject=' + subject + '&body=' + body;
-
-    setTimeout(function(){
-      window.location.href = './thanks.html';
-    }, 400);
+    window.location.href = './confirm.html';
   });
 })();
 </script>

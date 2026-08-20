@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5CRJNVT3');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>入力内容の確認 | AI経営者クラブβ — 株式会社コミクス</title>
+<link rel="icon" href="./favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CRJNVT3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./index.html" aria-label="AI経営者クラブβ トップへ">
+      <img src="images/logo.png" alt="AI経営者クラブβ ロゴ" class="brand-logo">
+      <div class="brand-text">
+        <span class="b-main">AI経営者クラブ β</span>
+        <span class="b-sub">COMIX Inc.</span>
+      </div>
+    </a>
+    <a class="btn btn-mini" href="./index.html">トップへ戻る</a>
+  </div>
+</header>
+
+<!-- ============ CONFIRM ============ -->
+<section class="s-ink apply-section">
+  <div class="narrow">
+    <span class="eyebrow">By Invitation Only</span>
+    <h1 class="sec-head">入力内容のご確認</h1>
+
+    <div class="confirm-table" id="confirmTable"></div>
+
+    <div class="confirm-actions">
+      <a href="./apply.html" class="btn btn-ghost">入力に戻る</a>
+      <button class="btn btn-primary big" id="submitBtn">この内容で送信する</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="narrow">
+    <div class="f-brand"><img src="images/logo.png" alt="AI経営者クラブβ ロゴ" class="brand-logo">AI経営者クラブ β</div>
+    <div class="f-co"><a href="https://www.comix.co.jp/" target="_blank" rel="noopener">株式会社コミクス</a></div>
+    <div class="f-copy">© COMIX Inc. 2026</div>
+  </div>
+</footer>
+
+<style>
+.confirm-table{
+  margin-top:36px;
+  border:1px solid var(--hairline);
+  border-radius:4px;
+  overflow:hidden;
+}
+.confirm-row{
+  display:grid;
+  grid-template-columns:160px 1fr;
+  border-bottom:1px solid var(--hairline-soft);
+}
+.confirm-row:last-child{border-bottom:0;}
+.confirm-th{
+  padding:16px 20px;
+  font-family:'Shippori Mincho',serif;
+  font-weight:600;
+  font-size:14px;
+  color:var(--on-dark-sub);
+  background:rgba(255,255,255,.03);
+  border-right:1px solid var(--hairline-soft);
+}
+.confirm-td{
+  padding:16px 20px;
+  font-size:15px;
+  color:var(--on-dark);
+  line-height:1.7;
+  white-space:pre-wrap;
+  word-break:break-all;
+}
+.confirm-td.empty{color:var(--on-dark-sub);font-style:italic;}
+.confirm-actions{
+  margin-top:36px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  align-items:center;
+}
+@media(max-width:480px){
+  .confirm-row{grid-template-columns:1fr;}
+  .confirm-th{border-right:0;border-bottom:1px solid var(--hairline-soft);padding-bottom:8px;}
+  .confirm-actions{flex-direction:column;}
+  .confirm-actions .btn{width:100%;text-align:center;}
+}
+</style>
+
+<script>
+(function(){
+  var raw = sessionStorage.getItem('aikc_form');
+  if(!raw){ window.location.href = './apply.html'; return; }
+
+  var d = JSON.parse(raw);
+  var fields = [
+    { label: '会社名',         value: d.company,  required: true },
+    { label: 'お名前',         value: d.name,     required: true },
+    { label: 'メールアドレス', value: d.email,    required: true },
+    { label: '電話番号',       value: d.tel,      required: true },
+    { label: 'ご紹介者名',     value: d.referrer, required: false },
+    { label: 'ご相談内容',     value: d.message,  required: false }
+  ];
+
+  var table = document.getElementById('confirmTable');
+  fields.forEach(function(f){
+    var row = document.createElement('div');
+    row.className = 'confirm-row';
+    var th = document.createElement('div');
+    th.className = 'confirm-th';
+    th.textContent = f.label;
+    var td = document.createElement('div');
+    td.className = 'confirm-td' + (f.value ? '' : ' empty');
+    td.textContent = f.value || '（未入力）';
+    row.appendChild(th);
+    row.appendChild(td);
+    table.appendChild(row);
+  });
+
+  document.getElementById('submitBtn').addEventListener('click', function(){
+    sessionStorage.removeItem('aikc_form');
+    window.location.href = './thanks.html';
+  });
+})();
+</script>
+
+</body>
+</html>
