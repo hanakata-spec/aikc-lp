@@ -87,7 +87,7 @@ body {
     <div class="meta-row">
       <span>比較元: <a href="https://takeshihashimoto.github.io/aikc-lp-preview-zrvxg2/" target="_blank" rel="noopener">takeshihashimoto版</a></span>
       <span>修正版: <a href="https://hanakata-spec.github.io/aikc-lp/" target="_blank" rel="noopener">hanakata-spec版</a></span>
-      <span class="count-badge">全 22 件</span>
+      <span class="count-badge">全 30 件</span>
     </div>
   </header>
 
@@ -337,6 +337,90 @@ body {
     </div>
   </div>
 
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">助成金関連テキスト削除</span>
+      <span class="group-count">5件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">「WHY ¥50,000」セクションを丸ごと削除</div>
+          <div class="item-detail">「月5万円の中身 — 実質は月3.5万円、そして回収できる」の見出し・内訳リスト・計算カード・クロージングテキストを含むセクション全体を削除。</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">assuranceエリア「助成金の申請は当社がサポート」を削除</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">FAQ「助成金は必ず使えますか」項目を削除</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">FAQ「社員も学べますか」内の助成金表記を削除</div>
+          <div class="item-detail">「（助成金活用時は実質6万円/年）」の括弧内テキストを削除。</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">OGP説明文・JSON-LDから助成金ワードを削除</div>
+          <div class="item-detail">og:descriptionの「月5万円（助成金活用で実質3.5万円）」を削除。JSON-LDの「助成金は必ず使えますか」Q&Aブロックを削除。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">FAQセクション</span>
+      <span class="group-count">2件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">FAQ背景色をクリーム（ライト）に変更</div>
+          <div class="item-detail">前後の黒背景セクションと連続しないよう、FAQセクションの背景をクリーム色に変更。</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">FAQのテキスト・マーカー色をダークブラウンに統一</div>
+          <div class="item-detail">eyebrow「QUESTIONS」・質問文・回答文・「Q」マーカー・「+」マーカーをすべてダークブラウンに変更。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-header">
+      <span class="group-label">解約条件変更</span>
+      <span class="group-count">1件</span>
+      <div class="group-divider"></div>
+    </div>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-bullet"></div>
+        <div class="item-body">
+          <div class="item-title">解約申告期限を「2ヶ月前」→「1ヶ月前」に変更</div>
+          <div class="item-detail">FAQ「契約期間・解約の条件は」およびCTAエリアのassuranceテキストの2箇所を変更。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="copy-wrap">
     <button class="btn-copy" id="copyBtn" onclick="copyText()">テキストでコピー</button>
   </div>
@@ -349,7 +433,7 @@ function copyText() {
   lines.push('【AI経営者クラブβ LP 変更・修正点レポート】');
   lines.push('比較元: https://takeshihashimoto.github.io/aikc-lp-preview-zrvxg2/');
   lines.push('修正版: https://hanakata-spec.github.io/aikc-lp/');
-  lines.push('全22件\n');
+  lines.push('全30件\n');
   document.querySelectorAll('.group').forEach(g => {
     const label = g.querySelector('.group-label').textContent;
     const count = g.querySelector('.group-count').textContent;
