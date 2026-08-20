@@ -8,7 +8,7 @@
 <link rel="icon" href="./favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Marcellus&family=Noto+Sans+JP:wght@400;500&family=Shippori+Mincho:wght@600;700&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:       #F8F5F0;
@@ -75,6 +75,15 @@ body {
   .group-label { white-space: normal; }
 }
 @media (prefers-reduced-motion: reduce) { .btn-copy { transition: none; } }
+.font-compare { display:flex; align-items:center; gap:16px; margin-top:16px; padding:16px; background:var(--gold-dim); border-radius:4px; }
+.font-col { flex:1; }
+.font-label { font-family:var(--mono); font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+.font-name { font-size:13px; color:var(--ink-sub); margin-bottom:8px; }
+.font-sample { font-size:18px; line-height:1.8; color:var(--ink); }
+.before-font { font-family:'Marcellus',serif; }
+.after-font { font-family:'Spectral',serif; }
+.font-arrow { font-size:20px; color:var(--gold); flex-shrink:0; }
+@media(max-width:480px){ .font-compare{ flex-direction:column; gap:12px; } .font-arrow{ transform:rotate(90deg); } }
 </style>
 </head>
 <body>
@@ -101,8 +110,21 @@ body {
       <div class="item">
         <div class="item-bullet"></div>
         <div class="item-body">
-          <div class="item-title">欧文フォントを Marcellus → Spectral に全面変更</div>
+          <div class="item-title">欧文フォントを全面変更</div>
           <div class="item-detail">ロゴサブテキスト・数字表示・FAQなど、サイト全体の欧文フォントを変更。</div>
+          <div class="font-compare">
+            <div class="font-col">
+              <div class="font-label">Before</div>
+              <div class="font-name" style="font-family:'Marcellus',serif;">Marcellus</div>
+              <div class="font-sample before-font">COMIX Inc.<br>¥50,000<br>By Invitation Only</div>
+            </div>
+            <div class="font-arrow">→</div>
+            <div class="font-col">
+              <div class="font-label">After</div>
+              <div class="font-name" style="font-family:'Spectral',serif;">Spectral</div>
+              <div class="font-sample after-font">COMIX Inc.<br>¥50,000<br>By Invitation Only</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
