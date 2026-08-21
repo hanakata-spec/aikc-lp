@@ -65,7 +65,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="field">
           <label for="f-tel">電話番号<span class="req">必須</span></label>
-          <input type="tel" id="f-tel" name="tel" autocomplete="tel" placeholder="例）03-5459-5394" required>
+          <input type="tel" id="f-tel" name="tel" autocomplete="tel" placeholder="例）03-5459-5394" required pattern="[0-9\-\(\)\+\s]+" title="電話番号は数字・ハイフンのみで入力してください">
+          <span class="field-error" id="tel-error" style="display:none;color:#e05;font-size:13px;margin-top:4px;display:none;">電話番号は数字・ハイフンのみで入力してください</span>
         </div>
       </div>
 
