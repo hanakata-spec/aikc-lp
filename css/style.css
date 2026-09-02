@@ -145,7 +145,7 @@ section{padding:clamp(72px,10vw,120px) 0;position:relative;}
 .hero-lead{font-size:clamp(16px,1.9vw,21px);color:var(--on-dark);max-width:780px;line-height:1.95;margin-bottom:44px;}
 .spotlight{margin-bottom:18px;}
 .spotlight .price-yen{font-weight:300;font-size:.65em;vertical-align:.05em;}
-.spotlight .price-comma{font-size:.6em;vertical-align:.1em;}
+.spotlight .price-comma{font-size:.6em;vertical-align:.1em;font-family:Arial,sans-serif;}
 .spotlight .price{
   font-family:"Noto Sans JP",sans-serif;font-weight:600;
   font-size:clamp(56px,9vw,120px);
