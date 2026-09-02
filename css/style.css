@@ -276,6 +276,7 @@ section{padding:clamp(72px,10vw,120px) 0;position:relative;}
 
 /* ============ LEARNING (§7) ============ */
 .tri{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.duo{margin-top:52px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
 .tcard{background:var(--charcoal-2);border:1px solid var(--hairline-soft);border-radius:4px;padding:32px 28px;transition:transform .35s ease,border-color .35s ease;display:flex;flex-direction:column;}
 .tcard:hover{transform:translateY(-4px);border-color:var(--gold);}
 .tcard .tlabel{display:inline-block;align-self:flex-start;font-family:"Spectral",serif;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--gold);border:1px solid var(--hairline);border-radius:2px;padding:5px 12px;margin-bottom:18px;}
@@ -472,6 +473,7 @@ table.plan tbody tr:last-child td.col-reco{border-bottom:2px solid var(--gold);}
   .who-grid{grid-template-columns:1fr;gap:32px;}
   .price-grid{grid-template-columns:1fr;gap:32px;}
   .tri{grid-template-columns:1fr;}
+  .duo{grid-template-columns:1fr;}
 }
 @media (max-width:820px){
   .vcards{grid-template-columns:1fr;}
