@@ -1,4 +1,5 @@
 :root{
+  color-scheme:dark;
   --ink:#16151A;
   --charcoal:#211F26;
   --charcoal-2:#2A2830;
@@ -438,6 +439,7 @@ table.plan tbody tr:last-child td.col-reco{border-bottom:2px solid var(--gold);}
 .apply-form input::placeholder,.apply-form textarea::placeholder{color:var(--on-dark-sub);opacity:.7;}
 .apply-form input:focus,.apply-form textarea:focus{outline:none;border-color:var(--gold);background:var(--charcoal);}
 .apply-form textarea{resize:vertical;line-height:1.7;}
+input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px #2A2830 inset!important;-webkit-text-fill-color:#F0EDE8!important;transition:background-color 5000s ease-in-out 0s;}
 .privacy-note{font-size:13px;color:var(--on-dark-sub);line-height:1.9;margin-top:24px;}
 .privacy-note a{color:var(--gold);text-decoration:underline !important;text-underline-offset:3px;text-decoration-thickness:1px;}
 .apply-form .apply-submit{margin-top:10px;align-self:flex-start;}
